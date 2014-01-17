@@ -1,0 +1,297 @@
+body
+{
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+	font-family:Lucida Grande,Tahoma;
+	font-size:14px;
+}
+.tablas-metodo{
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+
+}
+.tablas-metodo li{
+	height:auto !important;
+	float:left;
+	width:155px;
+		text-align:left !important;
+
+}
+.tablas-metodo li span{
+	position:relative;
+	left:10px;
+}
+#container
+{
+
+	min-height:420px;
+	height:100%;
+    margin: 0 auto;
+	background:url("img/backg.png") repeat;
+	background-size:100%;
+	color:#000;
+	width:320px;
+
+
+}
+
+#topbar
+{
+	width:100%;
+	height:40px;
+	background:url("img/menubar.png") no-repeat;
+	background-size:100%;
+	position:relative;
+}
+.bar-title-top
+{
+	color:#fff;
+	position:absolute;
+	text-shadow: 0.1em 0.1em #333;
+	font-size:17px;
+}
+#panel
+{
+	height:100%;
+	width:290px;
+	margin:0 auto 0 auto;
+}
+#panel span
+{
+	text-align:center;
+}
+#panel a
+{
+	color:#000;
+	text-decoration:none;
+	font-weight:normal;
+}
+#alper-list
+{
+	list-style:none;
+	padding:0;
+}
+#alper-list li
+{
+	background:url("img/Element-05.png");
+	height:40px;
+	position:relative;
+	border-bottom:solid 1px #222;
+}
+#alper-list li span
+{
+	position:absolute; top:12px;
+	width:100%;
+	text-align:center;
+}
+#alper-list a
+{ 
+	color:#fff; text-shadow: 0.1em 0.1em #333; text-decoration:none; 
+}
+
+.table-alim{
+	border:solid 1px;
+	-webkit-border-radius: 5px;
+	background:#fff;
+	position:relative;
+}
+.tabl-alim tr:nth-child(odd){ background: #fcfcfc;}
+.table-alim tr:nth-child(even){ background: #dbdbdb;}
+
+#tit-perm-princ{
+	position:relative;
+	color:#4f545a;
+	padding-left:20px;
+}
+
+.table-alim tr{
+	font-size:10px;
+} 
+.table-alim td{
+	height:30px;
+}
+
+.bot-menu{
+	list-style:none;
+	padding-left:20px;
+	margin:0 auto;
+	width:100%;
+	
+}
+.bot-menu li{
+	float:left;
+	width:96px;
+}
+#nav{
+	width:290px;
+	margin:0 auto;
+	padding-left:12px;
+	padding-top:4px;
+}
+#login-fields{
+	width:90%;
+	height:180px;
+	margin:0 auto;
+	-webkit-border-radius: 5px;
+	background:#fff;
+	
+}
+#register-fields
+{
+	width:90%;
+	height:360px;
+	margin:0 auto;
+	-webkit-border-radius: 5px;
+	background:#fff;
+	
+}
+#productos-list{
+	list-style:none;
+	margin:0;
+	padding:0;
+	background:#fff;
+}
+#productos-list a{
+	color:black;
+	font-weight:normal;
+}
+#productos-list li{
+	border-bottom:solid 1px #EEEEEE;
+}
+#productos-list li:last-child{
+	border:none;
+}
+.item-producto{
+	font-size:13px;
+}
+#info-user{
+	width:88%;
+	padding-top:30px;
+	margin:0 auto;
+}
+
+#info-data{
+	list-style:none;
+	margin:0 auto;
+	padding-left:10px;
+	padding-top:10px;
+	width:100%;
+	background:#fff;
+	-webkit-border-radius: 5px;
+}
+#info-data li{
+	height:30px;
+}
+#grafica-progreso{
+	background:#fff;
+
+}
+#metodo-style{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#metodo-style .titulo{
+	background:url("img/Element-04.png");
+	height:24px;
+	text-align:center;
+	font-weight:bold;
+	color:#fff;
+	padding-top:5px;
+	text-shadow: 0.1em 0.1em #333;
+}
+#metodo-style .contenido{
+	height:auto;
+	background:#fff;
+	font-size:14px;
+	text-align:center;
+}
+#metodo-style li{
+	height:55px;
+	background:#fff;
+	font-size:13px;
+	text-align:center;
+}
+#lista-restaurantes ul{
+	width:100%;
+	position:relative;
+	left:15px;
+	
+}
+#video-list{
+	list-style:none;
+	padding:0;
+	background:#fff;
+}
+#video-list li{
+	height:98px;
+	border-bottom:solid 1px #EEEEEE;
+}
+#video-list a{
+	color:#000;
+	text-decoration:none;
+}
+
+/*   ****/
+
+.table-menu{
+	border:solid 1px;
+	-webkit-border-radius: 5px;
+	background:#fff;
+	position:relative;
+}
+.tabl-menu tr:nth-child(odd){ background: #fcfcfc;}
+.table-menu tr:nth-child(even){ background: #dbdbdb;}
+
+
+.table-menu tr{
+	font-size:10px;
+} 
+.table-menu td{
+	height:30px;
+}
+
+.talbe-menu td a{
+	color:black;
+	text-decoration:none;
+}
+
+a{
+	color:black;
+}
+#stars-menu{
+	background:#a7b2b8;
+	height:40px;
+	
+}
+
+/***** *****/
+.table-menu-detail{
+	background:#fff;
+	position:relative;
+	border-top:solid 1px #f4f4f6;
+}
+.tabl-menu-detail tr:nth-child(odd){ background: #f4f4f6;}
+.table-menu-detail tr:nth-child(even){ background: #dbdbdb;}
+
+
+.table-menu-detail tr{
+	font-size:10px;
+} 
+.table-menu-detail td{
+	height:30px;
+}
+
+.talbe-menu-detail td a{
+	color:black;
+	text-decoration:none;
+}
+
+/**note**/
+div#note{
+	font-size: 10px;
+	padding-left: 12px;
+}
