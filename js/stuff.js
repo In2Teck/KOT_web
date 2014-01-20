@@ -192,7 +192,8 @@ var validate = function(n_get,a_get,nombre,fecha_nacimiento,altura,sexo,email,pa
 	return true;
 }
 
-$(document).ready(function(){
+var diego;
+$(document).ready(function() {
 	
 	$("#perfil").live('pagecreate',function(event){
 		
@@ -308,7 +309,7 @@ $(document).ready(function(){
 		
 	});
 
-	
+
 	/****************************
 	 * Mi Progreso
 	 ****************************/
@@ -318,16 +319,21 @@ $(document).ready(function(){
 		var user = $.parseJSON(local);
 		var progreso_type = "Peso";
 		var user_id;
+		var obj;
 		if (user != null) {
 
 		 	user_id = user.id;
-			$.get('http://kot.mx/movil/json.php?action=getGoals&idKOT='+user_id,function(data) {
+		 	var ctx = $("#imagen-grafica").get(0).getContext("2d");
+			$.get('http://192.168.100.7:4000/movil/json.php?action=getGoals&idKOT='+user_id,function(data) {
 					
-					var obj = $.parseJSON(data);
-					
-					$("#span-strt").text(obj.kilos.llevas + " Kg");
-					$("#span-end").text(obj.kilos.meta + " Kg");
-					$("#cinta_azul").text("¡Te Faltan "+obj.kilos.print+" Kilos para tu meta!");
+					obj = $.parseJSON(data);
+					console.log(obj);
+					diego = obj;
+					$("#span-strt").text(obj.kilos.actual + " Kg");
+					$("#span-end").text(obj.kilos.progreso + " Kg");
+					$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+
+					drawChart(ctx, obj.kilos.datos, "#0000FF");
 			});
 		}
 		else {
@@ -340,33 +346,28 @@ $(document).ready(function(){
 			$("span-strt").text();
 			$("span-end").text();
 			progreso_type = "Peso";
-
-			$("#imagen-grafica").attr('src','http://kot.mx/movil/chart.php?type=kilos&idKOT='+user_id);
-			$.get('http://kot.mx/movil/json.php?action=getGoals&idKOT='+user_id,function(data){
-					
-					var obj = $.parseJSON(data);
-					$("#cinta_azul").show();
-					$("#span-strt").text(obj.kilos.llevas + " Kg");
-					$("#span-end").text(obj.kilos.meta + " Kg");
-					$("#cinta_azul").text("¡Te Faltan "+obj.kilos.print+" Kilos para tu meta!");
-			});
-
+			drawChart(ctx, obj.kilos.datos, "#0000FF");
+			$("#cinta_azul").show();
+			$("#span-strt").text(obj.kilos.actual + " Kg");
+			$("#span-end").text(obj.kilos.progreso + " Kg");
+			$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
 		});
 		
 		
 		$("#btn-medidas").click(function() {
 			progreso_type = "Medidas";
+			drawChart(ctx, obj.medidas.datos, "#FF0000");
+			$("#span-strt").text(+ obj.medidas.actual + " cm");
+			$("#span-end").text(obj.medidas.progreso + " cm");
+			$("#cinta_azul").hide();
+		});
 
-			$("#imagen-grafica").attr('src','http://kot.mx/movil/chart.php?type=medidas&idKOT='+user_id);
-			$.get('http://kot.mx/movil/json.php?action=getGoals&idKOT='+user_id,function(data) {
-				
-				var obj = $.parseJSON(data);
-				
-				$("#span-strt").text(+ obj.medidas.llevas + " cm");
-				$("#span-end").text(obj.medidas.meta+ " cm");
-				$("#cinta_azul").hide();
-			});
-
+		$("#btn-grasa").click(function() {
+			progreso_type = "Grasa";
+			drawChart(ctx, obj.kilos.datos, "#00FF00");
+			$("#span-strt").text(+ obj.kilos.actual + " %");
+			$("#span-end").text(obj.kilos.progreso + " %");
+			$("#cinta_azul").hide();
 		});
 		
 		if(user_id == null) {
@@ -375,9 +376,63 @@ $(document).ready(function(){
 		else{
 			$("#sin-peso-meta").hide();
 		}
-		
-		$("#imagen-grafica").attr('src','http://kot.mx/movil/chart.php?type=kilos&idKOT='+user_id);
 	});
+
+	function drawChart(ctx, jsonValues, color) {
+		
+		var labels = [];
+		var values = [];
+		var sorted = [];
+		var max, min;
+
+		$.each(jsonValues, function(index, value) {
+			labels.push("Semana " + value.semana);
+			values.push(value.valor);
+			sorted.push(value.valor);
+		});
+		
+		sorted.sort();
+		max = parseInt(sorted.pop()) + 2;
+		min = sorted.shift() - 2;
+		var diff = getMCD(max, min);
+		if (diff > 12 || diff < 3) {  
+			max -= 1;  
+			diff = getMCD(max, min);
+		}
+
+		var chartData = {
+      labels : labels,
+      datasets : [
+	      {
+          fillColor : "#fff",
+          strokeColor : color,
+          pointColor : color,
+          pointStrokeColor : color,
+          data : values
+	      }
+      ]
+    }
+
+		var options = {
+			scaleOverride: true,
+			scaleSteps: diff,
+			scaleStepWidth: (max-min)/diff,
+			scaleStartValue: min,
+			bezierCurve: false
+		};
+
+		var myLine = new Chart(ctx).Line(chartData, options);
+	}
+
+	function getMCD(num1, num2) {
+		var res = num1 % num2;
+		if (res == 0) {
+			return num2;
+		}
+		else {
+			return getMCD(num2, res);
+		}
+	}
 
 
 	/***********************

@@ -6,6 +6,7 @@
 <meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<script src="js/Chart.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js"></script>
 
 <style type="text/css" media="screen">
@@ -58,6 +59,7 @@
 			<div style="padding-top:0px;" data-role="controlgroup" data-type="horizontal">
 			<a href="#" id="btn-kilos" data-role="button">Peso</a>
 			<a href="#" id="btn-medidas" data-role="button">Medidas</a>
+			<a href="#" id="btn-grasa" data-role="button">% Grasa</a>
 			</div>
 		</center>
 		<div style="background:#fff; height:355px">
@@ -71,7 +73,7 @@
 				<div style="clear:both;"></div>	
 				<br />
 			<center>
-				<div id="cinta_azul" style="position:relative; width:100%; background:url(img/Banderilla.png) no-repeat; background-position:center; background-size:100%; height:25px; font-size:12px; color:#fff;">
+				<div id="cinta_azul" style="position:relative; width:100%; background:url(img/Banderilla.png) no-repeat; background-position:center; background-size:100%; height:25px; font-size:12px; color:#fff; bottom:5px;">
 					<!--<span id="cinta_azul" style="top:4px; text-align:center; width:100%;"></span>-->
 				</div></center>
 			</div>
@@ -79,7 +81,7 @@
 		</div>
 
 		<center>	
-			<img width="320" height="200" id="imagen-grafica" />
+			<canvas width="320" height="200" id="imagen-grafica"></canvas>
 		</center>
 		<br />
 		

@@ -62,7 +62,7 @@
 				<a href="verproducto.php?id=<?php echo $key; ?>"><li><span><?php echo $value;?></span></li></a>
 			<?php endforeach; ?>	
 			<a href="videos.php"><li><span>Videos de Productos</span></li></a>
-			<a href="nutriologos.php"><li><span>Donde los compro ?</span></li></a>
+			<a href="nutriologos.php"><li><span>¿Cómo empiezo el método?</span></li></a>
 		</ul>
 
 	</div>

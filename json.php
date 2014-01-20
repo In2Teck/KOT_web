@@ -2,7 +2,6 @@
  header("Access-Control-Allow-Origin: *");
 class WS
 {
-	
 	public function get($tipo,$parametros)
 	{
 		$servicios = array('login' => 'http://kot.mx/nuevo/WS/kotLogin.php?'.$parametros,
@@ -11,7 +10,7 @@ class WS
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',
 						   'registro' => 'http://kot.mx/nuevo/WS/kotRegistro.php?'.$parametros
 							);
-		
+		set_time_limit(60);
 		$out = file_get_contents($servicios[$tipo]);
 		
 		return json_decode($out,true);
@@ -61,19 +60,27 @@ switch($action)
 		$last_kilos = end($array["kilos"]);
 		$last_medida = end($array["medidas"]);
 		
+		foreach($array["kilos"] as $item):
+			$data_kilos[] = array("semana" => $item["Semana"], "valor" => $item["kilos"]);
+		endforeach;
+
+		foreach($array["medidas"] as $item):
+			$data_medidas[] = array("semana" => $item["Semana"], "valor" => $item["medida"]);
+		endforeach;
+
 		$array_toJSON = array(
-								"kilos" => array(
-					"llevas" => $last_kilos["kilos"], 
-					"meta" =>   $array["meta_peso"],
-					"print" => $array["meta_peso"] - $last_kilos["kilos"]
-												),
-												
-								"medidas" => array(
-					"llevas" => $last_medida["medida"], 
-					"meta" =>   $array["meta_medida"],
-					"print" => $array["meta_medida"] - $last_medida["medida"]
-												  )
-							 );
+			"kilos" => array(
+				"progreso" => $array["peso_inicio"] - $last_kilos["kilos"], 
+				"actual" => $last_kilos["kilos"],
+				"print" =>  $last_kilos["kilos"] - $array["meta_peso"],
+				"datos" => $data_kilos
+			),
+			"medidas" => array(
+				"progreso" => $array["medida_inicio"] - $last_medida["medida"], 
+				"actual" => $last_medida["medida"],
+				"datos" => $data_medidas
+			)
+		);
 		
 		echo json_encode($array_toJSON);
 		
