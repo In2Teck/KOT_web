@@ -11,6 +11,8 @@
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
 <script src="js/Chart.js"></script>
+<link rel="stylesheet" href="switchery.css">
+<script src="js/switchery.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js?<?php echo rand(19999,1929381) ?>"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <style type="text/css" media="screen">
@@ -92,7 +94,7 @@
 				</a>
 			</div>
 			<div style="float:left; width:50%; position:relative;">
-				<a href="alimentos.php">
+				<a href="filtroalimentos.php">
 				<div style="margin:0 auto; width:100%; position:absolute; top:180px; left:180px;">
 				<img src="img/KOT-24.png" width="90" heigth="90" />
 				<br />

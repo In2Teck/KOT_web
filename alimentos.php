@@ -1,15 +1,19 @@
 <?php
 	include("stuff.php");
 	$titulos = new AlimentosPermitidos;
+	$tipo_dieta =	$_GET["tipo"];
+	$is_veg = $_GET["veg"];
 ?>
 <!doctype html>
 <html>
 <head>
 	<title>KOT - Alimentos Permitidos</title>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-<meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
+<meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<link rel="stylesheet" href="switchery.css">
+<script src="js/switchery.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js"></script>
 
 <style type="text/css" media="screen">
@@ -59,10 +63,10 @@
 		<ul id="alper-list" style="margin:0;">
 			
 			<?php
-				$titles = $titulos->getTitulos();
+				$titles = $titulos->getTitulos($tipo_dieta, $is_veg);
 			?>
 			<?php foreach($titles as $key => $value) : ?>
-				<a href="verpermitido.php?id=<?php echo $key; ?>"><li><span><?php echo $value[0];?></span></li></a>
+				<a href="verpermitido.php?id=<?php echo $key; ?>&tipo=<?php echo $tipo_dieta; ?>&veg=<?php echo $is_veg; ?>"><li><span><?php echo $value[0];?></span></li></a>
 			<?php endforeach; ?>	
 		</ul>
 		

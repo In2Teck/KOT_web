@@ -295,3 +295,17 @@ div#note{
 	font-size: 10px;
 	padding-left: 12px;
 }
+
+.mujer-btn {
+	background-image: url('img/m.png') !important;
+	background-position: center !important;
+	background-size: 110% !important;
+	color: white !important;
+}
+
+.hombre-btn {
+	background-image: url('img/h.png') !important;
+	background-position: center !important;
+	background-size: 110% !important;
+	color: white !important;
+}

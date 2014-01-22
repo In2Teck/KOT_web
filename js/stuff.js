@@ -192,9 +192,8 @@ var validate = function(n_get,a_get,nombre,fecha_nacimiento,altura,sexo,email,pa
 	return true;
 }
 
-var diego;
 $(document).ready(function() {
-	
+
 	$("#perfil").live('pagecreate',function(event){
 		
 		var loged = localStorage.getItem('sesionIniciada');
@@ -327,8 +326,6 @@ $(document).ready(function() {
 			$.get('http://192.168.100.7:4000/movil/json.php?action=getGoals&idKOT='+user_id,function(data) {
 					
 					obj = $.parseJSON(data);
-					console.log(obj);
-					diego = obj;
 					$("#span-strt").text(obj.kilos.actual + " Kg");
 					$("#span-end").text(obj.kilos.progreso + " Kg");
 					$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
@@ -563,6 +560,30 @@ $(document).ready(function() {
 
 		});
 		
+	});
+
+	$("#filtroalimentos").live('pageinit', function(event){
+		var val = localStorage.getItem("vegetariano");
+		if (val == "true") {
+			$("#vegetariano").attr('checked', '');
+		}
+		
+		$.each($("a[data-role='button']"), function(index, value){
+			$(value).attr("href", "alimentos.php?tipo=" + $(value).data("tipo") + "&veg=" + $("#vegetariano").is(':checked'));
+		});
+
+		var elem = document.querySelector('.js-switch');
+		var init = new Switchery(elem);
+
+		$(".switchery").after("&nbsp;&nbsp;Vegetariano");
+
+		$(elem).change(function(){
+			console.log("cambio");
+			localStorage.setItem("vegetariano", $(elem).is(':checked'));
+			$.each($("a[data-role='button']"), function(index, value){
+				$(value).attr("href", "alimentos.php?tipo=" + $(value).data("tipo") + "&veg=" + $("#vegetariano").is(':checked'));
+			});
+		});
 	});
 	
 });

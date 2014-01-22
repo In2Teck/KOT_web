@@ -3,8 +3,8 @@
 class AlimentosPermitidos
 {
 	var $alimentos_title = array(1 => array("Bebidas","bebidas","Bebidas Permitidas"),
-							 	 2 => array("Pan / Cereal","cereales","Pan / Cereal Permitidos"),
-							     3 => array("Verduras Crudas","verduras_crudas","Verduras Crudas Permitidas"),
+							 	 2 => array("Pan/Cereales/Leguminosas","cereales","Pan / Cereal Permitidos"),
+							   3 => array("Verduras Crudas","verduras_crudas","Verduras Crudas Permitidas"),
 							 	 4 => array("Verduras Cocidas","verduras_cocidas","Verduras Cocidas Permitidas"),
 							 	 5 => array("Proteína Animal","proteina_animal","Proteína Animal Permitida"),
 							 	 6 => array("Lácteos","lacteos","Lácteos Permitidos"),
@@ -83,28 +83,27 @@ class AlimentosPermitidos
 													   )
 									  );
 	var $alimentos_cereales = array("todos" => array(
-															"Arroz integral" => "1/3 taza*",
+															"Arroz integral" => "1/3 taza",
 															"Avena integral cocida" => "3/4 taza",
 															"Avena integral cruda" => "1/3 taza",
 															"Cereal KOT" => "1 porción",
 															"Galleta Soe light" => "1 1/2 piezas",
 															"Pan integral" => "1 reb",
-															"Pasta integral al dente" => "1/3 taza*",
-															"Pasta para sopa fusilli KOT" => "1/2 sobre",															
-															"Tortilla de Maíz (solo en progresivo)" => "1 pieza (max 3/semana)*",
+															"Pasta integral al dente" => "1/3 taza",
+															"Pasta para sopa fusilli KOT" => "1/2 sobre",
+															"Tortilla de Maíz" => "1 pieza (max 3/semana)",
 															"Chícharos en lata" => "1/3 taza*",
-															"Lenteja cocida" => "1/3 taza*",
-															"Frijoles" => "1/3 taza*"
-																														
+															"Lenteja cocida" => "1/3 taza",
+															"Frijoles" => "1/3 taza"
 									 				),
 									"mujer_intensiva" => array(
+																"Avena integral cocida" => "3/4 taza",
+																"Avena integral cruda" => "1/3 taza",
+																"Cereal KOT" => "1 porción",
+																"Galleta Soe light" => "1 1/2 piezas",
 																"Pan integral" => "1 reb",
-																"Pasta inttegral al diente" => "1/3 taza",
-																"Chícharos en lata" => "1/3 taza",
-																"Lenteja cocida" => "1/3 taza",
-																"Frijoles" => "1/3 taza"
+																"Pasta para sopa fusilli KOT" => "1/2 sobre",
 															  ),
-									"progresivo" => array("Tortilla de maíz" => "1 pieza (max 3/semana)")						
 									);								
 	
 	
@@ -149,22 +148,31 @@ class AlimentosPermitidos
 												"Pera" => "1/2 piezas",
 												"Piña" => "3/4 tazas",
 												"Toronja" => "1/2 tazas",												
-												"Guayaba 2 piezas" => "(max 2/sem)*",
-												"Higo" => "3 piezas (max 2/sem)*",
-												"Lichi natural" => "12 piezas (max 2/sem)*",
-												"Mango" => "1/2 pieza (max 2/sem)*",
-												"Papaya" => "2/3 taza (max 2/sem)*",
-												"Pasas" => "10 piezas (max 2/sem)*"
+												"Guayaba 2 piezas" => "(max 2/sem)",
+												"Higo" => "3 piezas (max 2/sem)",
+												"Lichi natural" => "12 piezas (max 2/sem)",
+												"Mango" => "1/2 pieza (max 2/sem)",
+												"Papaya" => "2/3 taza (max 2/sem)",
+												"Pasas" => "10 piezas (max 2/sem)"
 											),
 									"mujer_intensiva" => array (
-												"Guayaba" => "2 piezas(max 2/sem)",	
-												"Higo" => "3 piezas(max 2/sem)",
-												"Lichi natural" => "12 piezas(max 2/sem)",
-												"Mango" => "1/2 piezas(max 2/sem)",
-												"Papaya" => "2/3 piezas(max 2/sem)",
-												"Pasas" => "10 piezas(max 2/sem)",
+												"Cereza" => "20 piezas",
+												"Ciruela" => "2 piezas",
+												"Durazno" => "2 piezas",
+												"Frambuesa" => "1 taza",
+												"Fresa" => "1 taza",
+												"Kiwi" => "1 1/2 piezas",
+												"Limón" => "3 piezas",
+												"Mandarina" => "1 piezas",
+												"Manzana" => "1 piezas",
+												"Melón" => "1 taza",
+												"Naranja" => "1 piezas",
+												"Pera" => "1/2 piezas",
+												"Piña" => "3/4 tazas",
+												"Toronja" => "1/2 tazas",
 												)
 											);
+
 	var $alimentos_lacteos = array("todos" => array(
 										"Leche de soya" => "1 tazas",
 										"Leche descremada" => "1 tazas",
@@ -192,6 +200,19 @@ class AlimentosPermitidos
 										"Salmón ahumado o fresco" => "150 g en crudo",
 											));
 	
+	var $alimentos_opcion_vegetariana = array("todos" => array(	
+										"Frijol cocido" => "1 taza",
+										"Alubia cocida" => "1 taza",
+										"Chícharo cocido" => "1 taza",
+										"Garbanzo cocido" => "1 taza",
+										"Haba cocida" => "1 1/2taza",
+										"Lenteja cocida" => "1 taza",
+										"Soya texturizada <br/><span style='padding-left:12px;'> (agregar 1 fruta; quitar 1 lácteo)</span>" => "70 g",
+										"Soya cocida <br/><span style='padding-left:12px;'> (agregar 1 cereal y 1 fruta;</span><br/> <span style='padding-left:12px;'> quitar 2 cucharadas de aceite)</span>" => "2 tazas",
+										"Tofu firme <br/><span style='padding-left:12px;'> (agregar 1 lácteo y 2 frutas)</span>" => "100 g",
+										"Tofu suave <br/><span style='padding-left:12px;'> (agregar 1 lácteo y 2 frutas)</span>" => "100 g"
+											));
+
 	var $alimentos_proteina_vegetal = array("todos" => array(
 										"Almendras" => "10 almendras",
 										"Crema de cacahuate" => "1 cucharada al ras",
@@ -474,9 +495,19 @@ var 	$videos_data = array(
 	
 	
 	
-    function getTitulos()
-	{
-		return $this->alimentos_title;
+  function getTitulos($type, $is_veg) {
+  	$titulos = $this->alimentos_title;
+  	switch($type) {
+  		case 1:
+  			$titulos["2"][0] = "Pan/Cereales";
+  			break;
+  	}
+
+  	if ($is_veg == "true") {
+  		$titulos["5"] = array("Opción Vegetariana","opcion_vegetariana","Opción Vegetariana");
+  	}
+
+  	return $titulos;
 	}
 	
 	  function getTitulosProductos()

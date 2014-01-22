@@ -1,18 +1,24 @@
 <?php
 	include("stuff.php");
 	$permitido = new AlimentosPermitidos;
-	$titulo = $permitido->getTitulos();
+	$tipo_dieta =	$_GET["tipo"];
+	$is_veg = $_GET["veg"];
+	$titulo = $permitido->getTitulos($tipo_dieta, $is_veg);
 	$title_bar = $titulo[$_GET['id']];
 	$var_name = $title_bar[1];
 	$lista = $permitido->getAlimentos($var_name);
-	$lista = $lista["todos"];
+	if ($tipo_dieta == 1 && $lista["mujer_intensiva"]) {
+		$lista = $lista["mujer_intensiva"];
+	}
+	else
+		$lista = $lista["todos"];
 ?>
 <!doctype html>
 <html>
 <head>
 	<title>KOT</title>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
-<meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
+<meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js"></script>
@@ -73,15 +79,14 @@
 			<?php endforeach; ?>
 		</table>
 		<br />
-		<div id="note">Los alimentos que tengan * no se permiten en la fase de mujer intensivo.</div>
+		<div id="note"></div>
 	</div>
 	<div style="background:url(img/Element-03.png); background-size:140%; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:50px;">
 		<div id="nav">
 			<ul class="bot-menu">
 				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="restaurantes.php"><li><img src="img/Element-09.png" width="35" height="35" /></li></a>
-				<a href="contacto.php"><li><img src="img/Element-10.png" width="35" height="35" /></li></a>
-				<a href="perfil.php"><li><img src="img/Element-11.png" width="35" height="35" /></li></a>
+				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
+				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
 			</ul>
 		</div>		
 	</div>
