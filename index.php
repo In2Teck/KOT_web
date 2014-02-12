@@ -82,7 +82,7 @@ window.fbAsyncInit = function() {
 		<div id="panel">
 			<!-- PT1 -->
 			<div style="float:left; width:50%; position:relative;">
-				<a href="">
+				<a href="imc.php">
 				<div style="margin:0 auto; width:100%; position:absolute; left:20px; top:30px;">
 				<img src="img/KOT-25.png" width="90" height="90" />
 				<br />

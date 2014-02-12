@@ -587,3 +587,49 @@ $(document).ready(function() {
 	});
 	
 });
+
+
+function showIMC() {
+	$("#imc-modal").modal();
+}
+
+function calculaIMC() {
+	var imc, mensaje, semanas;
+	var sexo = $("#sexo").val();
+	var peso = parseInt($("#peso").val());
+	var estatura = parseFloat($("#estatura").val());
+	if (peso > 0 && estatura > 0) {
+		imc = peso / (estatura * estatura);
+		if (imc < 18.5) {
+			mensaje = "No necesitas bajar de peso";
+		}
+		else if (imc > 18.5 && imc < 24.9) {
+			mensaje = "Estás en peso normal";
+		}
+		else if (imc > 24.9 && imc < 29.9) {
+			mensaje = "Tienes sobrepeso, te recomendamos ir con un Especialista KOT para ayudarte a llegar a tu peso ideal";
+		}
+		else if (imc > 29.9) {
+			mensaje = "Tienes obesidad, te recomendamos ir con un Especialista KOT para ayudarte a llegar a tu peso ideal";	
+		}
+		if (sexo == "H") {
+			semanas = Math.round(((peso) - ((22.5)*(estatura * estatura)))/1.5);
+		}
+		else if (sexo == "M") {
+			semanas = Math.round(((peso) - ((21)*(estatura * estatura)))/1.3);
+		}
+		
+		if (imc > 24.9)
+			$("#resultado #mensaje-txt").css("color", "red");
+		else 
+			$("#resultado #mensaje-txt").css("color", "black");
+		$("#resultado #imc-txt").text(imc.toFixed(2));
+		$("#resultado #mensaje-txt").text(mensaje);
+		$("#resultado #semanas-txt").text(semanas);
+		$("#resultado").modal();
+	}
+	else {
+
+	}
+	
+}
