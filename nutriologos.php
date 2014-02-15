@@ -63,14 +63,13 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 		</div>
 	<div style="width:95%; margin:0 auto; font-size:12px;">Encuentra nuestros productos con el especialista KOT de tu preferencia.</div>
 	
-	<div style="width:100%; height:100%; position:relative; left:15px; top:30px;">
+	<div style="width:100%; height:100%; position:relative; left:15px; top:10px;">
 		<center>
-			<div style="padding-top:0px; right:20px; position:relative;" data-role="controlgroup" data-type="horizontal">
-			<a href="#" id="df" data-role="button">Monterrey</a>
-			<a href="#" id="mty" data-role="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			<div style="width:200px">
+				<select id="ciudad"></select>
 			</div>
 		</center><br >
-			<ul data-role="listview">
+			<ul id="listado" data-role="listview">
 				<?php
 				
 

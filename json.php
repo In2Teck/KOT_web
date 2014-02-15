@@ -103,6 +103,10 @@ switch($action)
 		$out = file_get_contents($svc);
 		echo $out;
 	break;
+	case 'getNutriologos' :
+		//$array = $doit->get('nutriologos');
+		echo json_encode($doit->get('nutriologos', ''));
+	break;
 	
 }
 

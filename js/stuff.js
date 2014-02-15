@@ -1,6 +1,8 @@
+var diego;
+
 var expandeMe = function(id,count,categoria){
 	
-	var url = "http://kot.mx/movil/json.php?action=textDetailsProducts&item="+id+"&categoria="+categoria;
+	var url = "http://kot.mx/movil_prueba/json.php?action=textDetailsProducts&item="+id+"&categoria="+categoria;
 	var itemDOM =  $("#text-details-"+id);
 	if(count > 180){
 		$.get(url,function(response){
@@ -17,7 +19,7 @@ function publish_on_fb(id,desc){
 	    method: 'feed',
 	    name: 'Bajar de peso no siempre tiene que ser dificil',
 	    link: 'http://kot.mx',
-	    picture: 'http://kot.mx/movil/img/productos/'+id+'.jpg',
+	    picture: 'http://kot.mx/movil_prueba/img/productos/'+id+'.jpg',
 	    description: desc
 	  },
 	  function(response) {
@@ -75,7 +77,7 @@ var publish_miprogreso = function(){
 
 var ShowMetodo = function(id_user,tipo){
 	
-	var url = 'http://kot.mx/movil/json.php?action=getMetodo&idUser='+id_user;
+	var url = 'http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+id_user;
 	var c = new Array();
 	var sd;
 	$.get(url,function(response){
@@ -281,7 +283,7 @@ $(document).ready(function() {
 				parametros = "mail="+user+"&code=&password="+pass;
 			}
 			
-				$.get('http://kot.mx/movil/json.php?action=doLogin&'+parametros,function(data){
+				$.get('http://kot.mx/movil_prueba/json.php?action=doLogin&'+parametros,function(data){
 
 					var result = $.parseJSON(data);
 					var is_true = (result.response==true) ? true : false;
@@ -323,7 +325,7 @@ $(document).ready(function() {
 
 		 	user_id = user.id;
 		 	var ctx = $("#imagen-grafica").get(0).getContext("2d");
-			$.get('http://192.168.100.7:4000/movil/json.php?action=getGoals&idKOT='+user_id,function(data) {
+			$.get('http://kot.mx/movil_prueba/json.php?action=getGoals&idKOT='+user_id,function(data) {
 					
 					obj = $.parseJSON(data);
 					$("#span-strt").text(obj.kilos.actual + " Kg");
@@ -435,14 +437,14 @@ $(document).ready(function() {
 	/***********************
 	 * Mi Método
 	 **********************/	
-	$("#mimetodo").live('pagecreate',function(event){
+	$("#mimetodo").live('pagecreate', function(event) {
 		
 		var local = localStorage.getItem("user_data");
 		var user = $.parseJSON(local);
 		var user_id;
-		try{
+		try {
 			user_id = user.id;
-			$.get('http://kot.mx/movil/json.php?action=getMetodo&idUser='+user_id,function(data_p){
+			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id,function(data_p){
 				var objtc = $.parseJSON(data_p);
 				
 				var spanTxt = objtc.semana;
@@ -454,14 +456,14 @@ $(document).ready(function() {
 		}
 
 		
-		if(user_id==null){
+		if(user_id==null) {
 			$("#metodo-demo").show();
 		}	
-		else{
+		else {
 			$("#metodo").show();
 		}
 
-		var url = 'http://kot.mx/movil/json.php?action=getMetodo&idUser='+user_id;
+		var url = 'http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id;
 		var dataFetched;
 		var serviceData;
 		var data;
@@ -529,7 +531,7 @@ $(document).ready(function() {
 	$("#metodoDemo").live('pagecreate',function(){
 		var id_demo = $("#idMetodo").val();
 		
-		$.get('http://kot.mx/movil/json.php?action=getMetodoDemo&id_demo='+id_demo,function(data){
+		$.get('http://kot.mx/movil_prueba/json.php?action=getMetodoDemo&id_demo='+id_demo,function(data){
 			var obj = $.parseJSON(data);
 			$(".contenido1").html(obj.info); $(".contenido2").html(obj.desayuno); $(".contenido3").html(obj.comida); 
 			$(".contenido4").html(obj.colacion); $(".contenido5").html(obj.cena);	
@@ -538,9 +540,37 @@ $(document).ready(function() {
 	});
 
 	
-	
-	$("#nutriologos").live('pagecreate',function(event){
-		$("#mty").click(function(){
+	/***********************
+	 * Nutriólogos
+	 **********************/	
+	$("#nutriologos").live('pagecreate', function(event) {
+		var obj;
+
+		$.get('http://kot.mx/movil_prueba/json.php?action=getNutriologos', function(data) {
+			obj = $.parseJSON(data);
+			var municipios = obj.municipios.sort(comparaCiudades);
+			for (var i = 0; i < municipios.length; i++) {
+				$("#ciudad").append("<option value='"+ municipios[i].id + "'>" + municipios[i].nombre + "</option>");
+			}
+		});
+
+		$("#ciudad").change(function(event) {
+			var selected = event.currentTarget.value;
+			var resultados = filtraPorCiudad(obj.nutriologos, selected);
+			$("#listado").empty();
+			for (var i = 0; i < resultados.length; i++) {
+				$("#listado").append('<li data-role="list-divider" class="letra ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
+				for (var j = 0; j < resultados[i].items.length; j++) {
+					var item = resultados[i].items[j];
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;">&nbsp;<span style="font-size:10px; font-weight:normal;">' + item.direccion + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
+				}
+			}
+
+			diego = resultados;
+		});
+
+		/*$("#mty").click(function(){
 			$(".1").hide();
 			if($("#letra").next().text()== ''){
 				$("#letra").show();
@@ -558,7 +588,7 @@ $(document).ready(function() {
 			
 			$(".1").show();
 
-		});
+		});*/
 		
 	});
 
@@ -578,7 +608,6 @@ $(document).ready(function() {
 		$(".switchery").after("&nbsp;&nbsp;Vegetariano");
 
 		$(elem).change(function(){
-			console.log("cambio");
 			localStorage.setItem("vegetariano", $(elem).is(':checked'));
 			$.each($("a[data-role='button']"), function(index, value){
 				$(value).attr("href", "alimentos.php?tipo=" + $(value).data("tipo") + "&veg=" + $("#vegetariano").is(':checked'));
@@ -632,4 +661,33 @@ function calculaIMC() {
 
 	}
 	
+}
+
+function comparaCiudades(a,b) {
+  if (a.nombre < b.nombre)
+     return -1;
+  if (a.nombre > b.nombre)
+    return 1;
+  return 0;
+}
+
+function filtraPorCiudad(values, selected) {
+	var resultados = [];
+	for (var i = 0; i < values.length; i++) {
+		var letra = values[i];
+		if (letra.items.length > 0) {
+			var temp = [];
+			for (var j = 0; j < letra.items.length; j ++) {
+				var item = letra.items[j];
+				if (item.id_municipio == selected) {
+					temp.push(item);
+				}
+			}
+			if (temp.length > 0) {
+				letra.items = temp;
+				resultados.push(letra);
+			}
+		}
+	}
+	return resultados;
 }

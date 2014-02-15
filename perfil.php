@@ -62,34 +62,10 @@
 			</div>
 		</div>
 		
-		<div id="register-fields" style=" height:420px;">
-			<div style="width:90%; margin:0 auto;">
-			
-			<p style="font-size:12px;">Si no has acudido con tu especialista KOT registra tus datos.</p>
-			<input type="text" id="nombre" value="Nombre(s)" onfocus="this.value=''" onblur="if(this.value=='') this.value='Nombre(s)'" />
-			<input type="text" id="apellidos" value="Apellidos" onfocus="this.value=''" onblur="if(this.value=='') this.value='Apellidos'" />
-			<input type="text" id="fecha_nacimiento" value="Fecha de Nacimiento(dd-mm-aaaa)" onfocus="this.value=''" onblur="if(this.value=='') this.value='Fecha de Nacimiento(dd-mm-aaaa)'" />
-				<input type="text" id="altura" value="Altura(m)" onfocus="this.value=''" onblur="if(this.value=='') this.value='Altura(m)'" />
-			<input type="text" id="email" value="Email" onfocus="this.value=''" onblur="if(this.value=='') this.value='Email'" />
-			<input type="text" id="pass-reg" value="Nuevo Password" onfocus="if(this.value == 'Nuevo Password'){this.value='';} this.type='password'" onblur="if(this.value==''){ this.value='Nuevo Password'; this.type='text'; }" />
-			<input type="text" id="confirma" value="Confirma el Password" onfocus="if(this.value == 'Confirma el Password'){this.value='';} this.type='password'" onblur="if(this.value==''){ this.value='Confirma el Password'; this.type='text'; }" />
-			
-			
-		
-			<select id="sexo">
-				<option>Sexo</option>
-				<option value="M">Masculino</option>
-				<option value="F">Femenino</option>
-			</select>
-			<input type="button" value="Registrar" id="registrar" />
-			</div>
-		
-		</div>
-		<br />
 		</div>
 		<!-- SESION INICIADA -->
 		<div id="info-user" style="display:none;">
-			<h4>Informacion Personal</h4>
+			<h4>Información Personal</h4>
 			
 			<ul id="info-data">
 				<li id="numero-kot"></li>

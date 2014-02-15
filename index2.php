@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="114x114" href="img/icon-ret.png" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
-<script src="js/Chart.js"></script>
+<script type="text/javascript" src="js/Chart.js"></script>
 <link rel="stylesheet" href="switchery.css">
 <script src="js/switchery.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js?<?php echo rand(19999,1929381) ?>"></script>
