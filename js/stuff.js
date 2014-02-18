@@ -385,7 +385,8 @@ $(document).ready(function() {
 		var max, min;
 
 		$.each(jsonValues, function(index, value) {
-			labels.push("Semana " + value.semana);
+			var sem = (parseInt(value.semana) - 1);
+			labels.push("Semana " + sem);
 			values.push(value.valor);
 			sorted.push(value.valor);
 		});
@@ -563,34 +564,41 @@ $(document).ready(function() {
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
 					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;">&nbsp;<span style="font-size:10px; font-weight:normal;">' + item.direccion + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
 				}
 			}
-
-			diego = resultados;
 		});
-
-		/*$("#mty").click(function(){
-			$(".1").hide();
-			if($("#letra").next().text()== ''){
-				$("#letra").show();
-			}
-			
-			
-			
-			$(".2").show();
-
-		});
-		$("#df").click(function(){
-			$(".2").hide();
-			
-			
-			
-			$(".1").show();
-
-		});*/
-		
 	});
+
+	/***********************
+	 * Restaurantes
+	 **********************/	
+	$("#restaurantes").live('pagecreate', function(event) {
+		var obj;
+
+		$.get('http://kot.mx/movil_prueba/json.php?action=getRestaurantes', function(data) {
+			obj = $.parseJSON(data);
+			var municipios = obj.areas_metropolitanas.sort(comparaCiudadesRest);
+			for (var i = 0; i < municipios.length; i++) {
+				$("#ciudad").append("<option value='"+ municipios[i].id_area + "'>" + municipios[i].area + "</option>");
+			}
+		});
+
+		$("#ciudad").change(function(event) {
+			var selected = event.currentTarget.value;
+			var resultados = filtraPorCiudadRest(obj.restaurante, selected);
+			$("#listado").empty();
+			for (var i = 0; i < resultados.length; i++) {
+				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
+				for (var j = 0; j < resultados[i].items.length; j++) {
+					var item = resultados[i].items[j];
+					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+					//nombre='.$items["nombre"].'&idRestaurante='.$items["id"].'&direccion='.urlencode($items["direccion"]).'&tel='.$items["telefono"].'&latitud='.$items["latitud"].'&longitud='.$items["longitud"].'">'.$items["nombre"].'</a></li>
+				}
+			}
+		});
+	});
+
 
 	$("#filtroalimentos").live('pageinit', function(event){
 		var val = localStorage.getItem("vegetariano");
@@ -671,6 +679,14 @@ function comparaCiudades(a,b) {
   return 0;
 }
 
+function comparaCiudadesRest(a,b) {
+  if (a.area < b.area)
+     return -1;
+  if (a.area > b.area)
+    return 1;
+  return 0;
+}
+
 function filtraPorCiudad(values, selected) {
 	var resultados = [];
 	for (var i = 0; i < values.length; i++) {
@@ -680,6 +696,27 @@ function filtraPorCiudad(values, selected) {
 			for (var j = 0; j < letra.items.length; j ++) {
 				var item = letra.items[j];
 				if (item.id_municipio == selected) {
+					temp.push(item);
+				}
+			}
+			if (temp.length > 0) {
+				letra.items = temp;
+				resultados.push(letra);
+			}
+		}
+	}
+	return resultados;
+}
+
+function filtraPorCiudadRest(values, selected) {
+	var resultados = [];
+	for (var i = 0; i < values.length; i++) {
+		var letra = values[i];
+		if (letra.items.length > 0) {
+			var temp = [];
+			for (var j = 0; j < letra.items.length; j ++) {
+				var item = letra.items[j];
+				if (item.id_area == selected) {
 					temp.push(item);
 				}
 			}

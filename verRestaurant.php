@@ -74,9 +74,13 @@ $getJSON = file_get_contents($url);
 				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a> 
 		</div>
 		<div>
+			
+			<div id="image" style="background:#fff;">
+				<center><img src="<?php echo $items["img"] ?>" style="max-width:320px;height:180px;" /></center>
+			</div>
 			<div style="background:#d2d7da; height:50px;" id="bar-address">
-				<div style="width:50%; float:left; position:relative;">
-					<span style="font-size:10px; position:absolute; color:#666; left:10px; top:5px;"><?php echo $_GET["direccion"]; ?></span>
+				<div style="width:65%; float:left; position:relative;">
+					<span style="font-size:12px; position:absolute; color:#666; left:10px; top:5px;"><?php echo $_GET["direccion"]; ?></span>
 				</div>
 				<div style="width:50%; float:left; position:relative;">
 					<a href="tel:<?php echo $_GET["tel"]; ?>"><img src="img/tel.png" width="40" hegith="40" style="position:absolute; top:5px; left:230px;" /></a>
@@ -84,22 +88,28 @@ $getJSON = file_get_contents($url);
 				</div>
 				<div style="clear:both;"></div>
 			</div>
-			<div id="image" style="background:#fff;">
-				<center><img src="<?php echo $items["img"] ?>" height="180" /></center>
+			<br/>
+			<div style="background:#d2d7da; width:100%; height:30px;">
+				<div style="width:160px; float:left; position:relative;">
+					<span style="font-size:12px; position:absolute; left:20px; top:5px;">Platillos permitidos</span>
+				</div>
+				<div style="width:300px; float:left; position:relative;">
+					<span style="font-size:12px; position:absolute; top:5px;left:180px;">Votos de los usuarios</span>
+				</div>
 			</div>
-		<br />
-		
-			<table width="85%" cellpadding="0" cellspacing="0" class="table-alim" align="center">
-				<? 
+			<table width="92%" cellpadding="0" cellspacing="0" class="table-alim" align="center">
+				<?php
 				foreach($list as $item):
 					foreach($item["items"] as $items): 
 					?>
 
 						<tr>
-							<td width="60%"><span style="padding-left:12px; width:100%;"><a href="verMenu.php?id=<?php echo $items["id"]; ?>&rest=<?php echo $_GET["nombre"] ?>"><?php if(strlen($items["nombre"]) > 26)  echo substr($items["nombre"],0,26)."..."; else echo $items["nombre"]  ?></a></span></td>
+							<td width="60%"><span style="padding-left:12px; width:100%; font-size:12px;">
+								<a href="verMenu.php?id=<?php echo $items["id"]; ?>&rest=<?php echo $_GET["nombre"] ?>"><?php if(strlen($items["nombre"]) > 26)  echo substr($items["nombre"],0,26)."..."; else echo $items["nombre"]  ?></a></span>
+							</td>
 							<td width="40%">
 								<span style="padding-right:12px; width:100%;">
-									<a href="verMenu.php?id=<?php echo $items["id"]; ?>">
+									<a href="verMenu.php?id=<?php echo $items["id"]; ?>" >
 
 											<?php
 
@@ -151,9 +161,8 @@ $getJSON = file_get_contents($url);
 		<div id="nav">
 			<ul class="bot-menu">
 				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="restaurantes.php"><li><img src="img/active4.png" width="35" height="35" /></li></a>
-				<a href="contacto.php"><li><img src="img/Element-10.png" width="35" height="35" /></li></a>
-				<a href="perfil.php"><li><img src="img/Element-11.png" width="35" height="35" /></li></a>
+				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
+				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
 			</ul>
 		</div>		
 	</div>

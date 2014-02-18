@@ -61,12 +61,12 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">Especialistas KOT</span>
 				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
 		</div>
-	<div style="width:95%; margin:0 auto; font-size:12px;">Encuentra nuestros productos con el especialista KOT de tu preferencia.</div>
+	<div style="width:95%; margin:0 auto; font-size:12px;">Comienza tu método KOT con el especialista de tu preferencia.</div>
 	
 	<div style="width:100%; height:100%; position:relative; left:15px; top:10px;">
 		<center>
-			<div style="width:200px">
-				<select id="ciudad"></select>
+			<div style="width:230px">
+				<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
 			</div>
 		</center><br >
 			<ul id="listado" data-role="listview">
@@ -80,7 +80,7 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 
 							echo '<li class="'.$items["id_municipio"].'">'.$items["nombre"].'</li>
 								 <li class="'.$items["id_municipio"].'" style="background:#fff;">
-									<div style="float:left;width:70%;">&nbsp;<span style="font-size:10px; font-weight:normal;">'.$items["direccion"].'</span></div>
+									<div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">'.$items["direccion"].'<br/>Tel: '.$items["telefono"].'</span></div>
 									<div style="float:left; width:30%;"><a href="tel:'.$items["telefono"].'"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud='.$items["latitud"].'&longitud='.$items["longitud"].'&nombre='.$items["nombre"].'&telefono='.$items["telefono"].'&direccion='.$items["direccion"].'"><img src="img/map.png" width="28" height="28" /></a> <!-- <img src="img/add.png" width="20" height="20" />--></div>
 									<div style="clear:both;"></div>
 								</li>

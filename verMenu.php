@@ -100,12 +100,32 @@ $getJSON = file_get_contents($url);
 			</div>
 		</div>
 		<div>
-			<div id="image" style="background:black;">
-				<img src="<?php echo $item["img_url"]; ?>" height="180" width="340" />
+			<div id="image" style="background:white;">
+				<img src="<?php echo $item["img_url"]; ?>" style="width:320px; height:180px;"/>
 			</div>
-		<div style="background:#fff; hegiht:100%;">
+		<div style="background:#fff; height:100%; font-size:14px;">
 			<br />
-		&nbsp;&nbsp;Equivale a:
+				<div style="width:100%;">
+					<div style="width:98%; margin: 0 auto;">
+						<div style="width:98%; float:left;">
+							<?php
+							   if($item["recomendacion"] != null){			
+							?>
+									<span style="font-size:14px; top:5px;">Recomendaciones: </span><br /><br />
+									<span style=" font-size:12px;"><?php echo $item["recomendacion"]; ?></span><br />
+							<?php
+						  		}
+								else{
+									echo '&nbsp;';
+								}
+							?>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<br />
+				</div>
+			<br/>	
+			&nbsp;Equivale a:
 		<br /><br />
 			<table width="100%" cellpadding="0" cellspacing="0" class="table-menu-detail" align="center">
 				<?php
@@ -115,8 +135,8 @@ $getJSON = file_get_contents($url);
 					$key = str_replace('lacteos','lácteos',$key);
 				?>
 				<tr>
-					<td width="70%"><span style="padding-left:12px; width:100%;"><span style="text-transform:capitalize;"><?php echo str_replace('_',' ',$key); ?></span></td>
-					<td width="30%"><span style="padding-right:12px; width:100%;"><span>
+					<td width="70%"><span style="padding-left:12px; width:100%; font-size:12px;"><span style="text-transform:capitalize;"><?php echo str_replace('_',' ',$key); ?></span></td>
+					<td width="30%"><span style="padding-right:12px; width:100%; font-size:12px;"><span>
 						<?php echo $value; ?>
 					</span></td>
 				</tr>
@@ -124,34 +144,6 @@ $getJSON = file_get_contents($url);
 				  endforeach;
 				?>	
 			</table>
-
-
-				
-
-				<div style="width:100%;">
-					<div style="width:96%; margin: 0 auto;">
-					<div style="width:70%; float:left;">
-						<?php
-						   if($item["recomendacion"] != null){			
-						?>
-						<span style="font-size:12px; top:5px;">Recomendaciones : </span><br />
-						<span style=" font-size:10px;"><?php echo $item["recomendacion"]; ?></span><br />
-						<?php
-					  		}
-					else{
-						echo '&nbsp;';
-					}
-						?>
-					</div>
-					<div style=" width:30%; float:left;">
-						<a href="http://twitter.com/home/?status=Siguiendo el Método KOT comiendo <?php echo $item["nombre"]; ?> en <?php echo $_GET["rest"]; ?>"  target="__blank"><img src="img/tw.png" width="24" height="24" /></a> 
-					
-						<a onclick="publish_restaurant('<?php echo $item["nombre"]; ?>','<?php echo $_GET["rest"]; ?>');"><img src="img/fb.png" width="24" height="24" /></a>
-					</div>
-					<div style="clear:both;"></div>
-					</div>
-					<br />
-				</div>
 
 		</div>	
 		</div>
@@ -164,9 +156,8 @@ $getJSON = file_get_contents($url);
 		<div id="nav">
 			<ul class="bot-menu">
 				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="restaurantes.php"><li><img src="img/active4.png" width="35" height="35" /></li></a>
-				<a href="contacto.php"><li><img src="img/Element-10.png" width="35" height="35" /></li></a>
-				<a href="perfil.php"><li><img src="img/Element-11.png" width="35" height="35" /></li></a>
+				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
+				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
 			</ul>
 		</div>		
 	</div>

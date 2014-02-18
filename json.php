@@ -8,6 +8,7 @@ class WS
 						   'progreso' => 'http://kot.mx/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
 						   'metodo' => 'http://kot.mx/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',
+						   'restaurantes' => 'http://kot.mx/nuevo/WS/kotRestaurantes.php',
 						   'registro' => 'http://kot.mx/nuevo/WS/kotRegistro.php?'.$parametros
 							);
 		set_time_limit(60);
@@ -104,8 +105,10 @@ switch($action)
 		echo $out;
 	break;
 	case 'getNutriologos' :
-		//$array = $doit->get('nutriologos');
 		echo json_encode($doit->get('nutriologos', ''));
+	break;
+	case 'getRestaurantes' :
+		echo json_encode($doit->get('restaurantes', ''));
 	break;
 	
 }

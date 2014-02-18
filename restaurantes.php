@@ -65,7 +65,13 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotRestaurantes.php");
 				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a> 
 		</div>
 		<div id="lista-restaurantes">
-			<ul data-role="listview" data-filter="true" data-filter-placeholder="Busca tu restaurante">
+			<center>
+				<div style="width:230px">
+					<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
+				</div>
+			</center><br/>
+			<ul id="listado" data-role="listview" data-filter="true" data-filter-placeholder="Busca tu restaurante">
+				
 				<?php
 					foreach($list as $item){
 						echo '<li data-role="list-divider">'.$item["letra"].'</li>';

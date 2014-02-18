@@ -76,9 +76,8 @@
 		<div id="nav">
 			<ul class="bot-menu">
 				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="restaurantes.php"><li><img src="img/Element-09.png" width="35" height="35" /></li></a>
-				<a href="contacto.php"><li><img src="img/active3.png" width="35" height="35" /></li></a>
-				<a href="perfil.php"><li><img src="img/Element-11.png" width="35" height="35" /></li></a>
+				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
+				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
 			</ul>
 		</div>		
 	</div>
