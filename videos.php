@@ -7,7 +7,7 @@
 <head>
 	<title>KOT - Productos KOT</title>
 <meta http-equiv="content-type" content="text/html; charset=utf8" />
-<meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
+<meta id="meta" name="viewport" content="width=device-width initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js"></script>
@@ -53,15 +53,15 @@
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">Videos de productos</span>
+				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">Videos de preparación</span>
 				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
 		</div>
 		<ul id="video-list" style="margin:0;">
 			<?php foreach($titulos->getVideos() as $key => $value) : ?>
 				<a href="video.php?video=<?php echo urlencode($key); ?>">
 					<li>
-						<div style="float:left; width:73%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $value["detail"];?></p></div>
-						<div style="float:left; width:27%;"><img src="img/video-icon.png" /></div>
+						<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $value["detail"];?></p></div>
+						<div style="float:left; width:30%;"><img src="<?php echo $value["image"];?>" width="93" height="96"/></div>
 						<div style="clear:both;"></div>
 					</li>
 				</a>

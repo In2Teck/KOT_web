@@ -264,7 +264,8 @@ var 	$videos_data = array(
 								"Hot Cake" => array(
 														
 														"link" => "yzxT-IQOsFY",
-														"detail" => "Hot Cakes, Hot Cakes con chispas de chocolate, Omelet sabor tocino, Omelet sabor queso",
+														"detail" => "Hot Cakes KOT",
+														"image" => "img/videos_productos/hotcake.jpg",
 														"pasos" => "Mismos pasos de preparación (solo revisar cantidad de agua) para :<br /><br />
 																	Hot Cakes <br />
 																	Hot Cakes con chispas de chocolate <br />
@@ -276,7 +277,8 @@ var 	$videos_data = array(
 								"Puré de papa sabor tocino" => array(
 										
 																		"link" => "StLRy0aGOes",
-																		"detail" => "Puré de papa sabor tocino, Sopa de verduras",
+																		"detail" => "Puré de papa sabor tocino KOT",
+																		"image" => "img/videos_productos/purepapa.jpg",
 																		"pasos" => "Mismos pasos de pareparación (solo revisar cantidad de agua) para: <br /> <br />
 																					Puré de papa sabor tocino<br />
 																					Sopa de verduras"
@@ -284,7 +286,8 @@ var 	$videos_data = array(
 																	),
 								"Smoothie Mango Maracuyá" => array(
 																	"link" => "CKdgN16BDxo",
-																	"detail" => "Smoothie sabor mango maracuyá, Bebida sabor naranja, KOT Quick",
+																	"detail" => "Smoothie sabor mango maracuyá KOT",
+																	"image" => "img/videos_productos/smoothie.jpg",
 																	"pasos" => "Mismos pasos de pareparación (solo revisar cantidad de agua) para:<br /><br />
 																				<b>Bebidas:</b><br /><br />
 																				Smoothie sabor mango maracuyá<br />
@@ -303,7 +306,8 @@ var 	$videos_data = array(
 																	
 								"Crema de Champiñones" => array(
 																	"link" => "tDHMPntGhWY",
-																	"detail" => "Crema de Champiñones, Bebida Cafe capuchino, Sopa Sabor a pollo, Sopa De champiñones",
+																	"detail" => "Crema de Champiñones KOT",
+																	"image" => "img/videos_productos/cremachampi.jpg",
 																	"pasos" => "Mismos pasos de pareparación (solo revisar cantidad de agua) para: <br /><br />
 																				<b>Bebidas:</b><br /><br />
 																				Sabor café capuchino<br /><br />
@@ -313,22 +317,14 @@ var 	$videos_data = array(
 																				De champiñones"
 																
 																),
-																
-								"Pasta en microondas" => array(
-																 "link" => "6_Z_EdYV8Tc",
-																 "detail" => "Pasta en microondas,Pasta Kot",
-																 "pasos" => "Mismos pasos de pareparación (solo revisar cantidad de agua) para:<br /><br />
-																				Pasta KOT"
-											
-															),
 								"Pasta en sartén" => array(
 															"link" => "0C8IheVCRTM",
-															"detail" => "Pasta en estufa, Pasta Kot",
+															"detail" => "Pasta en estufa KOT",
+															"image" => "img/videos_productos/pasta.jpg",
 															"pasos" => "
 																Mismos pasos de pareparación (solo revisar cantidad de agua) para: <br /><br />
 																Pasta KOT
 															"
-															
 														  )
 		
 		
