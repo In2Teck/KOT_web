@@ -330,7 +330,10 @@ $(document).ready(function() {
 					obj = $.parseJSON(data);
 					$("#span-strt").text(obj.kilos.actual + " Kg");
 					$("#span-end").text(obj.kilos.progreso + " Kg");
-					$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+					if (obj.kilos.print > 0)
+						$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+					else
+						$("#cinta_azul").text("¡Felicidades, llegaste a tu meta!");
 
 					drawChart(ctx, obj.kilos.datos, "#0000FF");
 			});
@@ -349,7 +352,10 @@ $(document).ready(function() {
 			$("#cinta_azul").show();
 			$("#span-strt").text(obj.kilos.actual + " Kg");
 			$("#span-end").text(obj.kilos.progreso + " Kg");
-			$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+			if (obj.kilos.print > 0)
+				$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+			else
+				$("#cinta_azul").text("¡Felicidades, llegaste a tu meta!");
 		});
 		
 		
@@ -601,25 +607,9 @@ $(document).ready(function() {
 
 
 	$("#filtroalimentos").live('pageinit', function(event){
-		var val = localStorage.getItem("vegetariano");
-		if (val == "true") {
-			$("#vegetariano").attr('checked', '');
-		}
 		
 		$.each($("a[data-role='button']"), function(index, value){
-			$(value).attr("href", "alimentos.php?tipo=" + $(value).data("tipo") + "&veg=" + $("#vegetariano").is(':checked'));
-		});
-
-		var elem = document.querySelector('.js-switch');
-		var init = new Switchery(elem);
-
-		$(".switchery").after("&nbsp;&nbsp;Vegetariano");
-
-		$(elem).change(function(){
-			localStorage.setItem("vegetariano", $(elem).is(':checked'));
-			$.each($("a[data-role='button']"), function(index, value){
-				$(value).attr("href", "alimentos.php?tipo=" + $(value).data("tipo") + "&veg=" + $("#vegetariano").is(':checked'));
-			});
+			$(value).attr("href", "alimentos.php?tipo=" + $(value).data("tipo"));
 		});
 	});
 	

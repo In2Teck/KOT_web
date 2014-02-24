@@ -199,19 +199,6 @@ class AlimentosPermitidos
 										"Pulpo" => "200 g en crudo",
 										"Salmón ahumado o fresco" => "150 g en crudo",
 											));
-	
-	var $alimentos_opcion_vegetariana = array("todos" => array(	
-										"Frijol cocido" => "1 taza",
-										"Alubia cocida" => "1 taza",
-										"Chícharo cocido" => "1 taza",
-										"Garbanzo cocido" => "1 taza",
-										"Haba cocida" => "1 1/2taza",
-										"Lenteja cocida" => "1 taza",
-										"Soya texturizada <br/><span style='padding-left:12px;'> (agregar 1 fruta; quitar 1 lácteo)</span>" => "70 g",
-										"Soya cocida <br/><span style='padding-left:12px;'> (agregar 1 cereal y 1 fruta;</span><br/> <span style='padding-left:12px;'> quitar 2 cucharadas de aceite)</span>" => "2 tazas",
-										"Tofu firme <br/><span style='padding-left:12px;'> (agregar 1 lácteo y 2 frutas)</span>" => "100 g",
-										"Tofu suave <br/><span style='padding-left:12px;'> (agregar 1 lácteo y 2 frutas)</span>" => "100 g"
-											));
 
 	var $alimentos_proteina_vegetal = array("todos" => array(
 										"Almendras" => "10 almendras",
@@ -498,11 +485,6 @@ var 	$videos_data = array(
   			$titulos["2"][0] = "Pan/Cereales";
   			break;
   	}
-
-  	if ($is_veg == "true") {
-  		$titulos["5"] = array("Opción Vegetariana","opcion_vegetariana","Opción Vegetariana");
-  	}
-
   	return $titulos;
 	}
 	

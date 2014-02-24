@@ -10,8 +10,6 @@
 <meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-<link rel="stylesheet" href="switchery.css">
-<script src="js/switchery.js"></script>
 <script src="js/stuff.js"></script>
 
 <style type="text/css" media="screen">
@@ -84,12 +82,6 @@
 						<a href="alimentos.php" data-tipo="4" data-role="button" class="hombre-btn">Hombre <br/>Progresivo</a>
 					</div>
 				</div>
-				
-				<div style="float:left; width:100%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; top:290px; left:100px;">
-						<input id="vegetariano" type="checkbox" class="js-switch"/>
-					</div>
-				</div>		
 			</div>
 		</div>
 		
