@@ -69,6 +69,14 @@ body
 	text-decoration:none;
 	font-weight:normal;
 }
+
+#panel-faq
+{
+	height:100%;
+	width:290px;
+	margin:0 auto 0 auto;
+}
+
 #alper-list
 {
 	list-style:none;
@@ -332,6 +340,13 @@ div#note{
 .estatura-input {
 	margin-left: 6px;
 	width: 90px;
+}
+
+.video-btn {
+	background-image: url('img/h.png') !important;
+	background-position: center !important;
+	background-size: 110% !important;
+	color: white !important;
 }
 
 /* Overlay */

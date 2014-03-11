@@ -1,13 +1,9 @@
-<?php
-	include("stuff.php");
-	$titulos = new AlimentosPermitidos;
-?>
 <!doctype html>
 <html>
 <head>
-	<title>KOT - Filtro Permitidos</title>
+	<title>KOT - Preguntas Frecuentes</title>
 <meta http-equiv="content-type" content="text/html; charset=utf8" />
-<meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta id="meta" name="viewport" content="width=device-width initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 <script src="js/stuff.js"></script>
@@ -49,37 +45,34 @@
 </script>
 </head>
 <body>
-<div data-role="page" id="filtroalimentos">
+<div data-role="page" id="faqmenu">
 	<div data-role="content">
 		<div id="container">
 			<div id="topbar">
-					<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Alimentos</span>
+					<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Preguntas Frecuentes</span>
 					<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
 			</div>
 			<div id="panel">
 				<!-- PT1 -->
-				<div style="float:left; width:50%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:-10px; top:60px;">
-						<a href="alimentos.php" data-tipo="1" data-role="button" class="mujer-btn">Mujer <br/>Intensivo</a>
-					</div>
-				</div>
-				<div style="float:left; width:50%;  position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:155px; top:60px;">
-						<a href="alimentos.php" data-tipo="3" data-role="button" class="hombre-btn">Hombre <br/>Intensivo</a>
+				<div style="float:left; width:65%; position:relative;">
+					<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:60px;">
+						<a href="faq.php?tipo=1" data-tipo="1" data-role="button" class="video-btn">Sobre el <br/>Método KOT</a>
 					</div>
 				</div>
 				
 				<div style="clear:both;"></div>
 				
-				<!-- PT2 -->
-			<div style="float:left; width:50%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:-10px; top:180px;">
-						<a href="alimentos.php" data-tipo="2" data-role="button" class="mujer-btn">Mujer <br/>Progresivo</a>
+				<div style="float:left; width:65%;  position:relative;">
+					<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:150px;">
+						<a href="faq.php?tipo=2" data-tipo="2" data-role="button" class="video-btn">Al hacer el <br/>Método KOT</a>
 					</div>
 				</div>
-				<div style="float:left; width:50%;  position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:155px; top:180px;">
-						<a href="alimentos.php" data-tipo="4" data-role="button" class="hombre-btn">Hombre <br/>Progresivo</a>
+
+				<div style="clear:both;"></div>
+
+				<div style="float:left; width:65%; position:relative;">
+					<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:250px;">
+						<a href="faq.php?tipo=3" data-tipo="3" data-role="button" class="video-btn">Sobre los productos</a>
 					</div>
 				</div>
 			</div>

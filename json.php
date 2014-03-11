@@ -9,6 +9,7 @@ class WS
 						   'metodo' => 'http://kot.mx/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',
 						   'restaurantes' => 'http://kot.mx/nuevo/WS/kotRestaurantes.php',
+						   'preguntas' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotPreguntas.php',
 						   'registro' => 'http://kot.mx/nuevo/WS/kotRegistro.php?'.$parametros
 							);
 		set_time_limit(60);
@@ -110,7 +111,9 @@ switch($action)
 	case 'getRestaurantes' :
 		echo json_encode($doit->get('restaurantes', ''));
 	break;
-	
+	case 'getPreguntas':
+		echo json_encode($doit->get('preguntas', ''));
+	break;
 }
 
 

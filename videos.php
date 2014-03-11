@@ -1,11 +1,17 @@
 <?php
-	include("stuff.php");
-	$titulos = new AlimentosPermitidos;
+	$tipo =	$_GET["tipo"];
+	$list = array();
+	$cat = '';
+	$getJSON = file_get_contents("http://desarrollo.sysop26.com/kot/nuevo/WS/kotVideos.php");
+	$array_get = json_decode($getJSON,1);
+	foreach($array_get["videos"] as $row) {
+		if($row["id_categoria"] == $tipo){ $list[] = $row; $cat = $row["categoria"];}
+	}
 ?>
 <!doctype html>
 <html>
 <head>
-	<title>KOT - Productos KOT</title>
+	<title>KOT - Videos</title>
 <meta http-equiv="content-type" content="text/html; charset=utf8" />
 <meta id="meta" name="viewport" content="width=device-width initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
@@ -53,15 +59,15 @@
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">Videos de preparación</span>
+				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;"><?php echo $cat;?></span>
 				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
 		</div>
 		<ul id="video-list" style="margin:0;">
-			<?php foreach($titulos->getVideos() as $key => $value) : ?>
-				<a href="video.php?video=<?php echo urlencode($key); ?>">
+			<?php foreach($list as $item) : ?>
+				<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
 					<li>
-						<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $value["detail"];?></p></div>
-						<div style="float:left; width:30%;"><img src="<?php echo $value["image"];?>" width="93" height="96"/></div>
+						<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+						<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
 						<div style="clear:both;"></div>
 					</li>
 				</a>

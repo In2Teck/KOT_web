@@ -11,6 +11,7 @@
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
 <script src="js/Chart.js"></script>
+<script src="js/jquery.simplemodal.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js?<?php echo rand(19999,1929381) ?>"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <style type="text/css" media="screen">
@@ -61,11 +62,11 @@
 		<div id="panel">
 			<!-- PT1 -->
 			<div style="float:left; width:50%; position:relative;">
-				<a href="">
+				<a href="faq_menu.php">
 				<div style="margin:0 auto; width:100%; position:absolute; left:20px; top:30px;">
 				<img src="img/KOT-25.png" width="90" height="90" />
 				<br />
-				<span style="position:relative; left:25px;">FAQ</span>
+				<span style="position:relative; left:15px;">Preguntas <br/>Frecuentes</span>
 				</div>
 				</a>
 			</div>

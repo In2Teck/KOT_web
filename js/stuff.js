@@ -605,7 +605,9 @@ $(document).ready(function() {
 		});
 	});
 
-
+	/***********************
+	 * Alimentos Permitidos
+	 **********************/	
 	$("#filtroalimentos").live('pageinit', function(event){
 		
 		$.each($("a[data-role='button']"), function(index, value){
@@ -645,6 +647,9 @@ function calculaIMC() {
 		else if (sexo == "M") {
 			semanas = Math.round(((peso) - ((21)*(estatura * estatura)))/1.3);
 		}
+
+		if (semanas < 0)
+			semanas = 0;
 		
 		if (imc > 24.9)
 			$("#resultado #mensaje-txt").css("color", "red");
