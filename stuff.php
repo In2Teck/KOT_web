@@ -206,8 +206,8 @@ class AlimentosPermitidos
 										"Nueces" => "7 mitades de nuez"
 											));
 	
-	var $productos_title = array(1 => "Dulces",
-							 2 => "Salados",
+	var $productos_title = array(1 => "Productos Dulces",
+							 2 => "Productos Salados",
 							 3 => "Snacks");
 							 
 							

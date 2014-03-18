@@ -78,26 +78,26 @@ window.fbAsyncInit = function() {
 <div data-role="page" id="home">
 	<div data-role="content">
 	<div id="container">
-		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Menú</span>
+		<div>
+			<div class="menu-title">CONOCE KOT</div>
 		</div>
 		<div id="panel">
 			<!-- PT1 -->
 			<div style="float:left; width:50%; position:relative;">
 				<a href="imc.php">
 				<div style="margin:0 auto; width:100%; position:absolute; left:20px; top:30px;">
-				<img src="img/KOT-25.png" width="90" height="90" />
-				<br />
-				<span style="position:relative; left:35px;">IMC</span>
+					<img src="img/nuevo/imc.png" width="90" height="90" />
+					<br />
+					<div class="menu-item">CALCULA<br/>TU IMC</div>
 				</div>
 				</a>
 			</div>
 			<div style="float:left; width:50%;  position:relative;">
 				<a href="nutriologos.php">
 				<div style="margin:0 auto; width:100%; position:absolute; left:180px; top:30px;">
-				<img src="img/KOT-22.png" width="90" height="90" />
-				<br />
-				<span style="position:relative; left:12px;">Especialistas <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KOT</span>
+					<img src="img/nuevo/especialistas.png" width="90" height="90" />
+					<br />
+					<div class="menu-item">ESPECIALISTAS <br /> KOT</div>
 				</div>
 				</a>
 			</div>
@@ -106,20 +106,20 @@ window.fbAsyncInit = function() {
 			
 			<!-- PT2 -->
 			<div style="float:left; width:50%; position:relative;">
-				<a href="videos_menu.php">
-				<div style="margin:0 auto; width:100%; position:absolute; top:180px; left:20px;">
-				<img src="img/KOT-24.png" width="90" heigth="90" />
-				<br />
-				<span style="position:relative; left:25px;">Videos
+				<a href="videos.php?tipo=1">
+				<div style="margin:0 auto; width:100%; position:absolute; top:200px; left:20px;">
+					<img src="img/nuevo/videos.png" width="90" heigth="90" />
+					<br />
+					<div class="menu-item">VIDEOS<br />TESTIMONIALES</div>
 				</div>
 				</a>
 			</div>
 			<div style="float:left; width:50%; position:relative;">
 				<a href="productos.php">
-				<div style="margin:0 auto; width:100%; position:absolute; top:180px; left:180px;">
-				<img src="img/KOT-23.png" width="90" heigth="90" />
-				<br />
-				<span>Productos KOT</span>
+				<div style="margin:0 auto; width:100%; position:absolute; top:200px; left:180px;">
+					<img src="img/nuevo/productos.png" width="90" heigth="90" />
+					<br />
+					<div class="menu-item">PRODUCTOS KOT</div>
 				</div>
 				</a>
 			</div>
@@ -130,17 +130,14 @@ window.fbAsyncInit = function() {
 		</div>
 	</div>
 	
-	<div style="background:url(img/Element-03.png); background-size:140%; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:50px;">
+	<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
 		<div id="nav">
 			<ul class="bot-menu">
-				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
-				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
-				<!--a href="restaurantes.php"><li><img src="img/Element-09.png" width="35" height="35" /></li></a>
-				<a href="contacto.php"><li><img src="img/Element-10.png" width="35" height="35" /></li></a>
-				<a href="perfil.php"><li><img src="img/Element-11.png" width="35" height="35" /></li></a-->
+				<a href="index.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_conoce.png" width="40" height="40" /></div>CONOCE KOT</li></a>
+				<a href="index2.php"><li class="bottom-menu-item" style="margin-left:15px;"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_mi_metodo.png" width="40" height="40" /></div>MI MÉTODO</li></a>
+				<a href="index3.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_ayuda.png" width="40" height="40" /></div>AYUDA</li></a>
 			</ul>
-		</div>	
+		</div>
 	</div>
 
 </div>

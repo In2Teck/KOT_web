@@ -64,11 +64,7 @@
 			<?php foreach($lista[$categoria] as $key => $value) :?>
 			
 					<li class="item-producto" onclick="expandeMe(<?php echo $key; ?>,<?php echo strlen($value); ?>,'<?php echo $categoria; ?>');">
-						<div style="float:left; width:27%;"><img src="img/productos/<?php echo $key; ?>.jpg" width="75" height="75" /><br />
-							<a target="__blank" href="http://twitter.com/home/?status=<?php echo substr($value,0,120)  ?>: http://kot.mx"><img src="img/tw.png" width="24" height="24" /></a> 
-							<a onclick="publish_on_fb('<?php echo $key; ?>','<?php echo $value; ?>');"><img src="img/fb.png" width="24" height="24" /></a>
-						<div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
-						</div>
+						<div style="float:left; width:27%;"><img src="img/productos/<?php echo $key; ?>.jpg" width="75" height="75" /></div><br />
 						<div style="float:left; width:73%;" id="text-details-<?php echo $key; ?>"><span><?php $count = strlen($value); echo substr($value,0,180); if($count > 180) echo "..."; ?></span></div>
 						<div style="clear:both;"></div>
 							
@@ -76,14 +72,14 @@
 		
 			<?php endforeach; ?>
 		</ul>
-		<div style="background:url(img/Element-03.png); background-size:140%; border-top:solid 1px #d5d5d5; position:relative; width:100%; margin:0 auto; bottom:0; height:50px;">
+		<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
 			<div id="nav">
 				<ul class="bot-menu">
-				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
-				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
-			</ul>
-			</div>		
+					<a href="index.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_conoce.png" width="40" height="40" /></div>CONOCE KOT</li></a>
+					<a href="index2.php"><li class="bottom-menu-item" style="margin-left:15px;"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_mi_metodo.png" width="40" height="40" /></div>MI MÉTODO</li></a>
+					<a href="index3.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_ayuda.png" width="40" height="40" /></div>AYUDA</li></a>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

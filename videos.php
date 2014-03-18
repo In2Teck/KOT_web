@@ -5,7 +5,12 @@
 	$getJSON = file_get_contents("http://desarrollo.sysop26.com/kot/nuevo/WS/kotVideos.php");
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["videos"] as $row) {
-		if($row["id_categoria"] == $tipo){ $list[] = $row; $cat = $row["categoria"];}
+		if ($tipo == 1) {
+			if($row["id_categoria"] == 1 || $row["id_categoria"] == 2){ $list[] = $row; $cat = $row["categoria"];}
+		}
+		else if ($tipo == 2) {
+			if($row["id_categoria"] == 4){ $list[] = $row; $cat = $row["categoria"];}
+		}
 	}
 ?>
 <!doctype html>

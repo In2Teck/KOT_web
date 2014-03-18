@@ -55,13 +55,19 @@
 		</div>
 		<!--  selector de peso o medidas -->
 
-		<center>
-			<div style="padding-top:0px;" data-role="controlgroup" data-type="horizontal">
-			<a href="#" id="btn-kilos" data-role="button">Peso</a>
-			<a href="#" id="btn-medidas" data-role="button">Medidas</a>
-			<a href="#" id="btn-grasa" data-role="button">% Grasa</a>
-			</div>
-		</center>
+		
+		<fieldset style="padding-top:5px; padding-left:8px; " data-role="controlgroup" data-type="horizontal">
+		<!--a href="#" id="btn-kilos" data-role="button">Peso</a>
+		<a href="#" id="btn-medidas" data-role="button">Medidas</a>
+		<a href="#" id="btn-grasa" data-role="button">% Grasa</a-->
+			<input type="radio" name="progresobtn" id="btn-kilos" checked="checked" value="peso"/>
+      <label for="btn-kilos">Peso</label>
+      <input type="radio" name="progresobtn" id="btn-medidas" value="medidas" />
+      <label for="btn-medidas">Medidas</label>
+      <input type="radio" name="progresobtn" id="btn-grasa" value="grasa" />
+      <label for="btn-grasa">% Grasa</label>
+		</fieldset >
+		
 		<div style="background:#fff; height:355px">
 		<!-- contenido grafica -->
 		
@@ -87,14 +93,14 @@
 		
 		
 	</div>
-	<div style="background:url(img/Element-03.png); background-size:140%; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:50px;">
+	<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
 		<div id="nav">
 			<ul class="bot-menu">
-				<a href="index.php"><li><img src="img/Element-08.png" width="35" height="35" /></li></a>
-				<a href="index2.php"><li><img src="img/Element-09.png" width="35" height="35" /><li></a>
-				<a href="index3.php"><li><img src="img/Element-11.png" width="35" height="35" /><li></a>
+				<a href="index.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_conoce.png" width="40" height="40" /></div>CONOCE KOT</li></a>
+				<a href="index2.php"><li class="bottom-menu-item" style="margin-left:15px;"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_mi_metodo.png" width="40" height="40" /></div>MI MÉTODO</li></a>
+				<a href="index3.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_ayuda.png" width="40" height="40" /></div>AYUDA</li></a>
 			</ul>
-		</div>		
+		</div>
 	</div>
 </div>
 </div>	

@@ -75,72 +75,81 @@ var publish_miprogreso = function(){
  }
 
 
-var ShowMetodo = function(id_user,tipo){
-	
-	var url = 'http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+id_user;
+var ShowMetodo = function(id_user, tipo, datos) {
+
 	var c = new Array();
 	var sd;
-	$.get(url,function(response){
-		var data = $.parseJSON(response);
-		var colacionVar;
-		if(tipo=="intensivo"){
-			sd = data.intensivo;
-			colacionVar = sd.colacion.fruta;
-		}else{
-			sd = data.progresivo;
-			colacionVar = sd.colacion.frutas;
-		}
-		
-			c[0] = '<ul class="tablas-metodo" style="width:100%;">';
-				c[0]+= '<li><span>'+sd.desayuno.cereal+' <a href="verpermitido.php?id=2">cereal</a></span></li>';
-				c[0]+= '<li><span>'+sd.desayuno.proteinas_vegetales+' <a href="verpermitido.php?id=10">prote\u00edna vegetal</a></span></li>';
-				c[0]+= '<li><span>'+sd.desayuno.frutas+' <a href="verpermitido.php?id=7">frutas</a></span></li>';
-				c[0]+= '<li><span>'+sd.desayuno.lacteos+' <a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
-				c[0]+= '<li><span>'+sd.desayuno.productosKot+' <a href="productos.php">productos KOT</a></span></li>';
-			c[0]+= "</ul>";
-			c[0]+= '<div style="clear:both;"></div>';
+	var colacionVar;
+	if(tipo=="intensivo") {
+		sd = datos.intensivo;
+		colacionVar = sd.colacion.fruta;
+	}
+	else{
+		sd = datos.progresivo;
+		colacionVar = sd.colacion.frutas;
+	}
+	
+	var index = 0;
 
-			c[1] = '<ul class="tablas-metodo">';
-				c[1]+= '<li><span>'+sd.comida.cereal+' cereal</span></li>';
-				c[1]+= '<li><span>'+sd.comida.proteinas+' <a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-				c[1]+= '<li><span>'+sd.comida.vegetales_crudo+' <a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
-				c[1]+= '<li><span>'+sd.comida.vegetales_cocidas+' <a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
-				c[1]+= '<li><span>'+sd.comida.cucharadas_aceite+' 2 <a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
-			c[1]+= "</ul>";
-			c[1]+= '<div style="clear:both;"></div>';
+		c[0] = '<ul class="tablas-metodo" style="width:100%;">';
+			for (index = 0; index < sd.desayuno.cereal; index++)
+				c[0]+= '<li><span><input type="checkbox" id="des-cer'+index+'" class="checktop"/><label for="des-cer'+index+'" class="checktop"><a href="verpermitido.php?id=2">cereal</a></label></span></li>';
+			for (index = 0; index < sd.desayuno.proteinas_vegetales; index++)
+				c[0]+= '<li><span><input type="checkbox" id="des-prot'+index+'" class="checktop"/><label for="des-prot'+index+'" class="checktop"><a href="verpermitido.php?id=10">prote\u00edna vegetal</a></span></li>';
+			for (index = 0; index < sd.desayuno.frutas; index++)
+				c[0]+= '<li><span><input type="checkbox" id="des-frut'+index+'" class="checktop"/><label for="des-frut'+index+'" class="checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+			for (index = 0; index < sd.desayuno.lacteos; index++)
+				c[0]+= '<li><span><input type="checkbox" id="des-lact'+index+'" class="checktop"/><label for="des-lact'+index+'" class="checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
+			for (index = 0; index < sd.desayuno.productosKot; index++)
+				c[0]+= '<li><span><input type="checkbox" id="des-kot'+index+'" class="checktop"/><label for="des-kot'+index+'" class="checktop"><a href="productos.php">productos KOT</a></span></li>';
+		c[0]+= "</ul>";
+		c[0]+= '<div style="clear:both;"></div>';
 
-			c[2] = '<ul class="tablas-metodo">';
-				c[2]+= '<li><span>'+colacionVar+' <a href="verpermitido.php?id=7">frutas</a></span></li>';
-				c[2]+= '<li><span>'+sd.colacion.productosKot+' <a href="productos.php">productos KOT</a></span></li>';
-			c[2]+= "</ul>";
-			c[2]+= '<div style="clear:both;"></div>';
+		c[1] = '<ul class="tablas-metodo">';
+			for (index = 0; index < sd.comida.cereal; index++)
+				c[1]+= '<li><span><input type="checkbox" id="com-cer'+index+'" class="checktop"/><label for="com-cer'+index+'" class="checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
+			for (index = 0; index < sd.comida.proteinas; index++)
+				c[1]+= '<li><span><input type="checkbox" id="com-prot'+index+'" class="checktop"/><label for="com-prot'+index+'" class="checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
+			for (index = 0; index < sd.comida.vegetales_crudo; index++)
+				c[1]+= '<li><span><input type="checkbox" id="com-vegc'+index+'" class="checktop"/><label for="com-vegc'+index+'" class="checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
+			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
+				c[1]+= '<li><span><input type="checkbox" id="com-vegi'+index+'" class="checktop"/><label for="com-vegi'+index+'" class="checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
+			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
+				c[1]+= '<li><span><input type="checkbox" id="com-ace'+index+'" class="checktop"/><label for="com-ace'+index+'" class="checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
+		c[1]+= "</ul>";
+		c[1]+= '<div style="clear:both;"></div>';
 
-			c[3] = '<ul class="tablas-metodo">';
-				c[3]+= '<li><span>'+sd.cena.cereal+' <a href="verpermitido.php?id=2">cereal</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.proteinas+' <a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.vegetales_crudo+' <a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.cucharadas_aceite+' 2 <a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.vegetales_cocidas+' <a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.frutas+' <a href="verpermitido.php?id=7">frutas</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.lacteos+' <a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
-				c[3]+= '<li><span>'+sd.cena.productosKot+' <a href="productos.php">producto KOT</a></span></li>';
-			c[3]+= "</ul>";
-			c[3]+= '<div style="clear:both;"></div>';
+		c[2] = '<ul class="tablas-metodo">';
+			for (index = 0; index < colacionVar; index++)
+				c[2]+= '<li><span><input type="checkbox" id="col1-frut'+index+'" class="checktop"/><label for="col1-frut'+index+'" class="checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+			for (index = 0; index < sd.colacion.productosKot; index++)
+				c[2]+= '<li><span><input type="checkbox" id="col1-kot'+index+'" class="checktop"/><label for="col1-kot'+index+'" class="checktop"><a href="productos.php">productos KOT</a></span></li>';
+		c[2]+= "</ul>";
+		c[2]+= '<div style="clear:both;"></div>';
 
+		c[3] = '<ul class="tablas-metodo">';
+			for (index = 0; index < sd.cena.cereal; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-cer'+index+'" class="checktop"/><label for="cena-cer'+index+'" class="checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
+			for (index = 0; index < sd.cena.proteinas; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-prot'+index+'" class="checktop"/><label for="cena-prot'+index+'" class="checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
+			for (index = 0; index < sd.cena.vegetales_crudo; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-vegcr'+index+'" class="checktop"/><label for="cena-vegcr'+index+'" class="checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
+			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-ace'+index+'" class="checktop"/><label for="cena-ace'+index+'" class="checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
+			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-vegco'+index+'" class="checktop"/><label for="cena-vegco'+index+'" class="checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
+			for (index = 0; index < sd.cena.frutas; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-frut'+index+'" class="checktop"/><label for="cena-frut'+index+'" class="checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+			for (index = 0; index < sd.cena.lacteos; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-lac'+index+'" class="checktop"/><label for="cena-lac'+index+'" class="checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
+			for (index = 0; index < sd.cena.productosKot; index++)
+				c[3]+= '<li><span><input type="checkbox" id="cena-kot'+index+'" class="checktop"/><label for="cena-kot'+index+'" class="checktop"><a href="productos.php">producto KOT</a></span></li>';
+		c[3]+= "</ul>";
+		c[3]+= '<div style="clear:both;"></div>';
 
-			
-
-
-				$(".contenido").each(function(index){
-					$(this).html(c[index]);
-				});
-			
-			
+	$(".contenido").each(function(index){
+		$(this).html(c[index]);
 	});
-	
-	
-	
-	
 }
 
 
@@ -225,51 +234,6 @@ $(document).ready(function() {
 			$("#no-ses").fadeIn();
 			$("#header-bar-text").text("Perfil No Registrado");
 		});
-			var register;
-		$("#registrar").click(function(){
-			var n_get = $("#nombre").val();
-			var a_get = $("#apellidos").val();
-			var nombre = $("#nombre").val() + " " + $("#apellidos").val();
-			var fecha_nacimiento = $("#fecha_nacimiento").val();
-			var altura = $("#altura").val();
-			var sexo = $("#sexo").val();
-			var email = $("#email").val();
-			var passw = $("#pass-reg").val();
-			var rep_pass = $("#confirma").val();
-								   
-			var is_true = validate(n_get,a_get,nombre,fecha_nacimiento,altura,sexo,email,passw,rep_pass);
-			
-			if(is_true == true){ 
-				var parametros = "nombre="+nombre+"&fecha_nacimiento="+fecha_nacimiento+"&altura="+altura;
-				parametros += "&mail="+email+"&password="+passw+"&sexo="+sexo+"&code=&token=123456789012345678012345";
-				$.get('http://kot.mx/nuevo/WS/kotRegistro.php?'+parametros,function(response){
-					var obj = $.parseJSON(response);
-					//{"ultima_actualizacion":"2012-03-01 11:26:32","mensaje_error":"","usuario":{"id":252,"nombre":"test test","edad":"04-11-1990","altura":1.5299999713898,"correo":"test123@gmail.com","password":"123123","nutriologo":""}}
-					if(obj.mensaje_error == ""){
-						//alert("ID : " + obj.usuario.id);
-						
-						$("#header-bar-text").text("Perfil Enlazado");
-					
-						localStorage.setItem("user_data",JSON.stringify(obj.usuario));
-						localStorage.setItem('sesionIniciada',true);
-						$("#no-ses").hide();
-						$("#info-user").fadeIn();
-						$("#numero-kot").text("Numero para tu especialista KOT: " + obj.usuario.id);
-						$("#info-name").text(obj.usuario.nombre),
-						$("#info-email").text(obj.usuario.correo);
-						$("#info-edad").text(obj.usuario.edad);
-						$("#info-estatura").text(parseFloat(obj.usuario.altura).toFixed(2) + "Mts");
-						$("#info-especialista").text("Especialista : " + obj.usuario.nutriologo);
-					}else{
-						alert("Error :: " + obj.mensaje_error);
-					}
-						
-				}); 
-			};
-			
-		});
-		
-		
 		
 		$("#checkLogin").click(function(){
 			var user = $("#user").val();
@@ -449,51 +413,41 @@ $(document).ready(function() {
 		var local = localStorage.getItem("user_data");
 		var user = $.parseJSON(local);
 		var user_id;
-		try {
+		var dataMetodo;
+		if (user && user.id) {
 			user_id = user.id;
-			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id,function(data_p){
-				var objtc = $.parseJSON(data_p);
+			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id, function(response) {
 				
-				var spanTxt = objtc.semana;
-				$("#semanas-int").text(spanTxt);
+				dataMetodo = $.parseJSON(response);
+				var semana = dataMetodo.semana;
+				if (semana != 1)
+					$("#semanas-h").text("Llevas " + semana + " semanas en el método KOT");
+				else
+					$("#semanas-h").text("Llevas " + semana + " semana en el método KOT");
+
+				$("#metodo").show();
+
+				var sd = dataMetodo.intensivo;
+	
+				if (sd.desayuno.cereal == null && sd.desayuno.proteinas==null && sd.desayuno.vegetales==null && sd.desayuno.frutas==null) {
+					//alert("El usuario no tiene datos !");
+					//location.href="index.php";
+					$("#metodo").hide();
+					$("#metodo-demo").fadeIn();
+				}
+
+				ShowMetodo(user_id,"intensivo", dataMetodo);
 			});
 		}
-		catch(err){
-			user_id = null;
-		}
-
-		
-		if(user_id==null) {
-			$("#metodo-demo").show();
-		}	
 		else {
-			$("#metodo").show();
+			$("#metodo-demo").show();
 		}
-
-		var url = 'http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id;
-		var dataFetched;
-		var serviceData;
-		var data;
-		
-		
-		$.get(url,function(response){	
-		 var dataGET = $.parseJSON(response);
-		 var sd = dataGET.intensivo;
-	
-		if(sd.desayuno.cereal == null && sd.desayuno.proteinas==null && sd.desayuno.vegetales==null && sd.desayuno.frutas==null){
-			//alert("El usuario no tiene datos !");
-			//location.href="index.php";
-			$("#metodo").hide();
-			$("#metodo-demo").fadeIn();
-		}
-			ShowMetodo(user_id,"intensivo");
-		});
 		
 		$("#btn-intensivo").click(function(){
-			ShowMetodo(user_id,"intensivo");	
+			ShowMetodo(user_id, "intensivo", dataMetodo);	
 		});
 		$("#btn-progresivo").click(function(){
-			ShowMetodo(user_id,"progresivo");
+			ShowMetodo(user_id, "progresivo", dataMetodo);
 		});
 		
 
