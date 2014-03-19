@@ -60,46 +60,42 @@
 		<div>
 			<div class="menu-title">MI MÉTODO</div>
 		</div>
-		<div id="panel">
+		<div id="panel"><br/>
 			<!-- PT1 -->
-			<div style="float:left; width:50%; position:relative;">
+			<div class="menu-item-container">
 				<a href="miprogreso.php">
-				<div style="margin:0 auto; width:100%; position:absolute; left:20px; top:30px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/mi_progreso.png" width="90" height="90" />
-					<br />
-					<div class="menu-item">MI PROGRESO</div>
 				</div>
+				<div class="menu-item">MI PROGRESO</div>
 				</a>
 			</div>
-			<div style="float:left; width:50%;  position:relative;">
+			<div class="menu-item-container">
 				<a href="mimetodo.php">
-				<div style="margin:0 auto; width:100%; position:absolute; left:180px; top:30px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/mi_metodo.png" width="90" height="90" />
-					<br />
-					<div class="menu-item">MI MÉTODO <br /> KOT</div>
 				</div>
+				<div class="menu-item">MI MÉTODO <br /> KOT</div>
 				</a>
 			</div>
 			
-			<div style="clear:both;"></div>
+			<div style="clear:both;"></div><br/>
 			
 			<!-- PT2 -->
-			<div style="float:left; width:50%; position:relative;">
+			<div class="menu-item-container">
 				<a href="filtroalimentos.php">
-				<div style="margin:0 auto; width:100%; position:absolute; top:200px; left:20px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/alimentos_permitidos.png" width="90" heigth="90" />
-					<br />
-					<div class="menu-item">ALIMENTOS <br/> PERMITIDOS</div>
 				</div>
+				<div class="menu-item">ALIMENTOS <br/> PERMITIDOS</div>
 				</a>
 			</div>
-			<div style="float:left; width:50%; position:relative;">
+			<div class="menu-item-container">
 				<a href="restaurantes.php">
-				<div style="margin:0 auto; width:100%; position:absolute; top:200px; left:180px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/restaurantes_permitidos.png" width="90" heigth="90" />
-					<br />
-					<div class="menu-item"> RESTAURANTES <br/>PERMITIDOS</div>
 				</div>
+				<div class="menu-item"> RESTAURANTES <br/>PERMITIDOS</div>
 				</a>
 			</div>
 			

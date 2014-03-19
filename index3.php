@@ -59,46 +59,42 @@
 		<div>
 			<div class="menu-title">AYUDA</div>
 		</div>
-		<div id="panel">
+		<div id="panel"><br/>
 			<!-- PT1 -->
-			<div style="float:left; width:50%; position:relative;">
+			<div class="menu-item-container">
 				<a href="faq_menu.php">
-				<div style="margin:0 auto; width:100%; position:absolute; left:20px; top:30px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/preguntas_frecuentes.png" width="90" height="90" />
-					<br />
-					<div class="menu-item">PREGUNTAS <br/>FRECUENTES</div>
 				</div>
+				<div class="menu-item">PREGUNTAS <br/>FRECUENTES</div>
 				</a>
 			</div>
-			<div style="float:left; width:50%;  position:relative;">
+			<div class="menu-item-container">
 				<a href="contacto.php">
-				<div style="margin:0 auto; width:100%; position:absolute; left:180px; top:30px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/conoce.png" width="90" height="90" />
-					<br />
-					<div class="menu-item">CONTACTO </div>
 				</div>
+				<div class="menu-item">CONTACTO </div>
 				</a>
 			</div>
 			
-			<div style="clear:both;"></div>
+			<div style="clear:both;"></div><br/>
 			
 			<!-- PT2 -->
-			<div style="float:left; width:50%; position:relative;">
+			<div class="menu-item-container">
 				<a href="perfil.php">
-				<div style="margin:0 auto; width:100%; position:absolute; top:200px; left:20px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/sincroniza.png" width="90" heigth="90" />
-					<br />
-					<div class="menu-item">SINCRONIZA <br/> TU MÉTODO </div>
 				</div>
+				<div class="menu-item">SINCRONIZA <br/> TU MÉTODO </div>
 				</a>
 			</div>
-			<div style="float:left; width:50%; position:relative;">
+			<div class="menu-item-container">
 				<a href="">
-				<div style="margin:0 auto; width:100%; position:absolute; top:200px; left:180px;">
+				<div class="menu-item-image">
 					<img src="img/nuevo/tutorial.png" width="90" heigth="90" />
-					<br />
-					<div class="menu-item"> TUTORIAL </div>
 				</div>
+				<div class="menu-item"> TUTORIAL </div>
 				</a>
 			</div>
 			

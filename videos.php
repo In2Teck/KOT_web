@@ -6,10 +6,10 @@
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["videos"] as $row) {
 		if ($tipo == 1) {
-			if($row["id_categoria"] == 1 || $row["id_categoria"] == 2){ $list[] = $row; $cat = $row["categoria"];}
+			if($row["id_categoria"] == 1 || $row["id_categoria"] == 2){ $list[] = $row; $cat = "Videos Testimoniales";}
 		}
 		else if ($tipo == 2) {
-			if($row["id_categoria"] == 4){ $list[] = $row; $cat = $row["categoria"];}
+			if($row["id_categoria"] == 4){ $list[] = $row; $cat = "Videos de preparación";}
 		}
 	}
 ?>
@@ -68,15 +68,37 @@
 				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
 		</div>
 		<ul id="video-list" style="margin:0;">
-			<?php foreach($list as $item) : ?>
-				<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
-					<li>
-						<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
-						<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
-						<div style="clear:both;"></div>
-					</li>
-				</a>
-			<?php endforeach; ?>	
+			<?php if ($tipo == 1) { ?>
+				<br/><div style="font-size:16px;text-align:center;">Testimoniales de Pacientes</div><br/>
+				<?php foreach($list as $item) : if ($item["id_categoria"] == 1) {?>
+					<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
+						<li>
+							<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+							<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
+							<div style="clear:both;"></div>
+						</li>
+					</a>
+				<?php } endforeach; ?>
+				<br/><div style="font-size:16px;text-align:center;">Testimoniales de Especialistas</div><br/>
+				<?php foreach($list as $item) : if ($item["id_categoria"] == 2) {?>
+					<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
+						<li>
+							<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+							<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
+							<div style="clear:both;"></div>
+						</li>
+					</a>
+				<?php } endforeach;
+				} else { 
+					foreach($list as $item) : ?>
+						<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
+							<li>
+								<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+								<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
+								<div style="clear:both;"></div>
+							</li>
+						</a>
+				<?php endforeach; }?>
 		</ul>
 
 	</div>
