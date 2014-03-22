@@ -59,42 +59,40 @@
 		<div>
 			<div class="menu-title">AYUDA</div>
 		</div>
-		<div id="panel"><br/>
+		<div id="panel">
 			<!-- PT1 -->
 			<div class="menu-item-container">
 				<a href="faq_menu.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/preguntas_frecuentes.png" width="90" height="90" />
-				</div>
-				<div class="menu-item">PREGUNTAS <br/>FRECUENTES</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/preguntas_frecuentes.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">PREGUNTAS <br/>FRECUENTES</div> -->
 				</a>
 			</div>
 			<div class="menu-item-container">
 				<a href="contacto.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/conoce.png" width="90" height="90" />
-				</div>
-				<div class="menu-item">CONTACTO </div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/conoce.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">CONTACTO </div> -->
 				</a>
 			</div>
-			
-			<div style="clear:both;"></div><br/>
 			
 			<!-- PT2 -->
 			<div class="menu-item-container">
 				<a href="perfil.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/sincroniza.png" width="90" heigth="90" />
-				</div>
-				<div class="menu-item">SINCRONIZA <br/> TU MÉTODO </div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/sincroniza.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">SINCRONIZA <br/> TU MÉTODO </div> -->
 				</a>
 			</div>
 			<div class="menu-item-container">
 				<a href="">
-				<div class="menu-item-image">
-					<img src="img/nuevo/tutorial.png" width="90" heigth="90" />
-				</div>
-				<div class="menu-item"> TUTORIAL </div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/tutorial.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item"> TUTORIAL </div> -->
 				</a>
 			</div>
 			

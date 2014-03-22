@@ -60,42 +60,40 @@
 		<div>
 			<div class="menu-title">MI MÉTODO</div>
 		</div>
-		<div id="panel"><br/>
+		<div id="panel">
 			<!-- PT1 -->
 			<div class="menu-item-container">
 				<a href="miprogreso.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/mi_progreso.png" width="90" height="90" />
-				</div>
-				<div class="menu-item">MI PROGRESO</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/mi_progreso.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">MI PROGRESO</div> -->
 				</a>
 			</div>
 			<div class="menu-item-container">
 				<a href="mimetodo.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/mi_metodo.png" width="90" height="90" />
-				</div>
-				<div class="menu-item">MI MÉTODO <br /> KOT</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/mi_metodo.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">MI MÉTODO <br /> KOT</div> -->
 				</a>
 			</div>
-			
-			<div style="clear:both;"></div><br/>
 			
 			<!-- PT2 -->
 			<div class="menu-item-container">
 				<a href="filtroalimentos.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/alimentos_permitidos.png" width="90" heigth="90" />
-				</div>
-				<div class="menu-item">ALIMENTOS <br/> PERMITIDOS</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/alimentos_permitidos.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">ALIMENTOS <br/> PERMITIDOS</div> -->
 				</a>
 			</div>
 			<div class="menu-item-container">
 				<a href="restaurantes.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/restaurantes_permitidos.png" width="90" heigth="90" />
-				</div>
-				<div class="menu-item"> RESTAURANTES <br/>PERMITIDOS</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/restaurantes_permitidos.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item"> RESTAURANTES <br/>PERMITIDOS</div> -->
 				</a>
 			</div>
 			

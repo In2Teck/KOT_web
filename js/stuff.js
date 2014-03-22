@@ -80,11 +80,12 @@ var ShowMetodo = function(id_user, tipo, datos) {
 	var c = new Array();
 	var sd;
 	var colacionVar;
-	if(tipo=="intensivo") {
+
+	if (tipo=="intensivo") {
 		sd = datos.intensivo;
 		colacionVar = sd.colacion.fruta;
 	}
-	else{
+	else {
 		sd = datos.progresivo;
 		colacionVar = sd.colacion.frutas;
 	}
@@ -147,8 +148,22 @@ var ShowMetodo = function(id_user, tipo, datos) {
 		c[3]+= "</ul>";
 		c[3]+= '<div style="clear:both;"></div>';
 
-	$(".contenido").each(function(index){
-		$(this).html(c[index]);
+	$(".contenido").each(function(i){
+		$(this).html(c[i]);
+	});
+
+	var storeMetodo = JSON.parse(localStorage.getItem("metodo"));
+	$("[type=checkbox]").each(function(i, value) {
+		if (storeMetodo[tipo][value.id]) {
+			$(value).prop("checked", true);
+		}
+	});
+
+	$("[type=checkbox]").change(function(event) { 
+		var target = event.target;
+		var storeMetodo = JSON.parse(localStorage.getItem("metodo"));
+		storeMetodo[tipo][target.id] = $(target).is(':checked');
+		localStorage.setItem("metodo", JSON.stringify(storeMetodo));
 	});
 }
 
@@ -416,6 +431,24 @@ $(document).ready(function() {
 		var dataMetodo;
 		if (user && user.id) {
 			user_id = user.id;
+
+			var now = new Date();
+			var storeMetodo = localStorage.getItem("metodo");
+			if (!storeMetodo) {
+				var today3am = now.getTime() - ((((now.getHours() - 3) * 3600) + (now.getMinutes() * 60) + now.getSeconds()) * 1000 + now.getMilliseconds());
+				storeMetodo = {"user": user_id, "last": today3am, "progresivo": {}, "intensivo":{}};
+				localStorage.setItem("metodo", JSON.stringify(storeMetodo));
+			}
+			else {
+				var last = JSON.parse(storeMetodo).last;
+				var diff = last - now;
+				if (diff >= 86400000) {
+					var next3am = last + 86400000;
+					storeMetodo = {"user": user_id, "last": next3am, "progresivo": {}, "intensivo":{}};
+					localStorage.setItem("metodo", JSON.stringify(storeMetodo));
+				}
+			}
+
 			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id, function(response) {
 				
 				dataMetodo = $.parseJSON(response);

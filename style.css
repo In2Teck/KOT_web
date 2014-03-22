@@ -386,6 +386,7 @@ div#note{
 	font-family: kot;
 	font-size: 28px;
 	font-weight: bold;
+	letter-spacing: 1.2px;
 	margin:auto;
 	padding-top:20px; 
 	text-align:center;
@@ -399,16 +400,19 @@ div#note{
 }
 
 .menu-item-image {
-	margin: auto;
+	height: 170px;
+	margin: 0 10px;
+	width: 120px;
+	/*margin: auto;
 	position: relative;
-	width: 90px;
+	width: 90px;*
 }
 
 .menu-item {
 	color: white;
 	font-family: kot;
 	font-size: 16px;
-	font-weight: bold;
+	font-weight: normal;
 	margin: auto;
 	position: relative;
 	text-align: center;

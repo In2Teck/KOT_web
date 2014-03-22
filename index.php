@@ -81,42 +81,40 @@ window.fbAsyncInit = function() {
 		<div>
 			<div class="menu-title">CONOCE KOT</div>
 		</div>
-		<div id="panel"><br/>
+		<div id="panel">
 			<!-- PT1 -->
 			<div class="menu-item-container">
 				<a href="imc.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/imc.png" width="90" height="90" />
-				</div>
-				<div class="menu-item">CALCULA<br/>TU IMC</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/imc.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">CALCULA<br/>TU IMC</div> -->
 				</a>
 			</div>
 			<div class="menu-item-container">
 				<a href="nutriologos.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/especialistas.png" width="90" height="90" />
-				</div>
-				<div class="menu-item">ESPECIALISTAS <br /> KOT</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/especialistas.png" class="menu-item-image" />
+					<!--/div>
+				<div class="menu-item">ESPECIALISTAS <br /> KOT</div> -->
 				</a>
 			</div>
-			
-			<div style="clear:both;"></div><br/>
 			
 			<!-- PT2 -->
 			<div class="menu-item-container">
 				<a href="videos.php?tipo=1">
-				<div class="menu-item-image">
-					<img src="img/nuevo/videos.png" width="90" heigth="90" />
-				</div>
-				<div class="menu-item">VIDEOS<br />TESTIMONIALES</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/videos.png" class="menu-item-image" />
+					<!--/div>
+				<div class="menu-item">VIDEOS<br />TESTIMONIALES</div> -->
 				</a>
 			</div>
 			<div class="menu-item-container">
 				<a href="productos.php">
-				<div class="menu-item-image">
-					<img src="img/nuevo/productos.png" width="90" heigth="90" />
-				</div>
-				<div class="menu-item">PRODUCTOS <br/> KOT</div>
+				<!--div class="menu-item-image"-->
+					<img src="img/nuevo/productos.png" class="menu-item-image" />
+				<!--/div>
+				<div class="menu-item">PRODUCTOS <br/> KOT</div> -->
 				</a>
 			</div>
 			
