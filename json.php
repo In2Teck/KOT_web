@@ -5,7 +5,7 @@ class WS
 	public function get($tipo,$parametros)
 	{
 		$servicios = array('login' => 'http://kot.mx/nuevo/WS/kotLogin.php?'.$parametros,
-						   'progreso' => 'http://kot.mx/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
+						   'progreso' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
 						   'metodo' => 'http://kot.mx/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',
 						   'restaurantes' => 'http://kot.mx/nuevo/WS/kotRestaurantes.php',
@@ -61,6 +61,7 @@ switch($action)
 		$array = $doit->get('progreso',$idKOT);
 		$last_kilos = end($array["kilos"]);
 		$last_medida = end($array["medidas"]);
+		$last_grasa = end($array["grasas"]);
 		
 		foreach($array["kilos"] as $item):
 			$data_kilos[] = array("semana" => $item["Semana"], "valor" => $item["kilos"]);
@@ -68,6 +69,10 @@ switch($action)
 
 		foreach($array["medidas"] as $item):
 			$data_medidas[] = array("semana" => $item["Semana"], "valor" => $item["medida"]);
+		endforeach;
+
+		foreach($array["grasas"] as $item):
+			$data_grasas[] = array("semana" => $item["Semana"], "valor" => $item["grasa"]);
 		endforeach;
 
 		$array_toJSON = array(
@@ -81,6 +86,11 @@ switch($action)
 				"progreso" => $array["medida_inicio"] - $last_medida["medida"], 
 				"actual" => $last_medida["medida"],
 				"datos" => $data_medidas
+			),
+			"grasa" => array(
+				"progreso" => $array["grasa_inicio"] - $last_grasa["grasa"], 
+				"actual" => $last_grasa["grasa"],
+				"datos" => $data_grasas
 			)
 		);
 		

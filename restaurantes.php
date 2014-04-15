@@ -68,6 +68,12 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotRestaurantes.php");
 			<center>
 				<div style="width:230px">
 					<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
+					<div id="sort-btns" data-role="controlgroup" data-type="horizontal">
+						<input type="radio" name="sortbtn" id="btn-az" checked="checked" value="az"  />
+		        <label for="btn-az">A-Z</label>
+		        <input type="radio" name="sortbtn" id="btn-distancia" value="distancia"  />
+		        <label for="btn-distancia">Distancia</label>
+					</div>
 				</div>
 			</center><br/>
 			<ul id="listado" data-role="listview" data-filter="true" data-filter-placeholder="Busca tu restaurante">

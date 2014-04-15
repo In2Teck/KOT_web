@@ -77,9 +77,9 @@
 		<div id="metodo" style="display:none;">
 			<div style="padding-top:20px; padding-left:35px; margin:auto;" data-role="controlgroup" data-type="horizontal">
 				<input type="radio" name="metodobtn" id="btn-intensivo" checked="checked" value="intensivo"  />
-        <label for="btn-intensivo">Intensivo</label>
+        <label for="btn-intensivo" >Intensivo</label>
         <input type="radio" name="metodobtn" id="btn-progresivo" value="progresivo"  />
-        <label for="btn-progresivo">Progresivo</label>
+        <label for="btn-progresivo" >Progresivo</label>
 			</div>
 			<br/><br/>
 			<h4 id="semanas-h" align="center"></h4>

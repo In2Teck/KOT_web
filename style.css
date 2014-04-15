@@ -251,7 +251,7 @@ body
 	background:#fff;
 }
 #video-list li{
-	height:98px;
+	height: auto;
 	border-bottom:solid 1px #EEEEEE;
 }
 #video-list a{
@@ -405,7 +405,7 @@ div#note{
 	width: 120px;
 	/*margin: auto;
 	position: relative;
-	width: 90px;*
+	width: 90px;*/
 }
 
 .menu-item {
@@ -433,4 +433,26 @@ div#note{
 
 .invisible {
 	display: none;
+}
+
+#cinta_azul {
+	background: url(img/Banderilla.png) no-repeat;
+	background-position: center;
+	background-size: 100%;
+	bottom: 5px;
+	color: #fff;
+	font-size: 16px;
+	height: 25px;
+	position: relative;
+	width: 100%;
+}
+
+#sort-btns {
+	display: none;
+	margin-left: 22px;
+}
+
+.test {
+	border: 1px solid red !important;
+	background: red  !important;
 }

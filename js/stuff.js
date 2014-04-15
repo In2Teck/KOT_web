@@ -315,6 +315,7 @@ $(document).ready(function() {
 						$("#cinta_azul").text("¡Felicidades, llegaste a tu meta!");
 
 					drawChart(ctx, obj.kilos.datos, "#0000FF");
+					shouldPostFB(obj.kilos);
 			});
 		}
 		else {
@@ -348,9 +349,9 @@ $(document).ready(function() {
 
 		$("#btn-grasa").click(function() {
 			progreso_type = "Grasa";
-			drawChart(ctx, obj.kilos.datos, "#00FF00");
-			$("#span-strt").text(+ obj.kilos.actual + " %");
-			$("#span-end").text(obj.kilos.progreso + " %");
+			drawChart(ctx, obj.grasa.datos, "#00FF00");
+			$("#span-strt").text(+ obj.grasa.actual + " %");
+			$("#span-end").text(obj.grasa.progreso + " %");
 			$("#cinta_azul").hide();
 		});
 		
@@ -378,7 +379,7 @@ $(document).ready(function() {
 		
 		sorted.sort();
 		max = parseInt(sorted.pop()) + 2;
-		min = sorted.shift() - 2;
+		min = parseInt(sorted.shift()) - 2;
 		var diff = getMCD(max, min);
 		if (diff > 12 || diff < 3) {  
 			max -= 1;  
@@ -419,6 +420,15 @@ $(document).ready(function() {
 		}
 	}
 
+	function shouldPostFB(kilos) {
+		if (kilos.print <= 0) {
+
+		}
+		else if (kilos.progreso >= 10) {
+			
+		}
+
+	}
 
 	/***********************
 	 * Mi Método
@@ -441,7 +451,7 @@ $(document).ready(function() {
 			}
 			else {
 				var last = JSON.parse(storeMetodo).last;
-				var diff = last - now;
+				var diff = now - last;
 				if (diff >= 86400000) {
 					var next3am = last + 86400000;
 					storeMetodo = {"user": user_id, "last": next3am, "progresivo": {}, "intensivo":{}};
@@ -549,6 +559,7 @@ $(document).ready(function() {
 		});
 
 		$("#ciudad").change(function(event) {
+			$("#sort-btns").css("display", "block");
 			var selected = event.currentTarget.value;
 			var resultados = filtraPorCiudad(obj.nutriologos, selected);
 			$("#listado").empty();
@@ -561,6 +572,36 @@ $(document).ready(function() {
 				}
 			}
 		});
+
+		$("#btn-az").click(function() {
+			var resultados = filtraPorCiudad(obj.nutriologos, $('#ciudad').val());
+			$("#listado").empty();
+			for (var i = 0; i < resultados.length; i++) {
+				$("#listado").append('<li data-role="list-divider" class="letra ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
+				for (var j = 0; j < resultados[i].items.length; j++) {
+					var item = resultados[i].items[j];
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
+				}
+			}
+		});
+
+		$("#btn-distancia").click(function() {
+			if (navigator.geolocation) {
+    		navigator.geolocation.getCurrentPosition(function(position) {
+    			var resultados = ordenaPorDistancia(obj.nutriologos, $('#ciudad').val(), position);
+    			$("#listado").empty();
+					for (var i = 0; i < resultados.length; i++) {
+						var item = resultados[i];
+						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
+						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
+					}
+    		}, onPositionError);
+  		} else {
+    		onPositionError('not supported');
+  		}
+		});
+
 	});
 
 	/***********************
@@ -578,6 +619,7 @@ $(document).ready(function() {
 		});
 
 		$("#ciudad").change(function(event) {
+			$("#sort-btns").css("display", "block");
 			var selected = event.currentTarget.value;
 			var resultados = filtraPorCiudadRest(obj.restaurante, selected);
 			$("#listado").empty();
@@ -590,6 +632,34 @@ $(document).ready(function() {
 				}
 			}
 		});
+		
+		$("#btn-az").click(function() {
+			var resultados = filtraPorCiudadRest(obj.restaurante, $('#ciudad').val());
+			$("#listado").empty();
+			for (var i = 0; i < resultados.length; i++) {
+				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
+				for (var j = 0; j < resultados[i].items.length; j++) {
+					var item = resultados[i].items[j];
+					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+				}
+			}
+		});
+
+		$("#btn-distancia").click(function() {
+			if (navigator.geolocation) {
+    		navigator.geolocation.getCurrentPosition(function(position) {
+    			var resultados = ordenaPorDistanciaRest(obj.restaurante, $('#ciudad').val(), position);
+    			$("#listado").empty();
+					for (var i = 0; i < resultados.length; i++) {
+						var item = resultados[i];
+						$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+					}
+    		}, onPositionError);
+  		} else {
+    		onPositionError('not supported');
+  		}
+		});
+
 	});
 
 	/***********************
@@ -669,7 +739,8 @@ function comparaCiudadesRest(a,b) {
   return 0;
 }
 
-function filtraPorCiudad(values, selected) {
+function filtraPorCiudad(original, selected) {
+	var values = deepCopy(original);
 	var resultados = [];
 	for (var i = 0; i < values.length; i++) {
 		var letra = values[i];
@@ -690,7 +761,8 @@ function filtraPorCiudad(values, selected) {
 	return resultados;
 }
 
-function filtraPorCiudadRest(values, selected) {
+function filtraPorCiudadRest(original, selected) {
+	var values = deepCopy(original);
 	var resultados = [];
 	for (var i = 0; i < values.length; i++) {
 		var letra = values[i];
@@ -709,4 +781,80 @@ function filtraPorCiudadRest(values, selected) {
 		}
 	}
 	return resultados;
+}
+
+function ordenaPorDistancia(values, filtro, position) {
+	var nutriologos = filtraPorCiudad(values, filtro);
+	var resultados = [];
+	for (var i = 0; i < nutriologos.length; i++) {
+		for (var j = 0; j < nutriologos[i].items.length; j ++) {
+			var item = nutriologos[i].items[j];
+			item.distancia = calculaDistancia(position.coords.latitude, position.coords.longitude, item.latitud, item.longitud);
+			resultados.push(item);
+		}
+	}
+	resultados.sort(comparaDistancias);
+	return resultados;
+}
+
+function ordenaPorDistanciaRest(values, filtro, position) {
+	var rests = filtraPorCiudadRest(values, filtro);
+	var resultados = [];
+	for (var i = 0; i < rests.length; i++) {
+		for (var j = 0; j < rests[i].items.length; j ++) {
+			var item = rests[i].items[j];
+			item.distancia = calculaDistancia(position.coords.latitude, position.coords.longitude, item.latitud, item.longitud);
+			resultados.push(item);
+		}
+	}
+	resultados.sort(comparaDistancias);
+	return resultados;
+}
+
+function calculaDistancia(lat1, lon1, lat2, lon2) {
+	var R = 6371; // km
+	var dLat = toRad((lat2-lat1));
+	var dLon = toRad((lon2-lon1));
+	var lat1 = toRad(lat1);
+	var lat2 = toRad(lat2);
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+	        Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+	var d = R * c;
+	return d;
+}
+
+function toRad(Value) {
+  /** Converts numeric degrees to radians */
+  return Value * Math.PI / 180;
+}
+
+function onPositionError(msg) {
+ 	alert("Tu navegador no es compatible o necesitas habilitar la opción de localización en tu teléfono");
+}
+
+function comparaDistancias(a,b) {
+  if (a.distancia < b.distancia)
+     return -1;
+  if (a.distancia > b.distancia)
+    return 1;
+  return 0;
+}
+
+function deepCopy(obj) {
+    if (Object.prototype.toString.call(obj) === '[object Array]') {
+        var out = [], i = 0, len = obj.length;
+        for ( ; i < len; i++ ) {
+            out[i] = arguments.callee(obj[i]);
+        }
+        return out;
+    }
+    if (typeof obj === 'object') {
+        var out = {}, i;
+        for ( i in obj ) {
+            out[i] = arguments.callee(obj[i]);
+        }
+        return out;
+    }
+    return obj;
 }

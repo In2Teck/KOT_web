@@ -21,6 +21,7 @@
 <meta id="meta" name="viewport" content="width=device-width initial-scale=1.0" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/facebook.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js"></script>
 
 <style type="text/css" media="screen">
@@ -73,8 +74,8 @@
 				<?php foreach($list as $item) : if ($item["id_categoria"] == 1) {?>
 					<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
 						<li>
-							<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
-							<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
+							<div style="float:left; width:50%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+							<div style="float:left; width:50%;"><img src="<?php echo $item["thumbnail"];?>" width="150" height="100"/></div>
 							<div style="clear:both;"></div>
 						</li>
 					</a>
@@ -83,8 +84,8 @@
 				<?php foreach($list as $item) : if ($item["id_categoria"] == 2) {?>
 					<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
 						<li>
-							<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
-							<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
+							<div style="float:left; width:50%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+							<div style="float:left; width:50%;"><img src="<?php echo $item["thumbnail"];?>" width="150" height="100"/></div>
 							<div style="clear:both;"></div>
 						</li>
 					</a>
@@ -93,13 +94,23 @@
 					foreach($list as $item) : ?>
 						<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>">
 							<li>
-								<div style="float:left; width:70%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
-								<div style="float:left; width:30%;"><img src="<?php echo $item["thumbnail"];?>" width="93" height="96"/></div>
+								<div style="float:left; width:50%;"><p style="font-size:13px; font-weight:normal; margin:10px;"><?php echo $item["Nombre"];?></p></div>
+								<div style="float:left; width:50%;"><img src="<?php echo $item["thumbnail"];?>" width="150" height="100"/></div>
 								<div style="clear:both;"></div>
 							</li>
 						</a>
 				<?php endforeach; }?>
 		</ul>
+
+		<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
+			<div id="nav">
+				<ul class="bot-menu">
+					<a href="index.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_conoce.png" width="40" height="40" /></div>CONOCE KOT</li></a>
+					<a href="index2.php"><li class="bottom-menu-item" style="margin-left:15px;"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_mi_metodo.png" width="40" height="40" /></div>MI MÉTODO</li></a>
+					<a href="index3.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_ayuda.png" width="40" height="40" /></div>AYUDA</li></a>
+				</ul>
+			</div>
+		</div>
 
 	</div>
 </div>

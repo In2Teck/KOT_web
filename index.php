@@ -12,35 +12,14 @@
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 <script src="js/Chart.js"></script>
 <script src="js/jquery.simplemodal.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/facebook.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js?<?php echo rand(19999,1929381) ?>"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <style type="text/css" media="screen">
 	@import url("style.css");
 	@import url("jquery.mobile-1.0.css");
 </style>
-<script type="text/javascript" charset="utf-8">	
 
-window.fbAsyncInit = function() {
- FB.init(
-		 	{
-   				appId      : '251706724889890',
-   				status     : true, 
-   				cookie     : true,
-   				xfbml      : true,
-   				oauth      : true
-	     	}
-	    );
-
-};
-	(function(d){
-	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement('script'); js.id = id; js.async = true;
-	     js.src = "//connect.facebook.net/en_US/all.js";
-	     ref.parentNode.insertBefore(js, ref);
-	   }(document));
-
-</script>
 <!--Google Analytics-->
 <script type="text/javascript">
 	var _gaq = _gaq || [];
@@ -110,11 +89,11 @@ window.fbAsyncInit = function() {
 				</a>
 			</div>
 			<div class="menu-item-container">
-				<a href="productos.php">
+				<a href="contacto.php">
 				<!--div class="menu-item-image"-->
-					<img src="img/nuevo/productos.png" class="menu-item-image" />
+					<img src="img/nuevo/conoce.png" class="menu-item-image" />
 				<!--/div>
-				<div class="menu-item">PRODUCTOS <br/> KOT</div> -->
+				<div class="menu-item">CONTACTO </div> -->
 				</a>
 			</div>
 			

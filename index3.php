@@ -12,6 +12,7 @@
 <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
 <script src="js/Chart.js"></script>
 <script src="js/jquery.simplemodal.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/facebook.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/stuff.js?<?php echo rand(19999,1929381) ?>"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <style type="text/css" media="screen">
@@ -70,11 +71,11 @@
 				</a>
 			</div>
 			<div class="menu-item-container">
-				<a href="contacto.php">
+				<a href="productos.php">
 				<!--div class="menu-item-image"-->
-					<img src="img/nuevo/conoce.png" class="menu-item-image" />
+					<img src="img/nuevo/productos.png" class="menu-item-image" />
 				<!--/div>
-				<div class="menu-item">CONTACTO </div> -->
+				<div class="menu-item">PRODUCTOS <br/> KOT</div> -->
 				</a>
 			</div>
 			

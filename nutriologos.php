@@ -1,4 +1,5 @@
 <?php
+
 $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["nutriologos"] as $row){
@@ -67,12 +68,17 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 		<center>
 			<div style="width:230px">
 				<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
+				<div id="sort-btns" data-role="controlgroup" data-type="horizontal">
+					<input type="radio" name="sortbtn" id="btn-az" checked="checked" value="az"  />
+	        <label for="btn-az">A-Z</label>
+	        <input type="radio" name="sortbtn" id="btn-distancia" value="distancia"  />
+	        <label for="btn-distancia">Distancia</label>
+				</div>
 			</div>
-		</center><br >
+		</center><div style="height:60px;"></div>
+
 			<ul id="listado" data-role="listview">
 				<?php
-				
-
 				
 					foreach($list as $item){
 						echo '<li data-role="list-divider" class="letra">'.$item["letra"].'</li>';
