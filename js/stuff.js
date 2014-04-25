@@ -378,12 +378,32 @@ $(document).ready(function() {
 		});
 		
 		sorted.sort();
-		max = parseInt(sorted.pop()) + 2;
-		min = parseInt(sorted.shift()) - 2;
-		var diff = getMCD(max, min);
-		if (diff > 12 || diff < 3) {  
-			max -= 1;  
+		max = parseInt(sorted[sorted.length - 1]);
+		min = parseInt(sorted[0]);
+		var diff;
+
+		/*if (min <= 0) {
+			max += 2;
+			diff = getMCD(max, 1);
+			if (diff > 12) {  
+				max -= 1;  
+				diff = getMCD(max, 1);
+			}
+		}
+		else */if (min == max) {
+			max += 2;
+			min -= 2;
+			diff = 4;
+		}
+
+		else {
+			max += 2;
+			min -= 2;
 			diff = getMCD(max, min);
+			if (diff > 12 || diff < 3) {  
+				max -= 1;  
+				diff = getMCD(max, min);
+			}
 		}
 
 		var chartData = {

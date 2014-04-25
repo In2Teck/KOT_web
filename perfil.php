@@ -56,8 +56,8 @@
 			<div style="width:90%; margin:0 auto;">
 			
 			<p style="font-size:12px;">Si ya acudiste con tu especialista KOT enlaza tu información</p>
-			<input type="text" id="user" value="Correo Electronico" onfocus="this.value=''" onblur="if(this.value=='') this.value='Correo Electronico'" />
-			<input type="text" id="pass" value="Password o Codigo" onfocus="if(this.value == 'Password o Codigo'){this.value='';} this.type='password'" onblur="if(this.value==''){ this.value='Password o Codigo'; this.type='text'; }" />
+			<input type="text" id="user" value="Correo Electrónico" onfocus="if(this.value == 'Correo Electrónico') this.value=''" onblur="if(this.value=='') this.value='Correo Electrónico'" />
+			<input type="text" id="pass" value="Código" onfocus="if(this.value == 'Código') this.value=''" onblur="if(this.value=='') this.value='Código'" />
 			<input type="button" value="Enlazar Datos" id="checkLogin" />
 			</div>
 		</div>
