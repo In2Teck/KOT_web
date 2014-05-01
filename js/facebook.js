@@ -28,7 +28,6 @@ function loadFB() {
 
 
 function publishVideo(name, description, link) {
-  console.log(link);
   FB.ui({
     method: 'feed',
     name: (name != null ? name : null),

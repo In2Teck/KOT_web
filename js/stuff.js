@@ -451,8 +451,6 @@ $(document).ready(function() {
 	}
 
 	function shouldPostFB(kilos) {
-		console.log("print " + kilos.print);
-		console.log("progreso " + kilos.progreso);
 		if (kilos.print <= 0) {
 			$("#fb-modal #titulo-txt").text("¡Felicidades, llegaste a tu meta!");
 			$("#fb-modal #mensaje-txt").text("¿Deseas compartirlo en Facebook?");
