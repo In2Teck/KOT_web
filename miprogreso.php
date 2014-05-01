@@ -102,6 +102,22 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="fb-modal" class="invisible">
+		  <center><h2 id="titulo-txt"></h2></center>
+		  <div id="content">
+		  	<center>
+		    	<div id="mensaje-txt" class="horizontal"></div><br/><br/>
+		    	<input type="hidden" id="hidden-val"/>
+		    	<input type="hidden" id="hidden-kilos"/>
+		    	<div>
+		    		<input type="button" value="SÍ" onclick="$.modal.close(); publishLogro($('#hidden-val').val(), $('#hidden-kilos').val());"/>
+		    		<input type="button" value="NO" onclick="$.modal.close();"/>
+		    	</div>
+		    </center>
+		  </div>
+		</div>
+
 	</div>
 </div>
 </body>

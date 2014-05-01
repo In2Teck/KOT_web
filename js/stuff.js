@@ -382,15 +382,16 @@ $(document).ready(function() {
 		min = parseInt(sorted[0]);
 		var diff;
 
-		/*if (min <= 0) {
+		if (min <= 0) {
 			max += 2;
-			diff = getMCD(max, 1);
-			if (diff > 12) {  
-				max -= 1;  
-				diff = getMCD(max, 1);
+			min = 0;
+			diff = max;
+			while (diff > 12) {  
+				max += 1;  
+				diff = getMCD(max, 2);
 			}
 		}
-		else */if (min == max) {
+		else if (min == max) {
 			max += 2;
 			min -= 2;
 			diff = 4;
@@ -400,9 +401,18 @@ $(document).ready(function() {
 			max += 2;
 			min -= 2;
 			diff = getMCD(max, min);
-			if (diff > 12 || diff < 3) {  
-				max -= 1;  
+			var odd = 1;
+			while (diff > 12 || diff < 3) {  
+				if (odd % 2) {
+					min -= 1;
+					if (min <= 0)
+						min = 2;
+				}
+				else {
+					max -= 1;
+				}
 				diff = getMCD(max, min);
+				odd++;
 			}
 		}
 
@@ -441,11 +451,20 @@ $(document).ready(function() {
 	}
 
 	function shouldPostFB(kilos) {
+		console.log("print " + kilos.print);
+		console.log("progreso " + kilos.progreso);
 		if (kilos.print <= 0) {
-
+			$("#fb-modal #titulo-txt").text("¡Felicidades, llegaste a tu meta!");
+			$("#fb-modal #mensaje-txt").text("¿Deseas compartirlo en Facebook?");
+			$("#fb-modal #hidden-val").val("meta");
+			$("#fb-modal").modal();
 		}
 		else if (kilos.progreso >= 10) {
-			
+			$("#fb-modal #titulo-txt").text("¡Felicidades, has bajado más de 10 kilos!");
+			$("#fb-modal #mensaje-txt").text("Es un logro importante y te estás acercando a tu meta. ¿Deseas compartirlo en Facebook?");
+			$("#fb-modal #hidden-val").val("kilos");
+			$("#fb-modal #hidden-kilos").val(kilos.progreso);
+			$("#fb-modal").modal();	
 		}
 
 	}

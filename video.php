@@ -61,7 +61,7 @@
 		<iframe height="240" style="width:100%;" src="http://www.youtube.com/embed/<?php echo $video ?>" frameborder="0" allowfullscreen></iframe>
 		<br />
 		<br />
-		<input type="button" value="Compartir en Facebook" onclick="publishEntry(null, null, 'http://www.youtube.com/watch?v=<?php echo $video ?>')"/>
+		<input type="button" value="Compartir en Facebook" onclick="publishVideo(null, null, 'http://www.youtube.com/watch?v=<?php echo $video ?>')"/>
 	</div>
 	<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
 			<div id="nav">

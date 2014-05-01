@@ -27,7 +27,7 @@ function loadFB() {
 }
 
 
-function publishEntry(name, description, link) {
+function publishVideo(name, description, link) {
   console.log(link);
   FB.ui({
     method: 'feed',
@@ -36,5 +36,25 @@ function publishEntry(name, description, link) {
     caption: 'KOT México',
     link: link,
     actions: [{ name: 'KOT México', link: 'http://kot.mx' }]
+  });
+}
+
+function publishLogro(tipo, kilos) {
+  var caption, description;
+  if (tipo == "meta") {
+    caption = '¡Has llegado a tu meta!';
+    description = '¡Muchas felicidades, con la ayuda del Método KOT has llegado a tu meta!';
+  }
+  else if (tipo == "kilos") {
+    caption = 'Estatus del progreso del Método KOT';
+    description = '¡Estoy en camino de cumplir mi meta y ya bajé ' + kilos + ' kilos!';
+  }
+
+  FB.ui({
+    method: 'feed',
+    name: 'KOT México',
+    description: description,
+    caption: caption,
+    link: 'http://kot.mx'
   });
 }
