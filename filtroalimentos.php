@@ -53,19 +53,27 @@
 	<div data-role="content">
 		<div id="container">
 			<div id="topbar">
-					<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Alimentos</span>
-					<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+				<div class="horizontal">
+					<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+				</div>
+				<div class="bar-title-top horizontal" style="text-align:center;margin-left:-15px">Alimentos</div>					
 			</div>
 			<div id="panel">
 				<!-- PT1 -->
 				<div style="float:left; width:50%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:-10px; top:60px;">
-						<a href="alimentos.php" data-tipo="1" data-role="button" class="mujer-btn">Mujer <br/>Intensivo</a>
+					<div style="margin:0 auto; width:70%; position:absolute; left:15px; top:50px;">
+						<a href="alimentos.php" data-tipo="1">
+							<img src="img/circulo_magenta.png" width="100" height="100"/>
+							<div class="alimentos-menu">MUJER <br/>INTENSIVO</div>
+						</a>
 					</div>
 				</div>
 				<div style="float:left; width:50%;  position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:155px; top:60px;">
-						<a href="alimentos.php" data-tipo="3" data-role="button" class="hombre-btn">Hombre <br/>Intensivo</a>
+					<div style="margin:0 auto; width:70%; position:absolute; left:170px; top:50px;">
+						<a href="alimentos.php" data-tipo="3" >
+							<img src="img/circulo_azul.png" width="100" height="100"/>
+							<div class="alimentos-menu">HOMBRE <br/>INTENSIVO</div>
+						</a>
 					</div>
 				</div>
 				
@@ -73,13 +81,19 @@
 				
 				<!-- PT2 -->
 			<div style="float:left; width:50%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:-10px; top:180px;">
-						<a href="alimentos.php" data-tipo="2" data-role="button" class="mujer-btn">Mujer <br/>Progresivo</a>
+					<div style="margin:0 auto; width:70%; position:absolute; left:15px; top:200px;">
+						<a href="alimentos.php" data-tipo="2" >
+							<img src="img/circulo_magenta.png" width="100" height="100"/>
+							<div class="alimentos-menu">MUJER <br/>PROGRESIVO</div>
+						</a>
 					</div>
 				</div>
 				<div style="float:left; width:50%;  position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:155px; top:180px;">
-						<a href="alimentos.php" data-tipo="4" data-role="button" class="hombre-btn">Hombre <br/>Progresivo</a>
+					<div style="margin:0 auto; width:70%; position:absolute; left:170px; top:200px;">
+						<a href="alimentos.php" data-tipo="4">
+							<img src="img/circulo_azul.png" width="100" height="100"/>
+							<div class="alimentos-menu">HOMBRE <br/>PROGRESIVO</div>
+						</a>
 					</div>
 				</div>
 			</div>

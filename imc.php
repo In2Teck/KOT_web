@@ -48,57 +48,60 @@
 <body>
 	<div data-role="page" id="imc">
 		<div data-role="content">
-			<div id="container" style="font-size:14px;background:white;">
+			<div id="container" style="font-size:14px; background:#5CC1A6; color:white; text-shadow:none;">
 				<div id="topbar">
-						<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">IMC</span>
-						<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+					<div class="horizontal">
+						<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+					</div>
+					<div class="bar-title-top horizontal" style="text-align:center; margin-left:-15px">IMC</div>
 				</div>
-			<div style="width:95%; margin:0 auto; padding-top:10px; font-size:14px;">Calcula cuál es tu IMC y conoce con cuántas semanas llegarás a tu peso meta con la ayuda de KOT.</div>
+			<br/>	
+			<div style="width:95%; margin:0 auto; padding-top:10px; font-size:14px; font-weight:bold;">Calcula cuál es tu IMC y conoce con cuántas semanas llegarás a tu peso meta con la ayuda de KOT.</div>
 			
-			<div style="width:100%; height:100%; position:relative; left:15px; top:30px;">
-					<div style="width:130px;margin:auto;font-size:16px;">
-						<a href="#" onclick="showIMC()">¿Qué es el IMC?</a>
-					</div><br/>
-					<div style="width:200px;margin:auto">
-						<div class="horizontal label">Sexo:</div>
+			<div style="width:100%; height:100%; position:relative; left:15px; top:20px;">
+					<div style="width:180px;margin:auto;font-size:26px;">
+						<a href="#" class="kot-link" onclick="showIMC()">¿Qué es el IMC?</a>
+					</div>
+					<div style="width:215px;margin:auto">
+						<div class="horizontal label" style="margin-left:24px">Sexo:</div>
 						<div class="horizontal sexo-combo">
 							<select name="select-sexo" id="sexo">
-							  <option value="H">Hombre</option>
-							  <option value="M">Mujer</option>
+							  <option style="color:5CC1A6;" value="H">HOMBRE</option>
+							  <option style="color:5CC1A6;" value="M">MUJER</option>
 							</select>
 						</div>
 					</div>
-					<div style="width:200px;margin:auto">
+					<div style="width:215px;margin:auto">
 						<div class="horizontal label">Peso (kg):</div>
 						<div class="horizontal peso-input">
-							<input type="number" name="peso" id="peso" value="0" />
+							<input type="text" name="peso" id="peso" pattern="[0-9]*" maxlength="3" value="0" style="text-align:center;color:#5CC1A6;font-weight:bold;"/>
 						</div>
 					</div>
-					<div style="width:240px;margin:auto">
-						<div class="horizontal label">Estatura (m):</div>
+					<div style="width:215px;margin:auto">
+						<div class="horizontal label" style="margin-left:-20px">Estatura (m):</div>
 						<div class="horizontal estatura-input">
-							<input type="text" name="estatura" id="estatura" pattern="[0-9].[0-9]*" maxlength="4" value="0" title="error"/>
+							<input type="text" name="estatura" id="estatura" pattern="[0-9].[0-9]*" maxlength="4" value="0" title="error" style="text-align:center;color:#5CC1A6;font-weight:bold;"/>
 						</div>
 					</div><br/>
-					<div style="width:70px; font-size:16px; margin:auto; padding-top:5px;">
-						<a href="#" onclick="calculaIMC()"> Calcular </a>
-					</div><br/><br/>
+					<div style="width:70px; font-size:22px; margin:auto; padding-top:5px;">
+						<a href="#" class="kot-link" style="margin-left:-10px;" onclick="calculaIMC()"> Calcular </a>
+					</div><br/>
 					<div style="width:215px;margin:auto;font-size:16px;">
-						<a href="nutriologos.php" > Encuentra a tu especialista KOT </a>
+						<a href="nutriologos.php" class="kot-link"> Encuentra a tu especialista KOT </a>
 					</div>
 				</div>
 			</div>
 			
-			<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
-				<div id="nav">
-					<ul class="bot-menu">
-						<a href="index.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_conoce.png" width="40" height="40" /></div>CONOCE KOT</li></a>
-						<a href="index2.php"><li class="bottom-menu-item" style="margin-left:15px;"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_mi_metodo.png" width="40" height="40" /></div>MI MÉTODO</li></a>
-						<a href="index3.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_ayuda.png" width="40" height="40" /></div>AYUDA</li></a>
-					</ul>
-				</div>
+		</div>
+
+		<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">
+			<div id="nav">
+				<ul class="bot-menu">
+					<a href="index.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_conoce.png" width="40" height="40" /></div>CONOCE KOT</li></a>
+					<a href="index2.php"><li class="bottom-menu-item" style="margin-left:15px;"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_mi_metodo.png" width="40" height="40" /></div>MI MÉTODO</li></a>
+					<a href="index3.php"><li class="bottom-menu-item" style="text-align:center"><div style="margin:auto; width:50%"><img src="img/nuevo/icono_ayuda.png" width="40" height="40" /></div>AYUDA</li></a>
+				</ul>
 			</div>
-			
 		</div>
 
 		<div id="resultado" class="invisible">

@@ -79,74 +79,87 @@ var ShowMetodo = function(id_user, tipo, datos) {
 
 	var c = new Array();
 	var sd;
-	var colacionVar;
 
 	if (tipo=="intensivo") {
 		sd = datos.intensivo;
-		colacionVar = sd.colacion.fruta;
 	}
 	else {
 		sd = datos.progresivo;
-		colacionVar = sd.colacion.frutas;
 	}
 	
 	var index = 0;
 
 		c[0] = '<ul class="tablas-metodo" style="width:100%;">';
 			for (index = 0; index < sd.desayuno.cereal; index++)
-				c[0]+= '<li><span><input type="checkbox" id="des-cer'+index+'" class="checktop"/><label for="des-cer'+index+'" class="checktop"><a href="verpermitido.php?id=2">cereal</a></label></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-cer'+index+'" class="custombox checktop"/><label for="des-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></label></span></li>';
 			for (index = 0; index < sd.desayuno.proteinas_vegetales; index++)
-				c[0]+= '<li><span><input type="checkbox" id="des-prot'+index+'" class="checktop"/><label for="des-prot'+index+'" class="checktop"><a href="verpermitido.php?id=10">prote\u00edna vegetal</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-prot'+index+'" class="custombox checktop"/><label for="des-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=10">prote\u00edna vegetal</a></span></li>';
 			for (index = 0; index < sd.desayuno.frutas; index++)
-				c[0]+= '<li><span><input type="checkbox" id="des-frut'+index+'" class="checktop"/><label for="des-frut'+index+'" class="checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-frut'+index+'" class="custombox checktop"/><label for="des-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
 			for (index = 0; index < sd.desayuno.lacteos; index++)
-				c[0]+= '<li><span><input type="checkbox" id="des-lact'+index+'" class="checktop"/><label for="des-lact'+index+'" class="checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-lact'+index+'" class="custombox checktop"/><label for="des-lact'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
 			for (index = 0; index < sd.desayuno.productosKot; index++)
-				c[0]+= '<li><span><input type="checkbox" id="des-kot'+index+'" class="checktop"/><label for="des-kot'+index+'" class="checktop"><a href="productos.php">productos KOT</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-kot'+index+'" class="custombox checktop"/><label for="des-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
 		c[0]+= "</ul>";
-		c[0]+= '<div style="clear:both;"></div>';
+		c[0]+= '<div style="clear:both; height:3px;"></div>';
 
 		c[1] = '<ul class="tablas-metodo">';
-			for (index = 0; index < sd.comida.cereal; index++)
-				c[1]+= '<li><span><input type="checkbox" id="com-cer'+index+'" class="checktop"/><label for="com-cer'+index+'" class="checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
-			for (index = 0; index < sd.comida.proteinas; index++)
-				c[1]+= '<li><span><input type="checkbox" id="com-prot'+index+'" class="checktop"/><label for="com-prot'+index+'" class="checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-			for (index = 0; index < sd.comida.vegetales_crudo; index++)
-				c[1]+= '<li><span><input type="checkbox" id="com-vegc'+index+'" class="checktop"/><label for="com-vegc'+index+'" class="checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
-			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
-				c[1]+= '<li><span><input type="checkbox" id="com-vegi'+index+'" class="checktop"/><label for="com-vegi'+index+'" class="checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
-			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
-				c[1]+= '<li><span><input type="checkbox" id="com-ace'+index+'" class="checktop"/><label for="com-ace'+index+'" class="checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
+			for (index = 0; index < sd.colacion_1.cereal; index++)
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-cer'+index+'" class="custombox checktop"/><label for="col1-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">cereal</a></span></li>';
+			for (index = 0; index < sd.colacion_1.frutas; index++)
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-frut'+index+'" class="custombox checktop"/><label for="col1-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+			for (index = 0; index < sd.colacion_1.productosKot; index++)
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-kot'+index+'" class="custombox checktop"/><label for="col1-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+			for (index = 0; index < sd.colacion_1.proteinas_vegetales; index++)
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-prot'+index+'" class="custombox checktop"/><label for="col1-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna vegetal</a></span></li>';
 		c[1]+= "</ul>";
-		c[1]+= '<div style="clear:both;"></div>';
+		c[1]+= '<div style="clear:both; height:3px;"></div>';
 
 		c[2] = '<ul class="tablas-metodo">';
-			for (index = 0; index < colacionVar; index++)
-				c[2]+= '<li><span><input type="checkbox" id="col1-frut'+index+'" class="checktop"/><label for="col1-frut'+index+'" class="checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
-			for (index = 0; index < sd.colacion.productosKot; index++)
-				c[2]+= '<li><span><input type="checkbox" id="col1-kot'+index+'" class="checktop"/><label for="col1-kot'+index+'" class="checktop"><a href="productos.php">productos KOT</a></span></li>';
+			for (index = 0; index < sd.comida.cereal; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-cer'+index+'" class="custombox checktop"/><label for="com-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
+			for (index = 0; index < sd.comida.proteinas; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-prot'+index+'" class="custombox checktop"/><label for="com-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
+			for (index = 0; index < sd.comida.vegetales_crudo; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegc'+index+'" class="custombox checktop"/><label for="com-vegc'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
+			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
+			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
 		c[2]+= "</ul>";
-		c[2]+= '<div style="clear:both;"></div>';
+		c[2]+= '<div style="clear:both; height:3px;"></div>';
 
 		c[3] = '<ul class="tablas-metodo">';
-			for (index = 0; index < sd.cena.cereal; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-cer'+index+'" class="checktop"/><label for="cena-cer'+index+'" class="checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
-			for (index = 0; index < sd.cena.proteinas; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-prot'+index+'" class="checktop"/><label for="cena-prot'+index+'" class="checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-			for (index = 0; index < sd.cena.vegetales_crudo; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-vegcr'+index+'" class="checktop"/><label for="cena-vegcr'+index+'" class="checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
-			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-ace'+index+'" class="checktop"/><label for="cena-ace'+index+'" class="checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
-			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-vegco'+index+'" class="checktop"/><label for="cena-vegco'+index+'" class="checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
-			for (index = 0; index < sd.cena.frutas; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-frut'+index+'" class="checktop"/><label for="cena-frut'+index+'" class="checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
-			for (index = 0; index < sd.cena.lacteos; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-lac'+index+'" class="checktop"/><label for="cena-lac'+index+'" class="checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
-			for (index = 0; index < sd.cena.productosKot; index++)
-				c[3]+= '<li><span><input type="checkbox" id="cena-kot'+index+'" class="checktop"/><label for="cena-kot'+index+'" class="checktop"><a href="productos.php">producto KOT</a></span></li>';
+			for (index = 0; index < sd.colacion_2.cereal; index++)
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-cer'+index+'" class="custombox checktop"/><label for="col2-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">cereal</a></span></li>';
+			for (index = 0; index < sd.colacion_2.frutas; index++)
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-frut'+index+'" class="custombox checktop"/><label for="col2-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+			for (index = 0; index < sd.colacion_2.productosKot; index++)
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-kot'+index+'" class="custombox checktop"/><label for="col2-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+			for (index = 0; index < sd.colacion_2.proteinas_vegetales; index++)
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-prot'+index+'" class="custombox checktop"/><label for="col2-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna vegetal</a></span></li>';
 		c[3]+= "</ul>";
-		c[3]+= '<div style="clear:both;"></div>';
+		c[3]+= '<div style="clear:both; height:3px;"></div>';
+
+		c[4] = '<ul class="tablas-metodo">';
+			for (index = 0; index < sd.cena.cereal; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-cer'+index+'" class="custombox checktop"/><label for="cena-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
+			for (index = 0; index < sd.cena.proteinas; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-prot'+index+'" class="custombox checktop"/><label for="cena-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
+			for (index = 0; index < sd.cena.vegetales_crudo; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
+			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
+			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
+			for (index = 0; index < sd.cena.frutas; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-frut'+index+'" class="custombox checktop"/><label for="cena-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+			for (index = 0; index < sd.cena.lacteos; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-lac'+index+'" class="custombox checktop"/><label for="cena-lac'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
+			for (index = 0; index < sd.cena.productosKot; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-kot'+index+'" class="custombox checktop"/><label for="cena-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+		c[4]+= "</ul>";
+		c[4]+= '<div style="clear:both; height:3px;"></div>';
 
 	$(".contenido").each(function(i){
 		$(this).html(c[i]);
@@ -228,7 +241,7 @@ $(document).ready(function() {
 			$("#header-bar-text").text("Perfil Enlazado");
 			var user_data = localStorage.getItem("user_data");
 			var obj = JSON.parse(user_data);
-			$("#numero-kot").text("Numero para tu especialista KOT: " + obj.id);
+			$("#numero-kot").text("Número para tu especialista KOT: " + obj.id);
 			$("#info-name").text(obj.nombre),
 			$("#info-email").text(obj.correo);
 			$("#info-edad").text(obj.edad);
@@ -372,7 +385,7 @@ $(document).ready(function() {
 
 		$.each(jsonValues, function(index, value) {
 			var sem = (parseInt(value.semana) - 1);
-			labels.push("Semana " + sem);
+			labels.push("Sem " + sem);
 			values.push(value.valor);
 			sorted.push(value.valor);
 		});
@@ -407,9 +420,11 @@ $(document).ready(function() {
 					min -= 1;
 					if (min <= 0)
 						min = 2;
+					else
+						min -=1;
 				}
 				else {
-					max -= 1;
+					max += 1;
 				}
 				diff = getMCD(max, min);
 				odd++;
@@ -604,9 +619,8 @@ $(document).ready(function() {
 				$("#listado").append('<li data-role="list-divider" class="letra ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
-				}
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="float:left;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="clear:both;"></div><hr class="separador"/></li>');
+				} //<div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div>
 			}
 		});
 
@@ -617,9 +631,8 @@ $(document).ready(function() {
 				$("#listado").append('<li data-role="list-divider" class="letra ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
-				}
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="float:left;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="clear:both;"></div><hr class="separador"/></li>');
+				}//<div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div>
 			}
 		});
 
@@ -630,9 +643,8 @@ $(document).ready(function() {
     			$("#listado").empty();
 					for (var i = 0; i < resultados.length; i++) {
 						var item = resultados[i];
-						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c">' + item.nombre + '</li>');
-						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff;"><div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div><div style="clear:both;"></div></li>');
-					}
+						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="float:left;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="clear:both;"></div><hr class="separador"/></li>');
+					}//<div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div>
     		}, onPositionError);
   		} else {
     		onPositionError('not supported');

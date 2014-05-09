@@ -27,7 +27,7 @@ body
 .tablas-metodo li{
 	height:auto !important;
 	float:left; /*comentar esto*/
-	width:155px;
+	width:150px;
 		text-align:left !important;
 
 }
@@ -38,6 +38,52 @@ body
 
 .checktop {
 	vertical-align: top;
+}
+
+.checktop a {
+	color: #5CC1A6;
+	font-family: kot;
+}
+
+.checkbox label:before {  
+    border-radius: 0;  
+}    
+
+.custombox {
+	display: none;
+}
+
+.customlabel {  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px;  
+    font-size: 13px;  
+}  
+
+.customlabel:before {  
+	background-color: #fff;
+	border: solid 1px #5CC1A6;
+	bottom: 2px;
+  content: "";  
+  display: inline-block;  
+  height: 16px;  
+	left: 0;
+  margin-right: 10px;  
+  position: absolute;
+  top: 2px;
+  width: 16px;
+}  
+
+.custombox:checked + .customlabel:before {
+    content: "\2713";  
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
+    font-size: 15px;
+    font-family: kot;
+    color: #5CC1A6;  
+    text-align: center;  
+    line-height: 15px;  
 }
 
 #container
@@ -55,21 +101,20 @@ body
 
 }
 
-#topbar
-{
-	width:100%;
-	height:40px;
-	background:url("img/menubar.png") no-repeat;
-	background-size:100%;
-	position:relative;
+#topbar {
+	font-family: kot;
+	height: 40px;
+	text-shadow: none;
+	width: 100%;
 }
-.bar-title-top
-{
-	color:#fff;
-	position:absolute;
-	text-shadow: 0.1em 0.1em #333;
-	font-size:17px;
+
+.bar-title-top {
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+	width: 75%;
 }
+
 #panel
 {
 	height:100%;
@@ -101,10 +146,8 @@ body
 }
 #alper-list li
 {
-	background:url("img/Element-05.png");
 	height:40px;
 	position:relative;
-	border-bottom:solid 1px #222;
 }
 #alper-list li span
 {
@@ -117,14 +160,15 @@ body
 	color:#fff; text-shadow: 0.1em 0.1em #333; text-decoration:none; 
 }
 
-.table-alim{
-	border:solid 1px;
-	-webkit-border-radius: 5px;
+.table-alim {
 	background:#fff;
+	border:solid 1px #5CC1A6;
+	-webkit-border-radius: 5px;
+	color: gray;
+	font-family: kot;
+	font-size: 13px;
 	position:relative;
 }
-.tabl-alim tr:nth-child(odd){ background: #fcfcfc;}
-.table-alim tr:nth-child(even){ background: #dbdbdb;}
 
 #tit-perm-princ{
 	position:relative;
@@ -132,9 +176,6 @@ body
 	padding-left:20px;
 }
 
-.table-alim tr{
-	font-size:10px;
-} 
 .table-alim td{
 	height:30px;
 }
@@ -197,7 +238,8 @@ body
 	margin:0 auto;
 }
 
-#info-data{
+#info-data {
+	color: #5CC1A6;
 	list-style:none;
 	margin:0 auto;
 	padding-left:10px;
@@ -214,18 +256,20 @@ body
 
 }
 #metodo-style{
-	margin:0;
+	margin:auto;
 	padding:0;
 	list-style:none;
+	width: 95%;
 }
 #metodo-style .titulo{
-	background:url("img/Element-04.png");
-	height:24px;
+	background-color: #d1d3d4;
+	height:25px;
 	text-align:center;
 	font-weight:bold;
-	color:#fff;
-	padding-top:5px;
-	text-shadow: 0.1em 0.1em #333;
+	font-size: 16px;
+	color:#5CC1A6;
+	padding-top:0px;
+	text-shadow: none;
 }
 #metodo-style .contenido{
 	height:auto;
@@ -321,7 +365,7 @@ div#note{
 }
 
 .mujer-btn {
-	background-image: url('img/m.png') !important;
+	background-image: url('img/circulo_magenta.png') !important;
 	background-position: center !important;
 	background-size: 110% !important;
 	color: white !important;
@@ -343,19 +387,41 @@ div#note{
 	font-weight: bold;
 }
 
+.ui-btn-inner {
+	color: #5CC1A6 !important;
+}
+
+.ui-select .ui-btn {
+	background: white !important;
+}
+
+.ui-input-text {
+	background: white !important;
+}
+
+.ui-icon {
+	background-color: #5CC1A6 !important;
+}
+
+.kot-link {
+	color: blue !important;
+	text-decoration: none;
+	text-shadow:none;
+}
+
 .sexo-combo {
 	margin-left: 3px;
-	width: 140px;
+	width: 145px;
 }
 
 .peso-input {
-	margin-left: 9px;
-	width: 90px;
+	margin-left: 7px;
+	width: 125px;
 }
 
 .estatura-input {
-	margin-left: 10px;
-	width: 90px;
+	margin-left: 7px;
+	width: 125px;
 }
 
 .video-btn {
@@ -449,10 +515,72 @@ div#note{
 
 #sort-btns {
 	display: none;
-	margin-left: 22px;
+	margin-left: 60px;
 }
 
-.test {
-	border: 1px solid red !important;
-	background: red  !important;
+.alimentos-menu {
+	color: #fff;
+	font-family: kot !important;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: none;
+}
+
+.kot-font {
+	font-family: kot;
+}
+
+.lista-nutri {
+	border-bottom: solid 1px #fff;
+	border-radius: 3px;
+	margin: 5px !important; 
+	width: 280px !important; 
+}
+
+.letra {
+	background: #d1d3d4 !important;
+	border: 1px solid #d1d3d4 !important;
+	border-radius: 3px 3px 0 0;
+	color: #5CC1A6 !important;
+	text-align: center !important;
+	text-shadow: none !important;
+}
+
+.nombre-nutri {
+	color: #5CC1A6;
+	font-family: kot !important;
+}
+
+.datos-nutri {
+	color: #5CC1A6;
+	font-family: kot;
+	font-size: 12px;
+	font-weight: normal;
+	text-shadow: none;
+}
+
+.separador {
+	background: #5CC1A6;
+	border: none;
+	height: 1px;
+}
+
+.ui-btn-text {
+	font-family: kot !important;
+}
+
+.ui-btn-up-c {
+	background: #fff !important;
+	border: 1px solid #fff !important;
+}
+
+.ui-btn-active {
+	background:	#d1d3d4 !important;
+	border: 1px solid #d1d3d4 !important;
+	text-shadow: none !important;
+}
+
+.ui-focus {
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
 }

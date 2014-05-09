@@ -49,31 +49,39 @@
 	<div data-role="content">
 		<div id="container">
 			<div id="topbar">
-					<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Preguntas Frecuentes</span>
-					<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+				<div class="horizontal">
+					<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+				</div>
+				<div class="bar-title-top horizontal" style="text-align:center;">Preguntas Frecuentes</div>
 			</div>
-			<div id="panel">
+			<div id="panel" style="text-align:center">
 				<!-- PT1 -->
 				<div style="float:left; width:65%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:60px;">
-						<a href="faq.php?tipo=1" data-tipo="1" data-role="button" class="video-btn">Sobre el <br/>Método KOT</a>
-					</div>
+					<a href="faq.php?tipo=1" data-tipo="1" style="text-shadow:none !important; color:#fff; font-weight:bold; font-size:18px;">
+						<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:78px; background:#ab218e;">
+							Sobre el <br/>Método KOT
+						</div>
+					</a>
 				</div>
 				
 				<div style="clear:both;"></div>
 				
 				<div style="float:left; width:65%;  position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:150px;">
-						<a href="faq.php?tipo=2" data-tipo="2" data-role="button" class="video-btn">Al hacer el <br/>Método KOT</a>
-					</div>
+					<a href="faq.php?tipo=2" data-tipo="2" style="text-shadow:none !important; color:#fff; font-weight:bold; font-size:18px;">
+						<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:160px; background:#5c2d91;">
+							Al hacer el <br/>Método KOT
+						</div>
+					</a>
 				</div>
 
 				<div style="clear:both;"></div>
 
 				<div style="float:left; width:65%; position:relative;">
-					<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:250px;">
-						<a href="faq.php?tipo=3" data-tipo="3" data-role="button" class="video-btn">Sobre los productos</a>
-					</div>
+					<a href="faq.php?tipo=3" data-tipo="3" style="text-shadow:none !important; color:#fff; font-weight:bold; font-size:18px;">
+						<div style="margin:0 auto; width:100%; position:absolute; left:50px; top:240px; background:#005da3; height:52px;">
+							<div style="margin-top:12px;">Sobre los productos</div>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>

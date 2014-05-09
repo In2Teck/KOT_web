@@ -87,13 +87,16 @@
 	<div data-role="content">
 		<div id="container">
 			<div id="topbar">
-					<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Preguntas Frecuentes</span>
-					<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+				<div class="horizontal">
+					<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+				</div>
+				<div class="bar-title-top horizontal" style="text-align:center;">Preguntas Frecuentes</div>
 			</div>
+			<br/>
 			<div id="panel-faq">
 				<?php
 					foreach($list as $item) {
-						echo '<div data-role="collapsible">
+						echo '<div data-role="collapsible" style="color:white;font-weight:normal;font-size:15px;">
 						  <h2>'.(strlen($item["Pregunta"]) > 26 ? multiline($item["Pregunta"]): $item["Pregunta"]).'</h2>
 						  <p>'.$item["Respuesta"].'</p>
 						</div>';

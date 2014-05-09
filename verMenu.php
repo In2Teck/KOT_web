@@ -65,9 +65,11 @@ $getJSON = file_get_contents($url);
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; width:100%; text-align:center;"><?php if(strlen($item["nombre"]) > 23) echo substr($item["nombre"],0,23) . "..."; else echo $item["nombre"]?></span>
-				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a> 
-		</div>
+			<div class="horizontal">
+				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+			</div>
+			<div class="bar-title-top horizontal" style="text-align:center;"><?php if(strlen($item["nombre"]) > 23) echo substr($item["nombre"],0,23) . "..."; else echo $item["nombre"]?></div>
+		</div><br/>
 		<div id="stars-menu" style="position:relative;">
 			<span style="position:absolute; top:9px; left:17px; text-shadow: 0.1em 0.1em #333; color:#fff; font-size:17px;">Calificación</span>
 			<div style="position:absolute; right:30px; top:10px;">

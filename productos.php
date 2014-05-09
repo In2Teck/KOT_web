@@ -1,6 +1,5 @@
 <?php
-	include("stuff.php");
-	$titulos = new AlimentosPermitidos;
+	
 	$getJSON = file_get_contents("http://desarrollo.sysop26.com/kot/nuevo/WS/kotVideos.php");
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["videos"] as $row) {
@@ -60,21 +59,30 @@
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">Productos y Método KOT</span>
-				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
-		</div>
+			<div class="horizontal">
+				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+			</div>
+			<div class="bar-title-top horizontal" style="text-align:center; margin-left:-5px; width:80% !important;">Productos y Método KOT</div>
+		</div><br/>
 		<ul id="alper-list" style="margin:0;">
 			<br/>
 			<?php foreach($list as $item) : ?>
-				<a href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>"><li><span>El Método KOT</span></li></a>
+				<a style="font-size:22px;text-shadow:none;" href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>"><li><span>El Método KOT</span></li></a>
 			<?php endforeach; ?>
 			<br/>
-			<?php foreach($titulos->getTitulosProductos() as $key => $value) : ?>
-				<a href="verproducto.php?id=<?php echo $key; ?>"><li><span><?php echo $value;?></span></li></a>
-			<?php endforeach; ?>
-			<br/>
-			<a href="videos.php?tipo=2"><li><span>Videos de preparación</span></li></a>
-			<a href="nutriologos.php"><li><span>¿Cómo empiezo el método?</span></li></a>
+			
+			<a style="font-size:22px;text-shadow:none;" href="verproducto.php?id=1">
+				<li><span><div style="margin:auto; background:#ab218e; width:190px;">Productos Dulces</div></span></li>
+			</a>
+			<a style="font-size:22px;text-shadow:none;" href="verproducto.php?id=2">
+				<li><span><div style="margin:auto; background:#5c2d91; width:190px;">Productos Salados</div></span></li>
+			</a>
+			<a style="font-size:22px;text-shadow:none;" href="verproducto.php?id=3">
+				<li><span><div style="margin:auto; background:#005da3; width:190px;">Snacks</div></span></li>
+			</a>
+			<br/><br/>
+			<a style="font-size:22px;text-shadow:none;" href="videos.php?tipo=2"><div style="padding-left:20px;">Videos de preparación</div></a>
+			<a style="font-size:22px;text-shadow:none;" href="nutriologos.php"><div style="padding-left:20px; padding-top:10px;">¿Cómo empiezo el método?</div></a>
 		</ul>
 
 	</div>

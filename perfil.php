@@ -48,8 +48,10 @@
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; width:100%; text-align:center;" id="header-bar-text"></span>
-				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+			<div class="horizontal">
+				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+			</div>
+			<div class="bar-title-top horizontal" id="header-bar-text" style="text-align:center; margin-left:-10px;"></div>
 		</div>
 		<div id="no-ses" style="display:none;">
 		<div id="login-fields">
@@ -65,7 +67,7 @@
 		</div>
 		<!-- SESION INICIADA -->
 		<div id="info-user" style="display:none;">
-			<h4>Información Personal</h4>
+			<h3 style="color:white; text-shadow:none !important;">Información Personal</h3>
 			
 			<ul id="info-data">
 				<li id="numero-kot"></li>

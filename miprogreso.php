@@ -52,13 +52,15 @@
 	<div data-role="content">
 		<div id="container">
 			<div id="topbar">
-					<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Mi Progreso</span>
-					<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+				<div class="horizontal">
+				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
 			</div>
+			<div class="bar-title-top horizontal" style="text-align:center; margin-left:-10px;">Mi Progreso</div>
+			</div><br/>
 			<!--  selector de peso o medidas -->
 
 			
-			<fieldset style="padding-top:5px; padding-left:8px; " data-role="controlgroup" data-type="horizontal">
+			<fieldset style="padding-top:5px; padding-left:20px; " data-role="controlgroup" data-type="horizontal">
 			<!--a href="#" id="btn-kilos" data-role="button">Peso</a>
 			<a href="#" id="btn-medidas" data-role="button">Medidas</a>
 			<a href="#" id="btn-grasa" data-role="button">% Grasa</a-->

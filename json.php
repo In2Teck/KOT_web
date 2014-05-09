@@ -6,7 +6,7 @@ class WS
 	{
 		$servicios = array('login' => 'http://kot.mx/nuevo/WS/kotLogin.php?'.$parametros,
 						   'progreso' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
-						   'metodo' => 'http://kot.mx/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
+						   'metodo' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',
 						   'restaurantes' => 'http://kot.mx/nuevo/WS/kotRestaurantes.php',
 						   'preguntas' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotPreguntas.php',
@@ -64,15 +64,15 @@ switch($action)
 		$last_grasa = end($array["grasas"]);
 		
 		foreach($array["kilos"] as $item):
-			$data_kilos[] = array("semana" => $item["Semana"], "valor" => $item["kilos"]);
+			$data_kilos[] = array("semana" => $item["semana"], "valor" => $item["kilos"]);
 		endforeach;
 
 		foreach($array["medidas"] as $item):
-			$data_medidas[] = array("semana" => $item["Semana"], "valor" => $item["medida"]);
+			$data_medidas[] = array("semana" => $item["semana"], "valor" => $item["medida"]);
 		endforeach;
 
 		foreach($array["grasas"] as $item):
-			$data_grasas[] = array("semana" => $item["Semana"], "valor" => $item["grasa"]);
+			$data_grasas[] = array("semana" => $item["semana"], "valor" => $item["grasa"]);
 		endforeach;
 
 		$array_toJSON = array(

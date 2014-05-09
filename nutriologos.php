@@ -57,16 +57,18 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 <body>
 <div data-role="page" id="nutriologos">
 <div data-role="content">
-	<div id="container" style="background:#e2e5ea; overflow:scroll;">
-		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; text-align:center; width:100%;">Especialistas KOT</span>
-				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
-		</div>
-	<div style="width:95%; margin:0 auto; font-size:12px;">Comienza tu método KOT con el especialista de tu preferencia.</div>
+	<div id="container" style="background:#5CC1A6; ">
+		<div id="topbar" style="background:#5CC1A6; height:52px;">
+			<div class="horizontal">
+				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+			</div>
+			<div class="bar-title-top horizontal" style="text-align:center;">Especialistas KOT</div>
+		</div><br/>
+	<div style="width:100%;text-shadow:none !important;margin:0 auto;color:white;font-size:12px; text-align:center;">Comienza tu método KOT con el especialista de tu preferencia.</div>
 	
 	<div style="width:100%; height:100%; position:relative; left:15px; top:10px;">
 		<center>
-			<div style="width:230px">
+			<div style="width:295px; margin-left: -31px;">
 				<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
 				<div id="sort-btns" data-role="controlgroup" data-type="horizontal">
 					<input type="radio" name="sortbtn" id="btn-az" checked="checked" value="az"  />
@@ -75,26 +77,28 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 	        <label for="btn-distancia">Distancia</label>
 				</div>
 			</div>
-		</center><div style="height:60px;"></div>
+		</center>
+		<div style="height:60px; width:300px;"></div>
 
-			<ul id="listado" data-role="listview">
+			<ul id="listado" data-role="listview" class="lista-nutri">
 				<?php
 				
 					foreach($list as $item){
 						echo '<li data-role="list-divider" class="letra">'.$item["letra"].'</li>';
 						foreach($item["items"] as $items){
 
-							echo '<li class="'.$items["id_municipio"].'">'.$items["nombre"].'</li>
-								 <li class="'.$items["id_municipio"].'" style="background:#fff;">
-									<div style="float:left;width:70%;"><span style="font-size:10px; font-weight:normal;">'.$items["direccion"].'<br/>Tel: '.$items["telefono"].'</span></div>
-									<div style="float:left; width:30%;"><a href="tel:'.$items["telefono"].'"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud='.$items["latitud"].'&longitud='.$items["longitud"].'&nombre='.$items["nombre"].'&telefono='.$items["telefono"].'&direccion='.$items["direccion"].'"><img src="img/map.png" width="28" height="28" /></a> <!-- <img src="img/add.png" width="20" height="20" />--></div>
+							echo '<li class="'.$items["id_municipio"].'" style="background:#fff; border:0 !important;">
+									<div class="nombre-nutri">'.$items["nombre"].'</div>
+									<div style="float:left;width:70%;"><span class="datos-nutri">'.$items["direccion"].'<br/>Tel: '.$items["telefono"].'</span></div>
 									<div style="clear:both;"></div>
+									<hr class="separador"/>
 								</li>
 								';
 						}
 					}
-				?>
+				?><!--<div style="float:left; width:30%;"><a href="tel:'.$items["telefono"].'"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud='.$items["latitud"].'&longitud='.$items["longitud"].'&nombre='.$items["nombre"].'&telefono='.$items["telefono"].'&direccion='.$items["direccion"].'"><img src="img/map.png" width="28" height="28" /></a></div>-->
 			</ul>
+			<br/>
 		</div>
 	</div>
 	

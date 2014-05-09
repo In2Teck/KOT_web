@@ -70,9 +70,11 @@ $getJSON = file_get_contents($url);
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; width:100%; text-align:center;"><?php echo $_GET["nombre"]; ?></span>
-				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a> 
-		</div>
+			<div class="horizontal">
+				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
+			</div>
+			<div class="bar-title-top horizontal" style="text-align:center;"><?php echo $_GET["nombre"]; ?></div>
+		</div><br/>
 		<div>
 			
 			<div id="image" style="background:#fff;">

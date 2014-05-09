@@ -49,8 +49,10 @@
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
-				<span class="bar-title-top" style="top:10px; width:100%; text-align:center;">Mi Método</span>
-				<a href="#" data-rel="back"><img style="position:absolute; left:15px; top:5px;" src="img/back-26.png" width="42" height="31" /></a>
+			<div class="horizontal">
+				<a href="#" data-rel="back"><img src="img/back_btn.png" width="40" height="40" /></a>
+			</div>
+			<div class="bar-title-top horizontal" style="text-align:center;">Mi Método</div>
 		</div>
 		<div id="metodo-demo" style="display:none;">
 			<h5 align="center">Registro usuario</h5>
@@ -75,21 +77,23 @@
 			</div>
 		</div>
 		<div id="metodo" style="display:none;">
-			<div style="padding-top:20px; padding-left:35px; margin:auto;" data-role="controlgroup" data-type="horizontal">
-				<input type="radio" name="metodobtn" id="btn-intensivo" checked="checked" value="intensivo"  />
+			<div style="padding-top:20px; padding-left:53px; margin:auto;" data-role="controlgroup" data-type="horizontal">
+				<input type="radio" name="metodobtn" id="btn-intensivo" checked="checked" value="intensivo"/>
         <label for="btn-intensivo" >Intensivo</label>
         <input type="radio" name="metodobtn" id="btn-progresivo" value="progresivo"  />
         <label for="btn-progresivo" >Progresivo</label>
 			</div>
 			<br/><br/>
-			<h4 id="semanas-h" align="center"></h4>
+			<h3 style="color:white; font-weight:normal;" id="semanas-h" align="center"></h3>
 			
 			<ul id="metodo-style">
 				<li class="titulo">Desayuno</li>
 				<li class="contenido"></li>
+				<li class="titulo">Colación 1</li>
+				<li class="contenido"></li>
 				<li class="titulo">Comida</li>
 				<li class="contenido"></li>
-				<li class="titulo">Colación</li>
+				<li class="titulo">Colación 2</li>
 				<li class="contenido"></li>
 				<li class="titulo">Cena</li>
 				<li class="contenido"></li>
