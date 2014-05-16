@@ -118,11 +118,11 @@ var ShowMetodo = function(id_user, tipo, datos) {
 		c[2] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.comida.cereal; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-cer'+index+'" class="custombox checktop"/><label for="com-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
-			for (index = 0; index < sd.comida.proteinas; index++)
+			for (index = 0; index < sd.comida.proteina_animal; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-prot'+index+'" class="custombox checktop"/><label for="com-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-			for (index = 0; index < sd.comida.vegetales_crudo; index++)
+			for (index = 0; index < sd.comida.vegetales_crudos; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegc'+index+'" class="custombox checktop"/><label for="com-vegc'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
-			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
+			for (index = 0; index < sd.comida.vegetales_cocidos; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
 			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
@@ -144,13 +144,13 @@ var ShowMetodo = function(id_user, tipo, datos) {
 		c[4] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.cena.cereal; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-cer'+index+'" class="custombox checktop"/><label for="cena-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
-			for (index = 0; index < sd.cena.proteinas; index++)
+			for (index = 0; index < sd.cena.proteina_animal; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-prot'+index+'" class="custombox checktop"/><label for="cena-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-			for (index = 0; index < sd.cena.vegetales_crudo; index++)
+			for (index = 0; index < sd.cena.vegetales_crudos; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
 			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
-			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
+			for (index = 0; index < sd.cena.vegetales_cocidos; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
 			for (index = 0; index < sd.cena.frutas; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-frut'+index+'" class="custombox checktop"/><label for="cena-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
@@ -343,8 +343,8 @@ $(document).ready(function() {
 			progreso_type = "Peso";
 			drawChart(ctx, obj.kilos.datos, "#0000FF");
 			$("#cinta_azul").show();
-			$("#span-strt").text(obj.kilos.actual + " Kg");
-			$("#span-end").text(obj.kilos.progreso + " Kg");
+			$("#span-strt").text(obj.kilos.actual + " kg");
+			$("#span-end").text(obj.kilos.progreso + " kg");
 			if (obj.kilos.print > 0)
 				$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
 			else
@@ -363,8 +363,8 @@ $(document).ready(function() {
 		$("#btn-grasa").click(function() {
 			progreso_type = "Grasa";
 			drawChart(ctx, obj.grasa.datos, "#00FF00");
-			$("#span-strt").text(+ obj.grasa.actual + " %");
-			$("#span-end").text(obj.grasa.progreso + " %");
+			$("#span-strt").text(+ obj.grasa.actual + "%");
+			$("#span-end").text(obj.grasa.progreso + "%");
 			$("#cinta_azul").hide();
 		});
 		
@@ -377,7 +377,7 @@ $(document).ready(function() {
 	});
 
 	function drawChart(ctx, jsonValues, color) {
-		
+
 		var labels = [];
 		var values = [];
 		var sorted = [];
@@ -390,7 +390,7 @@ $(document).ready(function() {
 			sorted.push(value.valor);
 		});
 		
-		sorted.sort();
+		sorted.sort(function(a, b){return a-b});
 		max = parseInt(sorted[sorted.length - 1]);
 		min = parseInt(sorted[0]);
 		var diff;
@@ -445,13 +445,20 @@ $(document).ready(function() {
     }
 
 		var options = {
+			scaleFontColor: "#000",
+			scaleFontFamily: "'kot'",
+			scaleFontStyle: "normal",
 			scaleOverride: true,
 			scaleSteps: diff,
 			scaleStepWidth: (max-min)/diff,
 			scaleStartValue: min,
-			bezierCurve: false
+			bezierCurve: false,
+			animation: false
 		};
 
+		ctx.clearRect(0,0,310,230);
+		ctx.canvas.width = 310;
+		ctx.canvas.height = 230;
 		var myLine = new Chart(ctx).Line(chartData, options);
 	}
 
@@ -619,8 +626,8 @@ $(document).ready(function() {
 				$("#listado").append('<li data-role="list-divider" class="letra ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="float:left;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="clear:both;"></div><hr class="separador"/></li>');
-				} //<div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div>
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="display:inline-block;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="display:inline-block; width:30%; vertical-align:bottom;"><a href="tel:' + item.telefono + '"><img src="img/telefono_verde.png" width="35" height="35" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/localizador_verde.png" width="35" height="35" /></a></div><div style="clear:both;"></div><hr class="separador"/></li>');
+				}
 			}
 		});
 
@@ -631,8 +638,8 @@ $(document).ready(function() {
 				$("#listado").append('<li data-role="list-divider" class="letra ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
-					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="float:left;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="clear:both;"></div><hr class="separador"/></li>');
-				}//<div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div>
+					$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="display:inline-block;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="display:inline-block; width:30%; vertical-align:bottom;"><a href="tel:' + item.telefono + '"><img src="img/telefono_verde.png" width="35" height="35" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/localizador_verde.png" width="35" height="35" /></a></div><div style="clear:both;"></div><hr class="separador"/></li>');
+				}
 			}
 		});
 
@@ -643,8 +650,8 @@ $(document).ready(function() {
     			$("#listado").empty();
 					for (var i = 0; i < resultados.length; i++) {
 						var item = resultados[i];
-						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="float:left;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="clear:both;"></div><hr class="separador"/></li>');
-					}//<div style="float:left; width:30%;"><a href="tel:' + item.telefono + '"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/map.png" width="28" height="28" /></a></div>
+						$("#listado").append('<li class="' + item.id_municipio +' 10 ui-li ui-li-static ui-body-c" style="background:#fff; border:0 !important;"><div class="nombre-nutri">' + item.nombre + '</div><div style="display:inline-block;width:70%;"><span class="datos-nutri">' + item.direccion + '<br/>Tel: ' + item.telefono + '</span></div><div style="display:inline-block; width:30%; vertical-align:bottom;"><a href="tel:' + item.telefono + '"><img src="img/telefono_verde.png" width="35" height="35" /></a> <a href="vermapa.php?latitud=' + item.latitud + '&longitud=' + item.longitud+ '&nombre=' + item.nombre + '&telefono=' + item.telefono + '&direccion=' + item.direccion +'"><img src="img/localizador_verde.png" width="35" height="35" /></a></div><div style="clear:both;"></div><hr class="separador"/></li>');
+					}
     		}, onPositionError);
   		} else {
     		onPositionError('not supported');
@@ -673,10 +680,10 @@ $(document).ready(function() {
 			var resultados = filtraPorCiudadRest(obj.restaurante, selected);
 			$("#listado").empty();
 			for (var i = 0; i < resultados.length; i++) {
-				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
+				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined letra" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
-					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
 					//nombre='.$items["nombre"].'&idRestaurante='.$items["id"].'&direccion='.urlencode($items["direccion"]).'&tel='.$items["telefono"].'&latitud='.$items["latitud"].'&longitud='.$items["longitud"].'">'.$items["nombre"].'</a></li>
 				}
 			}
@@ -686,10 +693,10 @@ $(document).ready(function() {
 			var resultados = filtraPorCiudadRest(obj.restaurante, $('#ciudad').val());
 			$("#listado").empty();
 			for (var i = 0; i < resultados.length; i++) {
-				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined" role="heading">' + resultados[i].letra + '</li>');
+				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined letra" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
-					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
 				}
 			}
 		});
@@ -701,7 +708,7 @@ $(document).ready(function() {
     			$("#listado").empty();
 					for (var i = 0; i < resultados.length; i++) {
 						var item = resultados[i];
-						$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+						$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
 					}
     		}, onPositionError);
   		} else {

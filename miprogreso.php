@@ -61,9 +61,6 @@
 
 			
 			<fieldset style="padding-top:5px; padding-left:20px; " data-role="controlgroup" data-type="horizontal">
-			<!--a href="#" id="btn-kilos" data-role="button">Peso</a>
-			<a href="#" id="btn-medidas" data-role="button">Medidas</a>
-			<a href="#" id="btn-grasa" data-role="button">% Grasa</a-->
 				<input type="radio" name="progresobtn" id="btn-kilos" checked="checked" value="peso"/>
 	      <label for="btn-kilos">Peso</label>
 	      <input type="radio" name="progresobtn" id="btn-medidas" value="medidas" />
@@ -73,8 +70,6 @@
 			</fieldset >
 			
 			<div style="background:#fff; height:355px">
-				<!-- contenido grafica -->
-				
 				<div id="grafica-progreso">
 					<br />
 					<div id="con-meta">
@@ -90,7 +85,7 @@
 
 				<br/>
 				<center>	
-					<canvas width="310" height="230" id="imagen-grafica"></canvas>
+					<canvas width="310" height="230" style="max-width:310px; max-height:230px;" id="imagen-grafica"></canvas>
 				</center>
 				<br />
 			</div>

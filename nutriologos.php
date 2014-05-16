@@ -89,14 +89,14 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 
 							echo '<li class="'.$items["id_municipio"].'" style="background:#fff; border:0 !important;">
 									<div class="nombre-nutri">'.$items["nombre"].'</div>
-									<div style="float:left;width:70%;"><span class="datos-nutri">'.$items["direccion"].'<br/>Tel: '.$items["telefono"].'</span></div>
+									<div style="display: inline-block;width:70%;"><span class="datos-nutri">'.$items["direccion"].'<br/>Tel: '.$items["telefono"].'</span></div><div style="display: inline-block; width:30%; vertical-align:bottom;"><a href="tel:'.$items["telefono"].'"><img src="img/telefono_verde.png" width="35" height="35" /></a> <a href="vermapa.php?latitud='.$items["latitud"].'&longitud='.$items["longitud"].'&nombre='.$items["nombre"].'&telefono='.$items["telefono"].'&direccion='.$items["direccion"].'"><img src="img/localizador_verde.png" width="35" height="35" /></a></div>
 									<div style="clear:both;"></div>
 									<hr class="separador"/>
 								</li>
 								';
 						}
 					}
-				?><!--<div style="float:left; width:30%;"><a href="tel:'.$items["telefono"].'"><img src="img/tel.png" width="28" height="28" /></a> <a href="vermapa.php?latitud='.$items["latitud"].'&longitud='.$items["longitud"].'&nombre='.$items["nombre"].'&telefono='.$items["telefono"].'&direccion='.$items["direccion"].'"><img src="img/map.png" width="28" height="28" /></a></div>-->
+				?>
 			</ul>
 			<br/>
 		</div>

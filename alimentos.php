@@ -2,7 +2,6 @@
 	include("stuff.php");
 	$titulos = new AlimentosPermitidos;
 	$tipo_dieta =	$_GET["tipo"];
-	$is_veg = $_GET["veg"];
 ?>
 <!doctype html>
 <html>
@@ -65,10 +64,10 @@
 		<ul id="alper-list" style="margin:0;">
 			
 			<?php
-				$titles = $titulos->getTitulos($tipo_dieta, $is_veg);
+				$titles = $titulos->getTitulos($tipo_dieta);
 			?>
 			<?php foreach($titles as $key => $value) : ?>
-				<a href="verpermitido.php?id=<?php echo $key; ?>&tipo=<?php echo $tipo_dieta; ?>&veg=<?php echo $is_veg; ?>"><li><span><?php echo $value[0];?></span></li></a>
+				<a href="verpermitido.php?id=<?php echo $key; ?>&tipo=<?php echo $tipo_dieta; ?>"><li><span><?php echo $value[0];?></span></li></a>
 			<?php endforeach; ?>	
 		</ul>
 		

@@ -62,7 +62,7 @@
 				<!-- PT1 -->
 				<div style="float:left; width:50%; position:relative;">
 					<div style="margin:0 auto; width:70%; position:absolute; left:15px; top:50px;">
-						<a href="alimentos.php" data-tipo="1">
+						<a href="alimentos.php?tipo=1" data-tipo="1">
 							<img src="img/circulo_magenta.png" width="100" height="100"/>
 							<div class="alimentos-menu">MUJER <br/>INTENSIVO</div>
 						</a>
@@ -70,7 +70,7 @@
 				</div>
 				<div style="float:left; width:50%;  position:relative;">
 					<div style="margin:0 auto; width:70%; position:absolute; left:170px; top:50px;">
-						<a href="alimentos.php" data-tipo="3" >
+						<a href="alimentos.php?tipo=3" data-tipo="3" >
 							<img src="img/circulo_azul.png" width="100" height="100"/>
 							<div class="alimentos-menu">HOMBRE <br/>INTENSIVO</div>
 						</a>
@@ -82,7 +82,7 @@
 				<!-- PT2 -->
 			<div style="float:left; width:50%; position:relative;">
 					<div style="margin:0 auto; width:70%; position:absolute; left:15px; top:200px;">
-						<a href="alimentos.php" data-tipo="2" >
+						<a href="alimentos.php?tipo=2" data-tipo="2" >
 							<img src="img/circulo_magenta.png" width="100" height="100"/>
 							<div class="alimentos-menu">MUJER <br/>PROGRESIVO</div>
 						</a>
@@ -90,7 +90,7 @@
 				</div>
 				<div style="float:left; width:50%;  position:relative;">
 					<div style="margin:0 auto; width:70%; position:absolute; left:170px; top:200px;">
-						<a href="alimentos.php" data-tipo="4">
+						<a href="alimentos.php?tipo=4" data-tipo="4">
 							<img src="img/circulo_azul.png" width="100" height="100"/>
 							<div class="alimentos-menu">HOMBRE <br/>PROGRESIVO</div>
 						</a>

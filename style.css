@@ -251,10 +251,16 @@ body
 #info-data li{
 	height:30px;
 }
-#grafica-progreso{
-	background:#fff;
-
+#grafica-progreso {
+	background: #5CC1A6;
+	color: #fff;
+	font-family: kot;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0 10px;
+	text-shadow: none;
 }
+
 #metodo-style{
 	margin:auto;
 	padding:0;
@@ -330,24 +336,28 @@ body
 a{
 	color:black;
 }
-#stars-menu{
-	background:#a7b2b8;
-	height:40px;
+#stars-menu {
+	background: #d1d3d4;
+	color: #5CC1A6;
+	height: 40px;
+	font-family: kot;
+	font-size:17px;
+	font-weight: bold;
+	text-shadow: none;
 	
 }
 
 /***** *****/
 .table-menu-detail{
-	background:#fff;
-	position:relative;
+	background: #fff;
+	position: relative;
 	border-top:solid 1px #f4f4f6;
+	border-radius: 4px;
 }
-.tabl-menu-detail tr:nth-child(odd){ background: #f4f4f6;}
-.table-menu-detail tr:nth-child(even){ background: #dbdbdb;}
 
-
-.table-menu-detail tr{
-	font-size:10px;
+.table-menu-detail tr {
+	color: #5CC1A6;
+	font-size:12px;
 } 
 .table-menu-detail td{
 	height:30px;
@@ -381,6 +391,17 @@ div#note{
 .horizontal {
 	display: inline-block;
 	vertical-align: middle;
+}
+
+#bar-address {
+	color: #000;
+	font-family: kot;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px;
+	padding-left: 20px;
+	text-align: center;
+	text-shadow: none;
 }
 
 .label {
@@ -563,6 +584,46 @@ div#note{
 	background: #5CC1A6;
 	border: none;
 	height: 1px;
+}
+
+.restaurant-img {
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	margin: auto;
+	width: 290px;
+}
+
+.platillo-img {
+	background: #5CC1A6;
+	border: 1px solid #5CC1A6;
+	border-radius: 4px;
+	margin: auto;
+	width: 290px;
+	height: 180px;
+}
+
+.platillos-header {
+	background: #d1d3d4;
+	color: #5CC1A6;
+	font-family: kot;
+	font-weight: bold;
+	text-shadow: none;
+}
+
+.platillo {
+	color: #5CC1A6 !important;
+	font-family: kot !important;
+	font-weight: normal !important;
+	text-decoration: normal;
+	text-shadow: none !important;
+}
+
+.contacto-txt {
+	color: white !important;
+	font-size: 20px; 
+	text-decoration: none !important;
+	text-shadow: none !important;
 }
 
 .ui-btn-text {

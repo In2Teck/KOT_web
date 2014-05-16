@@ -12,7 +12,7 @@ $getJSON = file_get_contents($url);
 <html>
 <head>
 	<title>KOT</title>
-<meta http-equiv="content-type" content="text/html; charset=utf8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script src="js/jquery.mobile-1.0.min.js"></script>
@@ -73,33 +73,27 @@ $getJSON = file_get_contents($url);
 			<div class="horizontal">
 				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
 			</div>
-			<div class="bar-title-top horizontal" style="text-align:center;"><?php echo $_GET["nombre"]; ?></div>
+			<div class="bar-title-top horizontal" style="text-align:center; margin-left:-10px;"><?php echo $_GET["nombre"]; ?></div>
 		</div><br/>
 		<div>
 			
-			<div id="image" style="background:#fff;">
-				<center><img src="<?php echo $items["img"] ?>" style="max-width:320px;height:180px;" /></center>
+			<div id="image" class="restaurant-img">
+				<center><img src="<?php echo $items["img"] ?>" style="width:290px;height:auto;" /></center>
 			</div>
-			<div style="background:#d2d7da; height:50px;" id="bar-address">
-				<div style="width:65%; float:left; position:relative;">
-					<span style="font-size:12px; position:absolute; color:#666; left:10px; top:5px;"><?php echo $_GET["direccion"]; ?></span>
+			<div id="bar-address">
+				<div class="horizontal" style="width:50%; height:100%; position:relative;">
+					<span style=""><?php echo $_GET["direccion"]; ?></span>
 				</div>
-				<div style="width:50%; float:left; position:relative;">
-					<a href="tel:<?php echo $_GET["tel"]; ?>"><img src="img/tel.png" width="40" hegith="40" style="position:absolute; top:5px; left:230px;" /></a>
-					<a href="vermapa.php?latitud=<?php echo $_GET["latitud"]?>&longitud=<?php echo $_GET["longitud"] ?>&nombre=<?php echo $_GET["nombre"]?>"><img src="img/map.png" width="40" hegith="40" style="position:absolute; top:5px;left:270px;" /></a>
-				</div>
-				<div style="clear:both;"></div>
-			</div>
-			<br/>
-			<div style="background:#d2d7da; width:100%; height:30px;">
-				<div style="width:160px; float:left; position:relative;">
-					<span style="font-size:12px; position:absolute; left:20px; top:5px;">Platillos permitidos</span>
-				</div>
-				<div style="width:300px; float:left; position:relative;">
-					<span style="font-size:12px; position:absolute; top:5px;left:180px;">Votos de los usuarios</span>
+				<div class="horizontal" style="width:40%; height:100%; position:relative;">
+					<a href="tel:<?php echo $_GET["tel"]; ?>"><img src="img/telefono.png" width="55" height="55" /></a>
+					<a href="vermapa.php?latitud=<?php echo $_GET["latitud"]?>&longitud=<?php echo $_GET["longitud"] ?>&nombre=<?php echo $_GET["nombre"]?>"><img src="img/localizador.png" width="55" height="55"  /></a>
 				</div>
 			</div>
 			<table width="92%" cellpadding="0" cellspacing="0" class="table-alim" align="center">
+				<tr class="platillos-header">
+					<td style="padding-left:12px; border:1px solid #d1d3d4; border-radius:4px 0 0 0;">Platillos permitidos</td>
+					<td style="border:1px solid #d1d3d4; border-radius: 0 4px 0 0;">Votos de los usuarios</td>
+				</tr>
 				<?php
 				foreach($list as $item):
 					foreach($item["items"] as $items): 
@@ -107,7 +101,7 @@ $getJSON = file_get_contents($url);
 
 						<tr>
 							<td width="60%"><span style="padding-left:12px; width:100%; font-size:12px;">
-								<a href="verMenu.php?id=<?php echo $items["id"]; ?>&rest=<?php echo $_GET["nombre"] ?>"><?php if(strlen($items["nombre"]) > 26)  echo substr($items["nombre"],0,26)."..."; else echo $items["nombre"]  ?></a></span>
+								<a class="platillo" href="verMenu.php?id=<?php echo $items["id"]; ?>&rest=<?php echo $_GET["nombre"] ?>"><?php if(strlen($items["nombre"]) > 26)  echo substr($items["nombre"],0,26)."..."; else echo $items["nombre"]  ?></a></span>
 							</td>
 							<td width="40%">
 								<span style="padding-right:12px; width:100%;">

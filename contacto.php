@@ -53,25 +53,31 @@
 				<div class="horizontal">
 					<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
 				</div>
-				<span class="bar-title-top horizontal" style="text-align:center;margin-left:-15px;">Contacto</span>
+				<span class="bar-title-top horizontal" style="text-align:center;margin-left:-20px;">Contacto</span>
 			</div>
 			
-			<div style="width:80px; margin:0 auto; padding-top:30px;">
+			<div style="width:80px; margin:0 auto; padding-top:25px;">
 				<img src="img/kot-mexico.png" />
 			</div>
-			<div style="width:80px; margin:0 auto; padding-top:40px;">
-				<a href="http://www.kot.mx" target="__blank">www.kot.mx</a>
+			<div style="width:90px; margin:0 auto; padding-top:20px;">
+				<div><a class="contacto-txt" href="http://www.kot.mx" target="__blank">www.kot.mx</a></div>
 			</div>
-			<div style="width:120px; margin:0 auto; padding-top:20px; text-align:center;">
-				<div>DF: <a href="tel:63894219">6389-4219</a></div><br/>
-				<div><a href="tel:018002634664">01-800-263-4664</a></div>
+			<div style="width:160px; margin:0 auto; padding-top:20px; text-align:center;">
+				<div><a class="contacto-txt" href="tel:63894219">6389-4219</a></div><br/>
+				<div><a class="contacto-txt" href="tel:018002634664">01-800-263-4664</a></div>
 			</div>
-			<div style="width:80px; margin:0 auto; padding-top:20px;">
-				<a href="mailto:info@kot.mx">info@kot.mx</a>
+			<div style="width:100px; margin:0 auto; padding-top:20px;">
+				<a class="contacto-txt" href="mailto:info@kot.mx">info@kot.mx</a>
 			</div>
 			<div style="width:95%; margin:0 auto; padding-top:30px;">
-				<div style="display:inline-block; vertical-align:center; padding:30px;"><a href="https://www.facebook.com/KOTMexico">KOT México</a></div>
-				<div style="display:inline-block; vertical-align:center; padding:30px;"><a href="https://twitter.com/KOTMexico">@KOTMexico</a></div>
+				<div style="display:inline-block; padding-left:10px;">
+					<div class="horizontal"><img src="img/fb.png" width="30" height="30"/></div>
+					<div class="horizontal"><a style="font-size:16px;" class="contacto-txt" href="https://www.facebook.com/KOTMexico">KOT México</a></div>
+				</div>
+				<div style="display:inline-block; padding-left:30px;">
+					<div class="horizontal"><img src="img/tw.png" width="30" height="30"/></div>
+					<div class="horizontal"><a style="font-size:16px;" class="contacto-txt" href="https://twitter.com/KOTMexico">@KOTMexico</a></div>
+				</div>
 			</div>
 		</div>
 		

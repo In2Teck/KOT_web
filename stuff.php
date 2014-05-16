@@ -2,16 +2,17 @@
 
 class AlimentosPermitidos
 {
-	var $alimentos_title = array(1 => array("Bebidas","bebidas","Bebidas Permitidas"),
-							 	 2 => array("Pan/Cereales/Leguminosas","cereales","Pan / Cereal Permitidos"),
-							   3 => array("Verduras Crudas","verduras_crudas","Verduras Crudas Permitidas"),
-							 	 4 => array("Verduras Cocidas","verduras_cocidas","Verduras Cocidas Permitidas"),
-							 	 5 => array("Proteína Animal","proteina_animal","Proteína Animal Permitida"),
-							 	 6 => array("Lácteos","lacteos","Lácteos Permitidos"),
-							 	 7 => array("Frutas","frutas","Frutas Permitidas"),
-							 	 8 => array("Aceites","aceites","Aceites Permitidos"),
-							 	 9 => array("Condimentos","condimentos","Condimentos Permitidos"),
-							 	 10=> array("Proteína Vegetal","proteina_vegetal","Proteína Vegetal Permitida")
+	var $alimentos_title = array(
+								 1 => array("Aceites","aceites","Aceites Permitidos"),
+							 	 2 => array("Bebidas","bebidas","Bebidas Permitidas"),
+							   3 => array("Condimentos","condimentos","Condimentos Permitidos"),
+							 	 4 => array("Frutas","frutas","Frutas Permitidas"),
+							 	 5 => array("Lácteos","lacteos","Lácteos Permitidos"),
+							 	 6 => array("Pan/Cereales/Leguminosas","cereales","Pan / Cereal Permitidos"),
+							 	 7 => array("Proteína Animal","proteina_animal","Proteína Animal Permitida"),
+							 	 8 => array("Proteína Vegetal","proteina_vegetal","Proteína Vegetal Permitida"),
+							 	 9 => array("Verduras Cocidas","verduras_cocidas","Verduras Cocidas Permitidas"),
+							 	 10=> array("Verduras Crudas","verduras_crudas","Verduras Crudas Permitidas")
 								);
 							
 	var $alimentos_bebidas = array("todos" => array(
@@ -478,11 +479,11 @@ var 	$videos_data = array(
 	
 	
 	
-  function getTitulos($type, $is_veg) {
+  function getTitulos($type) {
   	$titulos = $this->alimentos_title;
   	switch($type) {
   		case 1:
-  			$titulos["2"][0] = "Pan/Cereales";
+  			$titulos["6"][0] = "Pan/Cereales";
   			break;
   	}
   	return $titulos;

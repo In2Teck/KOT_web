@@ -70,7 +70,7 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotRestaurantes.php");
 			<center>
 				<div style="width:230px">
 					<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
-					<div id="sort-btns" data-role="controlgroup" data-type="horizontal">
+					<div id="sort-btns" data-role="controlgroup" data-type="horizontal" style="margin-left:30px;">
 						<input type="radio" name="sortbtn" id="btn-az" checked="checked" value="az"  />
 		        <label for="btn-az">A-Z</label>
 		        <input type="radio" name="sortbtn" id="btn-distancia" value="distancia"  />
@@ -82,9 +82,9 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotRestaurantes.php");
 				
 				<?php
 					foreach($list as $item){
-						echo '<li data-role="list-divider">'.$item["letra"].'</li>';
+						echo '<li data-role="list-divider" class="letra">'.$item["letra"].'</li>';
 						foreach($item["items"] as $items){
-							echo '<li><a href="verRestaurant.php?nombre='.$items["nombre"].'&idRestaurante='.$items["id"].'&direccion='.urlencode($items["direccion"]).'&tel='.$items["telefono"].'&latitud='.$items["latitud"].'&longitud='.$items["longitud"].'">'.$items["nombre"].'</a></li>';
+							echo '<li><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='.$items["nombre"].'&idRestaurante='.$items["id"].'&direccion='.urlencode($items["direccion"]).'&tel='.$items["telefono"].'&latitud='.$items["latitud"].'&longitud='.$items["longitud"].'">'.$items["nombre"].'</a></li>';
 						}
 					}
 				?>

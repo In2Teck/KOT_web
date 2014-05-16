@@ -2,8 +2,7 @@
 	include("stuff.php");
 	$permitido = new AlimentosPermitidos;
 	$tipo_dieta =	$_GET["tipo"];
-	$is_veg = $_GET["veg"];
-	$titulo = $permitido->getTitulos($tipo_dieta, $is_veg);
+	$titulo = $permitido->getTitulos($tipo_dieta);
 	$title_bar = $titulo[$_GET['id']];
 	$var_name = $title_bar[1];
 	$lista = $permitido->getAlimentos($var_name);

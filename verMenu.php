@@ -63,7 +63,7 @@ $getJSON = file_get_contents($url);
 <body>
 <div data-role="page" id="vermenu">
 <div data-role="content">
-	<div id="container">
+	<div id="container" style="background:#5CC1A6">
 		<div id="topbar">
 			<div class="horizontal">
 				<a href="#" style="margin-left:10px" data-rel="back"><img src="img/back_btn.png" width="50" height="50" /></a>
@@ -71,7 +71,7 @@ $getJSON = file_get_contents($url);
 			<div class="bar-title-top horizontal" style="text-align:center;"><?php if(strlen($item["nombre"]) > 23) echo substr($item["nombre"],0,23) . "..."; else echo $item["nombre"]?></div>
 		</div><br/>
 		<div id="stars-menu" style="position:relative;">
-			<span style="position:absolute; top:9px; left:17px; text-shadow: 0.1em 0.1em #333; color:#fff; font-size:17px;">Calificación</span>
+			<span style="position:absolute; top:9px; left:17px;">Calificación</span>
 			<div style="position:absolute; right:30px; top:10px;">
 			<?php
 			 	
@@ -100,12 +100,11 @@ $getJSON = file_get_contents($url);
 				
 			?>
 			</div>
-		</div>
-		<div>
-			<div id="image" style="background:white;">
-				<img src="<?php echo $item["img_url"]; ?>" style="width:320px; height:180px;"/>
+		</div><br/>
+			<div id="image" class="platillo-img">
+				<img src="<?php echo $item["img_url"]; ?>" style="width:290px; height:100%; border-radius:4px;"/>
 			</div>
-		<div style="background:#fff; height:100%; font-size:14px;">
+		<div style="background:#5CC1A6; height:100%; font-size:14px; text-shadow:none; font-family:kot; padding:15px;">
 			<br />
 				<div style="width:100%;">
 					<div style="width:98%; margin: 0 auto;">
@@ -113,8 +112,8 @@ $getJSON = file_get_contents($url);
 							<?php
 							   if($item["recomendacion"] != null){			
 							?>
-									<span style="font-size:14px; top:5px;">Recomendaciones: </span><br /><br />
-									<span style=" font-size:12px;"><?php echo $item["recomendacion"]; ?></span><br />
+									<span style="font-size:14px; font-weight:bold; top:5px;">Recomendaciones: </span><br />
+									<span style=" font-size:14px;"><?php echo $item["recomendacion"]; ?></span><br />
 							<?php
 						  		}
 								else{
@@ -124,10 +123,9 @@ $getJSON = file_get_contents($url);
 						</div>
 						<div style="clear:both;"></div>
 					</div>
-					<br />
 				</div>
 			<br/>	
-			&nbsp;Equivale a:
+			<span style="font-size:14px; font-weight:bold; top:5px;">Equivale a: </span>
 		<br /><br />
 			<table width="100%" cellpadding="0" cellspacing="0" class="table-menu-detail" align="center">
 				<?php
@@ -148,7 +146,6 @@ $getJSON = file_get_contents($url);
 			</table>
 
 		</div>	
-		</div>
 	
 	</div>
 	
