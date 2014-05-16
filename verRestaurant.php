@@ -100,7 +100,7 @@ $getJSON = file_get_contents($url);
 					?>
 
 						<tr>
-							<td width="60%"><span style="padding-left:12px; width:100%; font-size:12px;">
+							<td width="60%"><span style="padding-left:12px; width:100%; font-size:13px;">
 								<a class="platillo" href="verMenu.php?id=<?php echo $items["id"]; ?>&rest=<?php echo $_GET["nombre"] ?>"><?php if(strlen($items["nombre"]) > 26)  echo substr($items["nombre"],0,26)."..."; else echo $items["nombre"]  ?></a></span>
 							</td>
 							<td width="40%">
