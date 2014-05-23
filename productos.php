@@ -64,7 +64,7 @@
 			</div>
 			<div class="bar-title-top horizontal" style="text-align:center; margin-left:-5px; width:80% !important;">Productos y Método KOT</div>
 		</div><br/>
-		<ul id="alper-list" style="margin:0;">
+		<ul id="prod-cat" style="margin:0;">
 			<br/>
 			<?php foreach($list as $item) : ?>
 				<a style="font-size:22px;text-shadow:none;" href="video.php?cat=<?php echo $cat;?>&video=<?php echo(substr($item["Url"], strpos($item["Url"], "v=")+2)); ?>"><li><span>El Método KOT</span></li></a>

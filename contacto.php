@@ -56,7 +56,7 @@
 				<span class="bar-title-top horizontal" style="text-align:center;margin-left:-20px;">Contacto</span>
 			</div>
 			
-			<div style="width:80px; margin:0 auto; padding-top:25px;">
+			<div style="width:215px; margin:0 auto; padding-top:25px;">
 				<img src="img/kot-mexico.png" />
 			</div>
 			<div style="width:90px; margin:0 auto; padding-top:20px;">

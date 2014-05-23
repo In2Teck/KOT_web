@@ -4,7 +4,7 @@ class WS
 {
 	public function get($tipo,$parametros)
 	{
-		$servicios = array('login' => 'http://kot.mx/nuevo/WS/kotLogin.php?'.$parametros,
+		$servicios = array('login' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotLogin.php?'.$parametros,
 						   'progreso' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
 						   'metodo' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',

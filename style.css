@@ -141,8 +141,12 @@ body
 
 #alper-list
 {
-	list-style:none;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 4px;
+	margin: auto;
 	padding:0;
+	width: 90%;
 }
 #alper-list li
 {
@@ -157,8 +161,32 @@ body
 }
 #alper-list a
 { 
+	color: #5CC1A6; 
+	text-shadow: none; 
+	text-decoration: none; 
+}
+
+#prod-cat
+{
+	list-style:none;
+	padding:0;
+}
+#prod-cat li
+{
+	height:40px;
+	position:relative;
+}
+#prod-cat li span
+{
+	position:absolute; top:12px;
+	width:100%;
+	text-align:center;
+}
+#prod-cat a
+{ 
 	color:#fff; text-shadow: 0.1em 0.1em #333; text-decoration:none; 
 }
+
 
 .table-alim {
 	background:#fff;
@@ -522,16 +550,17 @@ div#note{
 	display: none;
 }
 
-#cinta_azul {
-	background: url(img/Banderilla.png) no-repeat;
+#cinta_meta {
+	background-color: #EC6D36;
 	background-position: center;
-	background-size: 100%;
+	border: solid 1px #EC6D36;
+	border-radius: 4px;
 	bottom: 5px;
 	color: #fff;
 	font-size: 16px;
 	height: 25px;
 	position: relative;
-	width: 100%;
+	width: 90%;
 }
 
 #sort-btns {

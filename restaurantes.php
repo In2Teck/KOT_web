@@ -80,14 +80,6 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotRestaurantes.php");
 			</center><br/>
 			<ul id="listado" data-role="listview" data-filter="true" data-filter-placeholder="Busca tu restaurante">
 				
-				<?php
-					foreach($list as $item){
-						echo '<li data-role="list-divider" class="letra">'.$item["letra"].'</li>';
-						foreach($item["items"] as $items){
-							echo '<li><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='.$items["nombre"].'&idRestaurante='.$items["id"].'&direccion='.urlencode($items["direccion"]).'&tel='.$items["telefono"].'&latitud='.$items["latitud"].'&longitud='.$items["longitud"].'">'.$items["nombre"].'</a></li>';
-						}
-					}
-				?>
 			</ul>
 			<br />
 			<br />

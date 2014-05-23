@@ -61,15 +61,17 @@
 			<span class="bar-title-top horizontal" style="text-align:center;margin-left:-15px">Alimentos</span>
 		</div>
 		<br/>
-		<ul id="alper-list" style="margin:0;">
+		<ul id="alper-list" data-role="listview">
+		<!--ul id="listado" data-role="listview" class="lista-nutri"-->
 			
 			<?php
 				$titles = $titulos->getTitulos($tipo_dieta);
 			?>
 			<?php foreach($titles as $key => $value) : ?>
 				<a href="verpermitido.php?id=<?php echo $key; ?>&tipo=<?php echo $tipo_dieta; ?>"><li><span><?php echo $value[0];?></span></li></a>
+				<hr class="separador" style="width:50%"/>
 			<?php endforeach; ?>	
-		</ul>
+		</ul><br/>
 		
 	</div>
 	<div style="background: white; border-top:solid 1px #d5d5d5; position:relative; width:320px; margin:0 auto; bottom:0; height:70px;">

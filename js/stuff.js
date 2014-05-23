@@ -12,67 +12,66 @@ var expandeMe = function(id,count,categoria){
 	}	 
 }
 
-function publish_on_fb(id,desc){
+function miMetodoFnc(event) {
+		
+		var local = localStorage.getItem("user_data");
+		var user = $.parseJSON(local);
+		var user_id;
+		var dataMetodo;
+		if (user && user.id) {
+			user_id = user.id;
+
+			var now = new Date();
+			var storeMetodo = localStorage.getItem("metodo");
+			if (!storeMetodo) {
+				var today3am = now.getTime() - ((((now.getHours() - 3) * 3600) + (now.getMinutes() * 60) + now.getSeconds()) * 1000 + now.getMilliseconds());
+				storeMetodo = {"user": user_id, "last": today3am, "progresivo": {}, "intensivo":{}};
+				localStorage.setItem("metodo", JSON.stringify(storeMetodo));
+			}
+			else {
+				var last = JSON.parse(storeMetodo).last;
+				var diff = now - last;
+				if (diff >= 86400000) {
+					var next3am = last + 86400000;
+					storeMetodo = {"user": user_id, "last": next3am, "progresivo": {}, "intensivo":{}};
+					localStorage.setItem("metodo", JSON.stringify(storeMetodo));
+				}
+			}
+
+			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id, function(response) {
+				
+				dataMetodo = $.parseJSON(response);
+				var semana = dataMetodo.semana;
+				if (semana != 1)
+					$("#semanas-h").text("Llevas " + semana + " semanas en el método KOT");
+				else
+					$("#semanas-h").text("Llevas " + semana + " semana en el método KOT");
+
+				$("#metodo").show();
+
+				var sd = dataMetodo.intensivo;
 	
-	FB.ui(
-	  {
-	    method: 'feed',
-	    name: 'Bajar de peso no siempre tiene que ser dificil',
-	    link: 'http://kot.mx',
-	    picture: 'http://kot.mx/movil_prueba/img/productos/'+id+'.jpg',
-	    description: desc
-	  },
-	  function(response) {
-	    if (response && response.post_id) {
-	      alert('Ha sido publicado');
-	    }
-	  }
-	);
+				if (sd.desayuno.cereal == null && sd.desayuno.proteinas==null && sd.desayuno.vegetales==null && sd.desayuno.frutas==null) {
+					//alert("El usuario no tiene datos !");
+					//location.href="index.php";
+					$("#metodo").hide();
+					$("#metodo-demo").fadeIn();
+				}
 
- }
-
-var publish_restaurant = function(platillo,restaurant){
-
-		FB.ui(
-		  {
-			
-			method: 'feed',
-			name: 'Bajar de peso no siempre tiene que ser dificil',
-			link: 'http://kot.mx',
-			picture: 'http://kot.mx/images/logo.jpg',
-			description: 'Siguiendo el Metodo KOT comiendo '+platillo+' en '+restaurant+''
-		  },
-		  function(response) {
-			if (response && response.post_id) {
-			  alert('Se ha compartido correctamente!');
-			} 
-		  }
-		);
-
-
- }
-
-var publish_miprogreso = function(){
-
-		FB.ui(
-		  {
-
-			method: 'feed',
-			name: 'Metodo KOT',
-			link: 'http://kot.mx',
-			picture: 'http://kot.mx/images/logo.jpg',
-			description: 'En camino a completar mi meta!'
-			
-		  },
-		  function(response) {
-			if (response && response.post_id) {
-			  alert('Se ha compartido correctamente!');
-			} 
-		  }
-		);
-
-
- }
+				ShowMetodo(user_id,"intensivo", dataMetodo);
+			});
+		}
+		else {
+			$("#metodo-demo").show();
+		}
+		
+		$("#btn-intensivo").click(function(){
+			ShowMetodo(user_id, "intensivo", dataMetodo);	
+		});
+		$("#btn-progresivo").click(function(){
+			ShowMetodo(user_id, "progresivo", dataMetodo);
+		});
+	}
 
 
 var ShowMetodo = function(id_user, tipo, datos) {
@@ -95,11 +94,11 @@ var ShowMetodo = function(id_user, tipo, datos) {
 			for (index = 0; index < sd.desayuno.proteinas_vegetales; index++)
 				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-prot'+index+'" class="custombox checktop"/><label for="des-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=10">prote\u00edna vegetal</a></span></li>';
 			for (index = 0; index < sd.desayuno.frutas; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-frut'+index+'" class="custombox checktop"/><label for="des-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-frut'+index+'" class="custombox checktop"/><label for="des-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
 			for (index = 0; index < sd.desayuno.lacteos; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-lact'+index+'" class="custombox checktop"/><label for="des-lact'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-lact'+index+'" class="custombox checktop"/><label for="des-lact'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteo</a></span></li>';
 			for (index = 0; index < sd.desayuno.productosKot; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-kot'+index+'" class="custombox checktop"/><label for="des-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-kot'+index+'" class="custombox checktop"/><label for="des-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 		c[0]+= "</ul>";
 		c[0]+= '<div style="clear:both; height:3px;"></div>';
 
@@ -107,9 +106,9 @@ var ShowMetodo = function(id_user, tipo, datos) {
 			for (index = 0; index < sd.colacion_1.cereal; index++)
 				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-cer'+index+'" class="custombox checktop"/><label for="col1-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">cereal</a></span></li>';
 			for (index = 0; index < sd.colacion_1.frutas; index++)
-				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-frut'+index+'" class="custombox checktop"/><label for="col1-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-frut'+index+'" class="custombox checktop"/><label for="col1-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
 			for (index = 0; index < sd.colacion_1.productosKot; index++)
-				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-kot'+index+'" class="custombox checktop"/><label for="col1-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-kot'+index+'" class="custombox checktop"/><label for="col1-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 			for (index = 0; index < sd.colacion_1.proteinas_vegetales; index++)
 				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-prot'+index+'" class="custombox checktop"/><label for="col1-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna vegetal</a></span></li>';
 		c[1]+= "</ul>";
@@ -118,14 +117,14 @@ var ShowMetodo = function(id_user, tipo, datos) {
 		c[2] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.comida.cereal; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-cer'+index+'" class="custombox checktop"/><label for="com-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
-			for (index = 0; index < sd.comida.proteina_animal; index++)
+			for (index = 0; index < sd.comida.proteinas; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-prot'+index+'" class="custombox checktop"/><label for="com-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-			for (index = 0; index < sd.comida.vegetales_crudos; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegc'+index+'" class="custombox checktop"/><label for="com-vegc'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
-			for (index = 0; index < sd.comida.vegetales_cocidos; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
+			for (index = 0; index < sd.comida.vegetales_crudo; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegc'+index+'" class="custombox checktop"/><label for="com-vegc'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetal crudo</a></span></li>';
+			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetal cocido</a></span></li>';
 			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharada de aceite</a></span></li>';
 		c[2]+= "</ul>";
 		c[2]+= '<div style="clear:both; height:3px;"></div>';
 
@@ -133,9 +132,9 @@ var ShowMetodo = function(id_user, tipo, datos) {
 			for (index = 0; index < sd.colacion_2.cereal; index++)
 				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-cer'+index+'" class="custombox checktop"/><label for="col2-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">cereal</a></span></li>';
 			for (index = 0; index < sd.colacion_2.frutas; index++)
-				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-frut'+index+'" class="custombox checktop"/><label for="col2-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-frut'+index+'" class="custombox checktop"/><label for="col2-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
 			for (index = 0; index < sd.colacion_2.productosKot; index++)
-				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-kot'+index+'" class="custombox checktop"/><label for="col2-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-kot'+index+'" class="custombox checktop"/><label for="col2-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 			for (index = 0; index < sd.colacion_2.proteinas_vegetales; index++)
 				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-prot'+index+'" class="custombox checktop"/><label for="col2-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna vegetal</a></span></li>';
 		c[3]+= "</ul>";
@@ -144,20 +143,20 @@ var ShowMetodo = function(id_user, tipo, datos) {
 		c[4] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.cena.cereal; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-cer'+index+'" class="custombox checktop"/><label for="cena-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
-			for (index = 0; index < sd.cena.proteina_animal; index++)
+			for (index = 0; index < sd.cena.proteinas; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-prot'+index+'" class="custombox checktop"/><label for="cena-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
-			for (index = 0; index < sd.cena.vegetales_crudos; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetales crudos</a></span></li>';
+			for (index = 0; index < sd.cena.vegetales_crudo; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetal crudo</a></span></li>';			
 			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharadas de aceite</a></span></li>';
-			for (index = 0; index < sd.cena.vegetales_cocidos; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetales cocidos</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharada de aceite</a></span></li>';
+			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetal cocido</a></span></li>';			
 			for (index = 0; index < sd.cena.frutas; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-frut'+index+'" class="custombox checktop"/><label for="cena-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">frutas</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-frut'+index+'" class="custombox checktop"/><label for="cena-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
 			for (index = 0; index < sd.cena.lacteos; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-lac'+index+'" class="custombox checktop"/><label for="cena-lac'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteos</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-lac'+index+'" class="custombox checktop"/><label for="cena-lac'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteo</a></span></li>';
 			for (index = 0; index < sd.cena.productosKot; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-kot'+index+'" class="custombox checktop"/><label for="cena-kot'+index+'" class="customlabel checktop"><a href="productos.php">productos KOT</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-kot'+index+'" class="custombox checktop"/><label for="cena-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 		c[4]+= "</ul>";
 		c[4]+= '<div style="clear:both; height:3px;"></div>';
 
@@ -323,9 +322,9 @@ $(document).ready(function() {
 					$("#span-strt").text(obj.kilos.actual + " Kg");
 					$("#span-end").text(obj.kilos.progreso + " Kg");
 					if (obj.kilos.print > 0)
-						$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+						$("#cinta_meta").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
 					else
-						$("#cinta_azul").text("¡Felicidades, llegaste a tu meta!");
+						$("#cinta_meta").text("¡Felicidades, llegaste a tu meta!");
 
 					drawChart(ctx, obj.kilos.datos, "#0000FF");
 					shouldPostFB(obj.kilos);
@@ -342,13 +341,13 @@ $(document).ready(function() {
 			$("span-end").text();
 			progreso_type = "Peso";
 			drawChart(ctx, obj.kilos.datos, "#0000FF");
-			$("#cinta_azul").show();
+			$("#cinta_meta").show();
 			$("#span-strt").text(obj.kilos.actual + " kg");
 			$("#span-end").text(obj.kilos.progreso + " kg");
 			if (obj.kilos.print > 0)
-				$("#cinta_azul").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
+				$("#cinta_meta").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
 			else
-				$("#cinta_azul").text("¡Felicidades, llegaste a tu meta!");
+				$("#cinta_meta").text("¡Felicidades, llegaste a tu meta!");
 		});
 		
 		
@@ -357,7 +356,7 @@ $(document).ready(function() {
 			drawChart(ctx, obj.medidas.datos, "#FF0000");
 			$("#span-strt").text(+ obj.medidas.actual + " cm");
 			$("#span-end").text(obj.medidas.progreso + " cm");
-			$("#cinta_azul").hide();
+			$("#cinta_meta").hide();
 		});
 
 		$("#btn-grasa").click(function() {
@@ -365,7 +364,7 @@ $(document).ready(function() {
 			drawChart(ctx, obj.grasa.datos, "#00FF00");
 			$("#span-strt").text(+ obj.grasa.actual + "%");
 			$("#span-end").text(obj.grasa.progreso + "%");
-			$("#cinta_azul").hide();
+			$("#cinta_meta").hide();
 		});
 		
 		if(user_id == null) {
@@ -492,68 +491,8 @@ $(document).ready(function() {
 	/***********************
 	 * Mi Método
 	 **********************/	
-	$("#mimetodo").live('pagecreate', function(event) {
-		
-		var local = localStorage.getItem("user_data");
-		var user = $.parseJSON(local);
-		var user_id;
-		var dataMetodo;
-		if (user && user.id) {
-			user_id = user.id;
+	//$("#mimetodo").live('pagecreate', miMetodoFnc);
 
-			var now = new Date();
-			var storeMetodo = localStorage.getItem("metodo");
-			if (!storeMetodo) {
-				var today3am = now.getTime() - ((((now.getHours() - 3) * 3600) + (now.getMinutes() * 60) + now.getSeconds()) * 1000 + now.getMilliseconds());
-				storeMetodo = {"user": user_id, "last": today3am, "progresivo": {}, "intensivo":{}};
-				localStorage.setItem("metodo", JSON.stringify(storeMetodo));
-			}
-			else {
-				var last = JSON.parse(storeMetodo).last;
-				var diff = now - last;
-				if (diff >= 86400000) {
-					var next3am = last + 86400000;
-					storeMetodo = {"user": user_id, "last": next3am, "progresivo": {}, "intensivo":{}};
-					localStorage.setItem("metodo", JSON.stringify(storeMetodo));
-				}
-			}
-
-			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id, function(response) {
-				
-				dataMetodo = $.parseJSON(response);
-				var semana = dataMetodo.semana;
-				if (semana != 1)
-					$("#semanas-h").text("Llevas " + semana + " semanas en el método KOT");
-				else
-					$("#semanas-h").text("Llevas " + semana + " semana en el método KOT");
-
-				$("#metodo").show();
-
-				var sd = dataMetodo.intensivo;
-	
-				if (sd.desayuno.cereal == null && sd.desayuno.proteinas==null && sd.desayuno.vegetales==null && sd.desayuno.frutas==null) {
-					//alert("El usuario no tiene datos !");
-					//location.href="index.php";
-					$("#metodo").hide();
-					$("#metodo-demo").fadeIn();
-				}
-
-				ShowMetodo(user_id,"intensivo", dataMetodo);
-			});
-		}
-		else {
-			$("#metodo-demo").show();
-		}
-		
-		$("#btn-intensivo").click(function(){
-			ShowMetodo(user_id, "intensivo", dataMetodo);	
-		});
-		$("#btn-progresivo").click(function(){
-			ShowMetodo(user_id, "progresivo", dataMetodo);
-		});
-		
-
-	});
 	
 	$("#vermapa").live('pagecreate',function(event){
 		  var map;
@@ -831,6 +770,11 @@ function filtraPorCiudadRest(original, selected) {
 				}
 			}
 			if (temp.length > 0) {
+				temp.sort(function(a, b){
+    			if(a.nombre < b.nombre) return -1;
+    			if(a.nombre > b.nombre) return 1;
+    			return 0;
+				});
 				letra.items = temp;
 				resultados.push(letra);
 			}

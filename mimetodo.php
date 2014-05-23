@@ -46,6 +46,9 @@
 </head>
 <body>
 <div data-role="page" id="mimetodo">
+	<script type="text/javascript">
+		$(document).ready(miMetodoFnc);
+	</script>	
 <div data-role="content">
 	<div id="container">
 		<div id="topbar">
@@ -111,6 +114,6 @@
 		</div>
 	</div>
 </div>
-</div>	
+</div>
 </body>
 </html>

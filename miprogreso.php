@@ -78,7 +78,7 @@
 						<div style="clear:both;"></div>	
 						<br />
 						<center>
-							<div id="cinta_azul"></div>
+							<div id="cinta_meta"></div>
 						</center>
 					</div>
 				</div>
