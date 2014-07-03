@@ -2,7 +2,7 @@
 	$tipo =	$_GET["tipo"];
 	$list = array();
 	$cat = '';
-	$getJSON = file_get_contents("http://desarrollo.sysop26.com/kot/nuevo/WS/kotVideos.php");
+	$getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotVideos.php");
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["videos"] as $row) {
 		if ($tipo == 1) {

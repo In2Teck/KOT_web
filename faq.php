@@ -1,7 +1,7 @@
 <?php
 	$tipo =	$_GET["tipo"];
 	$list = array();
-	$getJSON = file_get_contents("http://desarrollo.sysop26.com/kot/nuevo/WS/kotPreguntas.php");
+	$getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotPreguntas.php");
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["preguntas"] as $row) {
 		if($row["id_categoria"] == $tipo){ $list[] = $row; }

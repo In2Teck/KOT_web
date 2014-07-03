@@ -89,7 +89,7 @@
 				</a>
 			</div>
 			<div class="menu-item-container">
-				<a href="restaurantes.php">
+				<a href="restaurantes.php" onclick="setupRestaurante()">
 				<!--div class="menu-item-image"-->
 					<img src="img/nuevo/restaurantes_permitidos.png" class="menu-item-image" />
 				<!--/div>

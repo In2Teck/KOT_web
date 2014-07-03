@@ -1,6 +1,6 @@
 <?php
 	
-	$getJSON = file_get_contents("http://desarrollo.sysop26.com/kot/nuevo/WS/kotVideos.php");
+	$getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotVideos.php");
 	$array_get = json_decode($getJSON,1);
 	foreach($array_get["videos"] as $row) {
 		if($row["id_categoria"] == 3){ $list[] = $row; $cat = $row["categoria"];}

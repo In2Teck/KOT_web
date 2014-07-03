@@ -4,12 +4,12 @@ class WS
 {
 	public function get($tipo,$parametros)
 	{
-		$servicios = array('login' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotLogin.php?'.$parametros,
-						   'progreso' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
-						   'metodo' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
+		$servicios = array('login' => 'http://kot.mx/nuevo/WS/kotLogin.php?'.$parametros,
+						   'progreso' => 'http://kot.mx/nuevo/WS/kotMiProgreso.php?idUserKot='.$parametros,
+						   'metodo' => 'http://kot.mx/nuevo/WS/kotMiMetodo.php?idUserKot='.$parametros,
 						   'nutriologos' => 'http://kot.mx/nuevo/WS/kotNutriologos.php',
-						   'restaurantes' => 'http://kot.mx/nuevo/WS/kotRestaurantes.php',
-						   'preguntas' => 'http://desarrollo.sysop26.com/kot/nuevo/WS/kotPreguntas.php',
+						   'restaurante' => 'http://kot.mx/nuevo/WS/kotRestaurantes.php',
+						   'preguntas' => 'http://kot.mx/nuevo/WS/kotPreguntas.php',
 						   'registro' => 'http://kot.mx/nuevo/WS/kotRegistro.php?'.$parametros
 							);
 		set_time_limit(60);
@@ -119,7 +119,7 @@ switch($action)
 		echo json_encode($doit->get('nutriologos', ''));
 	break;
 	case 'getRestaurantes' :
-		echo json_encode($doit->get('restaurantes', ''));
+		echo json_encode($doit->get('restaurante', ''));
 	break;
 	case 'getPreguntas':
 		echo json_encode($doit->get('preguntas', ''));

@@ -124,7 +124,7 @@ var ShowMetodo = function(id_user, tipo, datos) {
 			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
 				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetal cocido</a></span></li>';
 			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharada de aceite</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">2 cucharadas de aceite</a></span></li>';
 		c[2]+= "</ul>";
 		c[2]+= '<div style="clear:both; height:3px;"></div>';
 
@@ -148,7 +148,7 @@ var ShowMetodo = function(id_user, tipo, datos) {
 			for (index = 0; index < sd.cena.vegetales_crudo; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetal crudo</a></span></li>';			
 			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">cucharada de aceite</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">2 cucharadas de aceite</a></span></li>';
 			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetal cocido</a></span></li>';			
 			for (index = 0; index < sd.cena.frutas; index++)
@@ -604,6 +604,7 @@ $(document).ready(function() {
 	 **********************/	
 	$("#restaurantes").live('pagecreate', function(event) {
 		var obj;
+		var restaurante = JSON.parse(localStorage.getItem("restaurante"));
 
 		$.get('http://kot.mx/movil_prueba/json.php?action=getRestaurantes', function(data) {
 			obj = $.parseJSON(data);
@@ -611,24 +612,49 @@ $(document).ready(function() {
 			for (var i = 0; i < municipios.length; i++) {
 				$("#ciudad").append("<option value='"+ municipios[i].id_area + "'>" + municipios[i].area + "</option>");
 			}
+			if (restaurante.ciudad != null) {
+				$("#ciudad").val(restaurante.ciudad);
+				$("#ciudad").selectmenu("refresh");
+				filtraRest(restaurante.ciudad);
+			}
+			if (restaurante.sort == "az") {
+				//$()
+				filtraAZ();
+			}
+			else if (restaurante.sort == "ds") {
+				filtraDis();
+			}
 		});
 
 		$("#ciudad").change(function(event) {
+			filtraRest(event.currentTarget.value);
+		});
+		
+		$("#btn-az").click(filtraAZ);
+
+		$("#btn-distancia").click(filtraDis);
+
+		function filtraRest(value) {
 			$("#sort-btns").css("display", "block");
-			var selected = event.currentTarget.value;
+			var selected = value;
 			var resultados = filtraPorCiudadRest(obj.restaurante, selected);
+			restaurante["ciudad"] = selected;
+			localStorage.setItem("restaurante", JSON.stringify(restaurante));
+
 			$("#listado").empty();
 			for (var i = 0; i < resultados.length; i++) {
 				$("#listado").append('<li data-role="list-divider" class="ui-li ui-li-divider ui-btn ui-bar-b ui-btn-up-undefined letra" role="heading">' + resultados[i].letra + '</li>');
 				for (var j = 0; j < resultados[i].items.length; j++) {
 					var item = resultados[i].items[j];
 					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
-					//nombre='.$items["nombre"].'&idRestaurante='.$items["id"].'&direccion='.urlencode($items["direccion"]).'&tel='.$items["telefono"].'&latitud='.$items["latitud"].'&longitud='.$items["longitud"].'">'.$items["nombre"].'</a></li>
+					
 				}
 			}
-		});
-		
-		$("#btn-az").click(function() {
+		}
+
+		function filtraAZ() {
+			restaurante["sort"] = "az";
+			localStorage.setItem("restaurante", JSON.stringify(restaurante));
 			var resultados = filtraPorCiudadRest(obj.restaurante, $('#ciudad').val());
 			$("#listado").empty();
 			for (var i = 0; i < resultados.length; i++) {
@@ -638,12 +664,14 @@ $(document).ready(function() {
 					$("#listado").append('<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c"><div class="ui-btn-inner ui-li" aria-hidden="true"><div class="ui-btn-text"><a style="color:#5CC1A6;" href="verRestaurant.php?nombre='+item.nombre+'&idRestaurante='+item.id+'&direccion='+item.direccion+'&tel='+item.telefono+'&latitud='+item.latitud+'&longitud='+item.longitud+'" class="ui-link-inherit">' + item.nombre + '</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
 				}
 			}
-		});
+		}
 
-		$("#btn-distancia").click(function() {
+		function filtraDis() {
 			if (navigator.geolocation) {
     		navigator.geolocation.getCurrentPosition(function(position) {
-    			var resultados = ordenaPorDistanciaRest(obj.restaurante, $('#ciudad').val(), position);
+    			restaurante["sort"] = "ds";
+					localStorage.setItem("restaurante", JSON.stringify(restaurante));
+					var resultados = ordenaPorDistanciaRest(obj.restaurante, $('#ciudad').val(), position);
     			$("#listado").empty();
 					for (var i = 0; i < resultados.length; i++) {
 						var item = resultados[i];
@@ -653,7 +681,7 @@ $(document).ready(function() {
   		} else {
     		onPositionError('not supported');
   		}
-		});
+		}
 
 	});
 
@@ -857,4 +885,10 @@ function deepCopy(obj) {
         return out;
     }
     return obj;
+}
+
+function setupRestaurante() {
+	var restaurante = localStorage.getItem("restaurante");
+	restaurante = {"ciudad": null, "sort": null, "nombre": null};
+	localStorage.setItem("restaurante", JSON.stringify(restaurante));
 }
