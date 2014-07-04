@@ -2,7 +2,7 @@ var diego;
 
 var expandeMe = function(id,count,categoria){
 	
-	var url = "http://kot.mx/movil_prueba/json.php?action=textDetailsProducts&item="+id+"&categoria="+categoria;
+	var url = "http://kot.mx/movil/json.php?action=textDetailsProducts&item="+id+"&categoria="+categoria;
 	var itemDOM =  $("#text-details-"+id);
 	if(count > 180){
 		$.get(url,function(response){
@@ -38,7 +38,7 @@ function miMetodoFnc(event) {
 				}
 			}
 
-			$.get('http://kot.mx/movil_prueba/json.php?action=getMetodo&idUser='+user_id, function(response) {
+			$.get('http://kot.mx/movil/json.php?action=getMetodo&idUser='+user_id, function(response) {
 				
 				dataMetodo = $.parseJSON(response);
 				var semana = dataMetodo.semana;
@@ -274,7 +274,7 @@ $(document).ready(function() {
 				parametros = "mail="+user+"&code=&password="+pass;
 			}
 			
-				$.get('http://kot.mx/movil_prueba/json.php?action=doLogin&'+parametros,function(data){
+				$.get('http://kot.mx/movil/json.php?action=doLogin&'+parametros,function(data){
 
 					var result = $.parseJSON(data);
 					var is_true = (result.response==true) ? true : false;
@@ -316,7 +316,7 @@ $(document).ready(function() {
 
 		 	user_id = user.id;
 		 	var ctx = $("#imagen-grafica").get(0).getContext("2d");
-			$.get('http://kot.mx/movil_prueba/json.php?action=getGoals&idKOT='+user_id,function(data) {
+			$.get('http://kot.mx/movil/json.php?action=getGoals&idKOT='+user_id,function(data) {
 					
 					obj = $.parseJSON(data);
 					$("#span-strt").text(obj.kilos.actual + " Kg");
@@ -533,7 +533,7 @@ $(document).ready(function() {
 	$("#metodoDemo").live('pagecreate',function(){
 		var id_demo = $("#idMetodo").val();
 		
-		$.get('http://kot.mx/movil_prueba/json.php?action=getMetodoDemo&id_demo='+id_demo,function(data){
+		$.get('http://kot.mx/movil/json.php?action=getMetodoDemo&id_demo='+id_demo,function(data){
 			var obj = $.parseJSON(data);
 			$(".contenido1").html(obj.info); $(".contenido2").html(obj.desayuno); $(".contenido3").html(obj.comida); 
 			$(".contenido4").html(obj.colacion); $(".contenido5").html(obj.cena);	
@@ -548,7 +548,7 @@ $(document).ready(function() {
 	$("#nutriologos").live('pagecreate', function(event) {
 		var obj;
 
-		$.get('http://kot.mx/movil_prueba/json.php?action=getNutriologos', function(data) {
+		$.get('http://kot.mx/movil/json.php?action=getNutriologos', function(data) {
 			obj = $.parseJSON(data);
 			var municipios = obj.municipios.sort(comparaCiudades);
 			for (var i = 0; i < municipios.length; i++) {
@@ -606,7 +606,7 @@ $(document).ready(function() {
 		var obj;
 		var restaurante = JSON.parse(localStorage.getItem("restaurante"));
 
-		$.get('http://kot.mx/movil_prueba/json.php?action=getRestaurantes', function(data) {
+		$.get('http://kot.mx/movil/json.php?action=getRestaurantes', function(data) {
 			obj = $.parseJSON(data);
 			var municipios = obj.areas_metropolitanas.sort(comparaCiudadesRest);
 			for (var i = 0; i < municipios.length; i++) {
