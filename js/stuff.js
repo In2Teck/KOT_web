@@ -1,4 +1,3 @@
-var diego;
 
 var expandeMe = function(id,count,categoria){
 	
@@ -90,13 +89,13 @@ var ShowMetodo = function(id_user, tipo, datos) {
 
 		c[0] = '<ul class="tablas-metodo" style="width:100%;">';
 			for (index = 0; index < sd.desayuno.cereal; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-cer'+index+'" class="custombox checktop"/><label for="des-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></label></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-cer'+index+'" class="custombox checktop"/><label for="des-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">cereal</a></label></span></li>';
 			for (index = 0; index < sd.desayuno.proteinas_vegetales; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-prot'+index+'" class="custombox checktop"/><label for="des-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=10">prote\u00edna vegetal</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-prot'+index+'" class="custombox checktop"/><label for="des-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">prote\u00edna vegetal</a></span></li>';
 			for (index = 0; index < sd.desayuno.frutas; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-frut'+index+'" class="custombox checktop"/><label for="des-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-frut'+index+'" class="custombox checktop"/><label for="des-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">fruta</a></span></li>';
 			for (index = 0; index < sd.desayuno.lacteos; index++)
-				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-lact'+index+'" class="custombox checktop"/><label for="des-lact'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteo</a></span></li>';
+				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-lact'+index+'" class="custombox checktop"/><label for="des-lact'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">l\u00e1cteo</a></span></li>';
 			for (index = 0; index < sd.desayuno.productosKot; index++)
 				c[0]+= '<li><span class="checkbox"><input type="checkbox" id="des-kot'+index+'" class="custombox checktop"/><label for="des-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 		c[0]+= "</ul>";
@@ -104,57 +103,57 @@ var ShowMetodo = function(id_user, tipo, datos) {
 
 		c[1] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.colacion_1.cereal; index++)
-				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-cer'+index+'" class="custombox checktop"/><label for="col1-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">cereal</a></span></li>';
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-cer'+index+'" class="custombox checktop"/><label for="col1-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">cereal</a></span></li>';
 			for (index = 0; index < sd.colacion_1.frutas; index++)
-				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-frut'+index+'" class="custombox checktop"/><label for="col1-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-frut'+index+'" class="custombox checktop"/><label for="col1-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">fruta</a></span></li>';
 			for (index = 0; index < sd.colacion_1.productosKot; index++)
 				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-kot'+index+'" class="custombox checktop"/><label for="col1-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 			for (index = 0; index < sd.colacion_1.proteinas_vegetales; index++)
-				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-prot'+index+'" class="custombox checktop"/><label for="col1-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna vegetal</a></span></li>';
+				c[1]+= '<li><span class="checkbox"><input type="checkbox" id="col1-prot'+index+'" class="custombox checktop"/><label for="col1-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">prote\u00edna vegetal</a></span></li>';
 		c[1]+= "</ul>";
 		c[1]+= '<div style="clear:both; height:3px;"></div>';
 
 		c[2] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.comida.cereal; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-cer'+index+'" class="custombox checktop"/><label for="com-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-cer'+index+'" class="custombox checktop"/><label for="com-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">cereal</a></span></li>';
 			for (index = 0; index < sd.comida.proteinas; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-prot'+index+'" class="custombox checktop"/><label for="com-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-prot'+index+'" class="custombox checktop"/><label for="com-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna animal</a></span></li>';
 			for (index = 0; index < sd.comida.vegetales_crudo; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegc'+index+'" class="custombox checktop"/><label for="com-vegc'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetal crudo</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegc'+index+'" class="custombox checktop"/><label for="com-vegc'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=10">vegetal crudo</a></span></li>';
 			for (index = 0; index < sd.comida.vegetales_cocidas; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetal cocido</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-vegi'+index+'" class="custombox checktop"/><label for="com-vegi'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=9">vegetal cocido</a></span></li>';
 			for (index = 0; index < sd.comida.cucharadas_aceite; index++)
-				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">2 cucharadas de aceite</a></span></li>';
+				c[2]+= '<li><span class="checkbox"><input type="checkbox" id="com-ace'+index+'" class="custombox checktop"/><label for="com-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>';
 		c[2]+= "</ul>";
 		c[2]+= '<div style="clear:both; height:3px;"></div>';
 
 		c[3] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.colacion_2.cereal; index++)
-				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-cer'+index+'" class="custombox checktop"/><label for="col2-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">cereal</a></span></li>';
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-cer'+index+'" class="custombox checktop"/><label for="col2-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">cereal</a></span></li>';
 			for (index = 0; index < sd.colacion_2.frutas; index++)
-				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-frut'+index+'" class="custombox checktop"/><label for="col2-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-frut'+index+'" class="custombox checktop"/><label for="col2-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">fruta</a></span></li>';
 			for (index = 0; index < sd.colacion_2.productosKot; index++)
 				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-kot'+index+'" class="custombox checktop"/><label for="col2-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 			for (index = 0; index < sd.colacion_2.proteinas_vegetales; index++)
-				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-prot'+index+'" class="custombox checktop"/><label for="col2-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna vegetal</a></span></li>';
+				c[3]+= '<li><span class="checkbox"><input type="checkbox" id="col2-prot'+index+'" class="custombox checktop"/><label for="col2-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">prote\u00edna vegetal</a></span></li>';
 		c[3]+= "</ul>";
 		c[3]+= '<div style="clear:both; height:3px;"></div>';
 
 		c[4] = '<ul class="tablas-metodo">';
 			for (index = 0; index < sd.cena.cereal; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-cer'+index+'" class="custombox checktop"/><label for="cena-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=2">cereal</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-cer'+index+'" class="custombox checktop"/><label for="cena-cer'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">cereal</a></span></li>';
 			for (index = 0; index < sd.cena.proteinas; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-prot'+index+'" class="custombox checktop"/><label for="cena-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">prote\u00edna animal</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-prot'+index+'" class="custombox checktop"/><label for="cena-prot'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">prote\u00edna animal</a></span></li>';
 			for (index = 0; index < sd.cena.vegetales_crudo; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=3">vegetal crudo</a></span></li>';			
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegcr'+index+'" class="custombox checktop"/><label for="cena-vegcr'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=10">vegetal crudo</a></span></li>';			
 			for (index = 0; index < sd.cena.cucharadas_aceite; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=8">2 cucharadas de aceite</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-ace'+index+'" class="custombox checktop"/><label for="cena-ace'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>';
 			for (index = 0; index < sd.cena.vegetales_cocidas; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">vegetal cocido</a></span></li>';			
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-vegco'+index+'" class="custombox checktop"/><label for="cena-vegco'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=9">vegetal cocido</a></span></li>';			
 			for (index = 0; index < sd.cena.frutas; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-frut'+index+'" class="custombox checktop"/><label for="cena-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=7">fruta</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-frut'+index+'" class="custombox checktop"/><label for="cena-frut'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=4">fruta</a></span></li>';
 			for (index = 0; index < sd.cena.lacteos; index++)
-				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-lac'+index+'" class="custombox checktop"/><label for="cena-lac'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=6">l\u00e1cteo</a></span></li>';
+				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-lac'+index+'" class="custombox checktop"/><label for="cena-lac'+index+'" class="customlabel checktop"><a href="verpermitido.php?id=5">l\u00e1cteo</a></span></li>';
 			for (index = 0; index < sd.cena.productosKot; index++)
 				c[4]+= '<li><span class="checkbox"><input type="checkbox" id="cena-kot'+index+'" class="custombox checktop"/><label for="cena-kot'+index+'" class="customlabel checktop"><a href="productos.php">producto KOT</a></span></li>';
 		c[4]+= "</ul>";
@@ -547,13 +546,13 @@ $(document).ready(function() {
 	 **********************/	
 	$("#nutriologos").live('pagecreate', function(event) {
 		var obj;
-
 		$.get('http://kot.mx/movil/json.php?action=getNutriologos', function(data) {
 			obj = $.parseJSON(data);
 			var municipios = obj.municipios.sort(comparaCiudades);
 			for (var i = 0; i < municipios.length; i++) {
 				$("#ciudad").append("<option value='"+ municipios[i].id + "'>" + municipios[i].nombre + "</option>");
 			}
+			$('#ciudad').selectmenu('enable');
 		});
 
 		$("#ciudad").change(function(event) {
@@ -605,7 +604,6 @@ $(document).ready(function() {
 	$("#restaurantes").live('pagecreate', function(event) {
 		var obj;
 		var restaurante = JSON.parse(localStorage.getItem("restaurante"));
-
 		$.get('http://kot.mx/movil/json.php?action=getRestaurantes', function(data) {
 			obj = $.parseJSON(data);
 			var municipios = obj.areas_metropolitanas.sort(comparaCiudadesRest);
@@ -624,6 +622,8 @@ $(document).ready(function() {
 			else if (restaurante.sort == "ds") {
 				filtraDis();
 			}
+			$('#ciudad').selectmenu('enable');
+			//window.setTimeout(function(){$('#ciudad').selectmenu('enable');console.log("hola")}, 3000);
 		});
 
 		$("#ciudad").change(function(event) {

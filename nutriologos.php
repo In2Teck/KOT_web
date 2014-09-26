@@ -69,7 +69,7 @@ $getJSON = file_get_contents("http://kot.mx/nuevo/WS/kotNutriologos.php");
 	<div style="width:100%; height:100%; position:relative; left:15px; top:10px;">
 		<center>
 			<div style="width:295px; margin-left: -31px;">
-				<select id="ciudad"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
+				<select id="ciudad" disabled="disabled"><option value="" disabled="disabled">Selecciona tu ciudad</option></select>
 				<div id="sort-btns" data-role="controlgroup" data-type="horizontal">
 					<input type="radio" name="sortbtn" id="btn-az" checked="checked" value="az"  />
 	        <label for="btn-az">A-Z</label>
