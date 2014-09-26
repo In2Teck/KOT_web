@@ -327,32 +327,32 @@ var 	$videos_data = array(
 							'desayuno' => '			
 								<ul class="tablas-metodo" style="width:100%;">
 									<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=2">cereal</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=6">l&aacute;cteo</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=5">l&aacute;cteo</a></span></li>
 								</ul>',
 								
 							'comida' => '
 								<ul class="tablas-metodo" style="width:100%;">
-									<li><span>1 <a href="verpermitido.php?id=5">prote&iacute;na animal</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=2">cereal</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=3">verdura cruda</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=4">verdura cocida</a></span></li>
-									<li><span>2 <a href="verpermitido.php?id=8">cdtas. de aceite de oliva</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
+									<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 								</ul>',
 									
 							'colacion' => '
 								<ul class="tablas-metodo" style="width:100%;">
 									<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-									<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
+									<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
 								</ul>',
 									
 							'cena' => '
 							<ul class="tablas-metodo" style="width:100%;">
 								<li><span>2 <a href="productos.php">producto KOT</a></span></li>
-								<li><span>1 <a href="verpermitido.php?id=4">verdura cocida</a></span></li>
-								<li><span>1 <a href="verpermitido.php?id=3">verdura cruda</a></span></li>
-								<li><span>2 <a href="verpermitido.php?id=8">cditas. de aceite de oliva</a></span></li>
+								<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
+								<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
+								<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 							</ul>'
 										),
 																				
@@ -361,35 +361,35 @@ var 	$videos_data = array(
 								'desayuno' => '			
 												<ul class="tablas-metodo" style="width:100%;">
 													<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-													<li><span>1 <a href="verpermitido.php?id=2">cereal</a></span></li>
-													<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
-													<li><span>1 <a href="verpermitido.php?id=6">l&aacute;cteo</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=5">l&aacute;cteo</a></span></li>
 												</ul>',
 
 								'comida' => '
 												<ul class="tablas-metodo" style="width:100%;">
-													<li><span>1 <a href="verpermitido.php?id=5">prote&iacute;na animal</a></span></li>
-													<li><span>2 <a href="verpermitido.php?id=2">cereal</a></span></li>
-													<li><span>1 <a href=3"verpermitido.php?id=3">verdura cruda</a></span></li>
-													<li><span>1 <a href=4"verpermitido.php?id=4">verdura cocida</a></span></li>
-													<li><span>2 <a href="verpermitido.php?id=8">cdtas. de aceite de oliva</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
+													<li><span>2 <a href="verpermitido.php?id=6">cereal</a></span></li>
+													<li><span>1 <a href=3"verpermitido.php?id=10">verdura cruda</a></span></li>
+													<li><span>1 <a href=4"verpermitido.php?id=9">verdura cocida</a></span></li>
+													<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 												</ul>',
 
 								'colacion' => '
 												<ul class="tablas-metodo" style="width:100%;">
 													<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-													<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
-													<li><span>1 <a href="verpermitido.php?id=2">cereal</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
 												</ul>',
 
 								'cena' => '
 												<ul class="tablas-metodo" style="width:100%;">
 													<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-													<li><span>1/2 <a href="verpermitido.php?id=5">prote&iacute;na animal</a></span></li>
-													<li><span>1 <a href="verpermitido.php?id=2">cereal</a></span></li>
-													<li><span>1 <a href=4"verpermitido.php?id=4">verdura cocida</a></span></li>
-													<li><span>1 <a href=3"verpermitido.php?id=3">verdura cruda</a></span></li>
-													<li><span>2 <a href="verpermitido.php?id=8">cditas. de aceite de oliva</a></span></li>
+													<li><span>1/2 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
+													<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
+													<li><span>1 <a href=4"verpermitido.php?id=9">verdura cocida</a></span></li>
+													<li><span>1 <a href=3"verpermitido.php?id=10">verdura cruda</a></span></li>
+													<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 												</ul>'															
 																				
 				    					)
@@ -404,33 +404,33 @@ var 	$videos_data = array(
 									'desayuno' => '			
 													<ul class="tablas-metodo" style="width:100%;">
 														<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=2">cereal</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=6">l&aacute;cteo</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=10">prote&iacute;na vegetal</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=5">l&aacute;cteo</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=8">prote&iacute;na vegetal</a></span></li>
 													</ul>',
 
 									'comida' => '
 													<ul class="tablas-metodo" style="width:100%;">
 														<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=5">prote&iacute;na animal</a></span></li>
-														<li><span>2 <a href="verpermitido.php?id=2">cereales</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=4">verdura cocida</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=3">verdura cruda</a></span></li>
-														<li><span>2 <a href="verpermitido.php?id=8">cdtas. de aceite de oliva</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
+														<li><span>2 <a href="verpermitido.php?id=6">cereales</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
+														<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 													</ul>',
 
 									'colacion' => '
 													<ul class="tablas-metodo" style="width:100%;">
 														<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
 													</ul>',
 
 									'cena' => '
 													<ul class="tablas-metodo" style="width:100%;">
 														<li><span>2 <a href="productos.php">producto KOT</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=4">verdura cocida</a></span></li>
-														<li><span>1 <a href="verpermitido.php?id=3">verdura cruda</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
+														<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
 													</ul>'
 													),
 													
@@ -442,35 +442,35 @@ var 	$videos_data = array(
 						'desayuno' => '			
 										<ul class="tablas-metodo" style="width:100%;">
 											<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-											<li><span>2 <a href="verpermitido.php?id=2">cereales</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=6">l&aacute;cteo</a></span></li>
-											<li><span>2 <a href="verpermitido.php?id=10">prote&iacute;nas vegetales</a></span></li>
+											<li><span>2 <a href="verpermitido.php?id=6">cereales</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=5">l&aacute;cteo</a></span></li>
+											<li><span>2 <a href="verpermitido.php?id=8">prote&iacute;nas vegetales</a></span></li>
 										</ul>',
 
 						'comida' => '
 										<ul class="tablas-metodo" style="width:100%;">
-											<li><span>1 <a href="verpermitido.php?id=5">prote&iacute;na animal</a></span></li>
-											<li><span>3 <a href="verpermitido.php?id=2">cereales</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=6">l&aacute;cteo</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=3">verdura cruda</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=4">verdura cocida</a></span></li>
-											<li><span>2 <a href="verpermitido.php?id=8">cdtas. de aceite de oliva</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
+											<li><span>3 <a href="verpermitido.php?id=6">cereales</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=5">l&aacute;cteo</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
+											<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 										</ul>',
 
 						'colacion' => '
 										<ul class="tablas-metodo" style="width:100%;">
 											<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=7">fruta</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=4">fruta</a></span></li>
 										</ul>',
 
 						'cena' => '
 										<ul class="tablas-metodo" style="width:100%;">
 											<li><span>1 <a href="productos.php">producto KOT</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=5">prote&iacute;na animal</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=4">verdura cocida</a></span></li>
-											<li><span>1 <a href="verpermitido.php?id=3">verdura cruda</a></span></li>
-											<li><span>2 <a href="verpermitido.php?id=8">cdtas. de aceite de oliva</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
+											<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
+											<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
 										</ul>
 								  '	)
 )
