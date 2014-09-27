@@ -115,5 +115,23 @@
         public function setTitle($title) {
             $this->plot->setTitle($title);
         }
+
+        /**
+         * Override automatic upper bounds calculation.
+         *
+         * @param integer of maximal upper bound
+         */
+        public function setUpper($upper) {
+            $this->bound->setUpperBound($upper);
+        }
+
+        /**
+         * Override automatic upper bounds calculation.
+         *
+         * @param integer of maximal lower bound
+         */
+        public function setLower($lower) {
+            $this->bound->setLowerBound($lower);
+        }
     }
 ?>

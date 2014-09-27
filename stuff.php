@@ -338,7 +338,7 @@ var 	$videos_data = array(
 									<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
 									<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
 									<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
-									<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+									<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 								</ul>',
 									
 							'colacion' => '
@@ -352,7 +352,7 @@ var 	$videos_data = array(
 								<li><span>2 <a href="productos.php">producto KOT</a></span></li>
 								<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
 								<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
-								<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+								<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 							</ul>'
 										),
 																				
@@ -372,7 +372,7 @@ var 	$videos_data = array(
 													<li><span>2 <a href="verpermitido.php?id=6">cereal</a></span></li>
 													<li><span>1 <a href=3"verpermitido.php?id=10">verdura cruda</a></span></li>
 													<li><span>1 <a href=4"verpermitido.php?id=9">verdura cocida</a></span></li>
-													<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+													<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 												</ul>',
 
 								'colacion' => '
@@ -389,7 +389,7 @@ var 	$videos_data = array(
 													<li><span>1 <a href="verpermitido.php?id=6">cereal</a></span></li>
 													<li><span>1 <a href=4"verpermitido.php?id=9">verdura cocida</a></span></li>
 													<li><span>1 <a href=3"verpermitido.php?id=10">verdura cruda</a></span></li>
-													<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+													<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 												</ul>'															
 																				
 				    					)
@@ -417,7 +417,7 @@ var 	$videos_data = array(
 														<li><span>2 <a href="verpermitido.php?id=6">cereales</a></span></li>
 														<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
 														<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
-														<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+														<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 													</ul>',
 
 									'colacion' => '
@@ -455,7 +455,7 @@ var 	$videos_data = array(
 											<li><span>1 <a href="verpermitido.php?id=5">l&aacute;cteo</a></span></li>
 											<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
 											<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
-											<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+											<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 										</ul>',
 
 						'colacion' => '
@@ -470,7 +470,7 @@ var 	$videos_data = array(
 											<li><span>1 <a href="verpermitido.php?id=7">prote&iacute;na animal</a></span></li>
 											<li><span>1 <a href="verpermitido.php?id=9">verdura cocida</a></span></li>
 											<li><span>1 <a href="verpermitido.php?id=10">verdura cruda</a></span></li>
-											<li><span>2 <a href="verpermitido.php?id=1">2 cucharadas de aceite</a></span></li>
+											<li><span>2 <a href="verpermitido.php?id=1">cucharadas de aceite</a></span></li>
 										</ul>
 								  '	)
 )

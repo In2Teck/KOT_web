@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="img/icon.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="img/icon-ret.png" />
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> 
+<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
 <script src="js/Chart.js"></script>
 <script src="js/jquery.simplemodal.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/facebook.js"></script>

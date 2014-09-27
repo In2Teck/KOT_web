@@ -20,6 +20,8 @@ elseif($type=="empty"){ $title = ""; }
 
 
 	$chart = new LineChart();
+	$chart->setUpper(70);
+	$chart->setLower(45);
 	$dataSet = new XYDataSet();	
 	//$dataSet->addPoint(new Point("0", $array[0][$tag]));
 	if($type != "empty") : 
