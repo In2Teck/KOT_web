@@ -324,7 +324,6 @@ $(document).ready(function() {
 						$("#cinta_meta").text("¡Te Faltan " + obj.kilos.print + " kilos para tu meta!");
 					else
 						$("#cinta_meta").text("¡Felicidades, llegaste a tu meta!");
-
 					drawChart(ctx, obj.kilos.datos, "#0000FF");
 					shouldPostFB(obj.kilos);
 			});
@@ -392,7 +391,6 @@ $(document).ready(function() {
 		max = parseInt(sorted[sorted.length - 1]);
 		min = parseInt(sorted[0]);
 		var diff;
-
 		if (min <= 0) {
 			max += 2;
 			min = 0;
@@ -413,8 +411,8 @@ $(document).ready(function() {
 			min -= 2;
 			diff = getMCD(max, min);
 			var odd = 1;
-			while (diff > 12 || diff < 3) {  
-				if (odd % 2) {
+			while (diff > 12 || diff < 3) {
+				if (odd % 2 == 0) {
 					min -= 1;
 					if (min <= 0)
 						min = 2;

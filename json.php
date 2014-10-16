@@ -77,18 +77,18 @@ switch($action)
 
 		$array_toJSON = array(
 			"kilos" => array(
-				"progreso" => $array["peso_inicio"] - $last_kilos["kilos"], 
+				"progreso" => round($array["peso_inicio"] - $last_kilos["kilos"], 2), 
 				"actual" => $last_kilos["kilos"],
 				"print" =>  $last_kilos["kilos"] - $array["meta_peso"],
 				"datos" => $data_kilos
 			),
 			"medidas" => array(
-				"progreso" => $array["medida_inicio"] - $last_medida["medida"], 
+				"progreso" => round($array["medida_inicio"] - $last_medida["medida"], 2), 
 				"actual" => $last_medida["medida"],
 				"datos" => $data_medidas
 			),
 			"grasa" => array(
-				"progreso" => $array["grasa_inicio"] - $last_grasa["grasa"], 
+				"progreso" => round($array["grasa_inicio"] - $last_grasa["grasa"], 2), 
 				"actual" => $last_grasa["grasa"],
 				"datos" => $data_grasas
 			)
